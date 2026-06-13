@@ -14,7 +14,7 @@
 const SYSTEM_PROMPT = require("./prompt-prof");
 
 // Modèle Gemini (palier gratuit, rapide).
-const MODEL = "gemini-2.0-flash";
+const MODEL = "gemini-1.5-flash";
 
 // Schéma de sortie au format Gemini (types en MAJUSCULES).
 const SCHEMA = {
