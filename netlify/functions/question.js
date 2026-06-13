@@ -14,7 +14,7 @@
 const SYSTEM_PROMPT = require("./prompt-prof");
 
 // Modèle Gemini (palier gratuit, rapide).
-const MODEL = "gemini-1.5-flash";
+const MODEL = "gemini-2.5-flash";
 
 // Schéma de sortie au format Gemini (types en MAJUSCULES).
 const SCHEMA = {
@@ -117,9 +117,12 @@ exports.handler = async (event) => {
           contents,
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 900,
+            maxOutputTokens: 1200,
             responseMimeType: "application/json",
             responseSchema: SCHEMA,
+            // 2.5-flash est un modèle « thinking » : on le désactive pour des
+            // réponses directes (sinon il consomme le budget en réflexion).
+            thinkingConfig: { thinkingBudget: 0 },
           },
         }),
       }
