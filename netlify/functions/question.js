@@ -22,6 +22,7 @@ const SCHEMA = {
   properties: {
     reponse: {
       type: "ARRAY",
+      maxItems: 3,
       items: {
         type: "OBJECT",
         properties: {
@@ -32,6 +33,7 @@ const SCHEMA = {
           entetes: { type: "ARRAY", items: { type: "STRING" } },
           lignes: {
             type: "ARRAY",
+            maxItems: 4,
             items: {
               type: "OBJECT",
               properties: {
@@ -116,14 +118,13 @@ exports.handler = async (event) => {
           systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
           contents,
           generationConfig: {
-            temperature: 0.7,
-            // La réflexion compte dans ce budget : il doit couvrir réflexion + réponse.
-            maxOutputTokens: 3072,
+            temperature: 0.35,
+            maxOutputTokens: 2048,
             responseMimeType: "application/json",
             responseSchema: SCHEMA,
-            // Réflexion plafonnée : 1024 = plus de cohérence, mais bornée pour ne pas
-            // dépasser le délai serveur (0 = boucle ; illimité = timeout).
-            thinkingConfig: { thinkingBudget: 1024 },
+            // 512 = le point d'équilibre qui MARCHE sur 2.5-flash.
+            // 0 → boucle ; 1024+ → reboucle/MAX_TOKENS ; illimité → timeout.
+            thinkingConfig: { thinkingBudget: 512 },
           },
         }),
       }
