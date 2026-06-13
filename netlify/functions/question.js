@@ -117,7 +117,7 @@ exports.handler = async (event) => {
           contents,
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 1200,
+            maxOutputTokens: 2048,
             responseMimeType: "application/json",
             responseSchema: SCHEMA,
             // 2.5-flash est un modèle « thinking » : on le désactive pour des
@@ -146,7 +146,11 @@ exports.handler = async (event) => {
   try {
     parsed = JSON.parse(text);
   } catch {
-    return json(502, { error: "Réponse non-JSON.", detail: text.slice(0, 500) });
+    const fr = data?.candidates?.[0]?.finishReason || "?";
+    return json(502, {
+      error: "Réponse non-JSON.",
+      detail: "finishReason=" + fr + " | fin du texte: …" + text.slice(-160),
+    });
   }
 
   return json(200, parsed);
