@@ -117,7 +117,7 @@ exports.handler = async (event) => {
           contents,
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 2048,
+            maxOutputTokens: 4096,
             responseMimeType: "application/json",
             responseSchema: SCHEMA,
             // 2.5-flash est un modèle « thinking » : on le désactive pour des
