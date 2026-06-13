@@ -117,11 +117,12 @@ exports.handler = async (event) => {
           contents,
           generationConfig: {
             temperature: 0.7,
-            // Large : la « réflexion » du modèle consomme une partie du budget.
-            // Si on coupe la réflexion (thinkingBudget:0), 2.5-flash part en boucle.
-            maxOutputTokens: 8192,
+            maxOutputTokens: 2048,
             responseMimeType: "application/json",
             responseSchema: SCHEMA,
+            // Réflexion PLAFONNÉE : assez pour éviter la boucle (budget 0 = boucle),
+            // mais limitée pour rester rapide (réflexion illimitée = timeout serveur).
+            thinkingConfig: { thinkingBudget: 512 },
           },
         }),
       }
