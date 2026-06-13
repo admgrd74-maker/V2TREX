@@ -1,0 +1,764 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] En anglais, les mots français en -able sont presque les mêmes. "Confortable" se prononce COMFORTABLE. /ˈkʌmfətəbl/. Comfortable. Comfortable. Comment se prononce "confortable" en anglais ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+confortable
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[accent français fort, bégaye] Con-for... confor-teble ?
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Comfortable. Ah oui — encore une fois.
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+confortable
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se concentre] Comfortable.
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Comfortable. "Très" se dit VERY. V-E-R-Y. Very. Very. Comment dit-on "très" en anglais ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+très
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Very.
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Very. Comment dit-on "c'est très confortable" ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est très confortable
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[fluide] It's very comfortable.
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It's very comfortable. "Ici" se dit HERE. H-E-R-E. Here. Here. Le H en anglais est toujours un H aspiré, prononcé "ha". Here. Comment dit-on "ici" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ici
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[souffle le H] Here.
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Très bien. Here. Here. Il est toujours très important de prononcer le H. Here. Comment dit-on "c'est très confortable" — encore une fois ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+c'est très confortable
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE1
+
+AUDIO :
+It's very comfortable.
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Good. It's very comfortable. Comment dit-on "c'est très confortable ici" ?
+
+---
+
+ID :
+0020
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est très confortable ici
+
+---
+
+ID :
+0021
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[appliqué] It's very comfortable here.
+
+---
+
+ID :
+0022
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It's very comfortable here. Comment dit-on "ce n'est pas très confortable ici" ?
+
+---
+
+ID :
+0023
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+c'est très confortable ici
+
+---
+
+ID :
+0024
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésitation légère] It isn't very comfortable here.
+
+---
+
+ID :
+0025
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It isn't very comfortable here. Et maintenant sans la contraction — comment le dites-vous ?
+
+---
+
+ID :
+0026
+
+ROLE :
+BIP
+
+TITRE :
+Développe la contraction.
+
+QUESTION :
+it isn't very comfortable here
+
+---
+
+ID :
+0027
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[assurée] It is not very comfortable here.
+
+---
+
+ID :
+0028
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It is not very comfortable here. It isn't very comfortable here. "Si" en anglais se dit SO. S-O. So. Ce n'est pas si confortable — comment dit-on "ce n'est pas si confortable ici" ?
+
+---
+
+ID :
+0029
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas si confortable ici
+
+---
+
+ID :
+0030
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[applique "so"] It isn't so comfortable here.
+
+---
+
+ID :
+0031
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It isn't so comfortable here. Ce n'est pas si confortable ici. Comment dit-on "ce n'est pas si terrible" ?
+
+---
+
+ID :
+0032
+
+ROLE :
+BIP
+
+TITRE :
+Remplace le mot.
+
+QUESTION :
+ce n'est pas si terrible
+
+---
+
+ID :
+0033
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[confiant] It isn't so terrible.
+
+---
+
+ID :
+0034
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It isn't so terrible. It isn't so terrible. Essayons avec "remarquable" en anglais — comment se prononce "remarquable" ?
+
+---
+
+ID :
+0035
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+remarquable
+
+---
+
+ID :
+0036
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[cherche] Euh... remark... remarkable.
+
+---
+
+ID :
+0037
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Remark. Remarkable. Comment dit-on "c'est très remarquable" ?
+
+---
+
+ID :
+0038
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est très remarquable
+
+---
+
+ID :
+0039
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[assurée] It's very remarkable.
+
+---
+
+ID :
+0040
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It's very remarkable. Essayons avec "acceptable" — comment se prononce "acceptable" ?
+
+---
+
+ID :
+0041
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+acceptable
+
+---
+
+ID :
+0042
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[cherche, syllabe par syllabe] Euh... accep... acceptable. Oh ! Acceptable.
+
+---
+
+ID :
+0043
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Acceptable. Encore une fois.
+
+---
+
+ID :
+0044
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+acceptable
+
+---
+
+ID :
+0045
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se concentre] Acceptable.
+
+---
+
+ID :
+0046
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Acceptable. Comment dit-on "ce n'est pas acceptable pour moi" ?
+
+---
+
+ID :
+0047
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas acceptable pour moi
+
+---
+
+ID :
+0048
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[cherche la fin] It isn't acceptable... euh... [rit doucement] oh la la.
+
+---
+
+ID :
+0049
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Acceptable. Ah oui — "acceptable for me". Comment dit-on "acceptable for me" ?
+
+---
+
+ID :
+0050
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+it isn't... acceptable for me
+
+---
+
+ID :
+0051
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Acceptable for me.
+
+---
+
+ID :
+0052
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It isn't acceptable for me. "Comme ça" en anglais se dit LIKE THAT. Comme — like. Ça — that. Comment dit-on "comme" ?
+
+---
+
+ID :
+0053
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+comme
+
+---
+
+ID :
+0054
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Like.
+
+---
+
+ID :
+0055
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Ça — that. T-H-A-T. Comment dit-on "ça" ?
+
+---
+
+ID :
+0056
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ça
+
+---
+
+ID :
+0057
+
+ROLE :
+ELEVE1
+
+AUDIO :
+That.
+
+---
+
+ID :
+0058
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+That. Like that. Au lieu de dire "like that", en anglais on dit très souvent THAT WAY. That way. "Comme ça", that way. De cette manière. Way s'écrit W-A-Y. That way. Like that ou that way. Comment dit-on "ce n'est pas acceptable pour moi comme ça" ?
+
+---
+
+ID :
+0059
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas acceptable pour moi comme ça
+
+---
+
+ID :
+0060
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[reconstruit] It isn't acceptable... acceptable for me... like that.
+
+---
+
+ID :
+0061
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Like that. Ou...
+
+---
+
+ID :
+0062
+
+ROLE :
+BIP
+
+TITRE :
+Dis-le autrement.
+
+QUESTION :
+it isn't acceptable for me like that
+
+---
+
+ID :
+0063
+
+ROLE :
+ELEVE1
+
+AUDIO :
+That way.
+
+---
+
+ID :
+0064
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] That way. Très bien. It isn't acceptable for me like that. It isn't acceptable for me that way. That way.

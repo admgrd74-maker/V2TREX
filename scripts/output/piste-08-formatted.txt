@@ -1,0 +1,944 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Pour poser la question "avez-vous ? — est-ce que vous avez ?" en anglais, on dit DO YOU HAVE ? Do you have ? Do you have ? Comment dit-on "avez-vous" ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+avez-vous ?
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[répète doucement] Do you have ?
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you have ? Encore une fois.
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+avez-vous ?
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[bout de souffle, insiste sur la fin] ...have. Do you have ?
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes, do you have ? Once more — encore une fois.
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+avez-vous ?
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[plus assurée] Do you have ?
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! Do you have ? Comment dit-on "avez-vous une préférence" ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+avez-vous une préférence ?
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[cherche le mot] Do you have a prefe... Do you have a preference ?
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! Do you have a preference ? Comment dit-on "quelle préférence" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quelle préférence ?
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[un peu timide] What preference ?
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+What preference ? "Avez-vous" ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+avez-vous ?
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[rapide] Do you have ?
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! What preference do you have ? "Quelle préférence avez-vous ?" — What preference do you have ? "Ce soir" en anglais se dit TONIGHT. Tonight. T-O-N-I-G-H-T. Tonight. Tonight. Comment dit-on "ce soir" ?
+
+---
+
+ID :
+0020
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce soir
+
+---
+
+ID :
+0021
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[voix posée] Tonight.
+
+---
+
+ID :
+0022
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Tonight. Tonight. "Quel restaurant" — comment dit-on "quel restaurant" ?
+
+---
+
+ID :
+0023
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quel restaurant ?
+
+---
+
+ID :
+0024
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[réfléchit un instant] ...What restaurant ?
+
+---
+
+ID :
+0025
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! What restaurant ? What restaurant ? Restaurant s'écrit de la même façon en anglais — c'est un mot qui se termine par A-N-T. So, what restaurant ? Quel restaurant ? What restaurant ? "Pour quel restaurant ?" — "pour" comme dans "pour moi" — comment dit-on "pour" ?
+
+---
+
+ID :
+0026
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+pour
+
+---
+
+ID :
+0027
+
+ROLE :
+ELEVE2
+
+AUDIO :
+For.
+
+---
+
+ID :
+0028
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Bravo ! Alors — comment dit-on "pour quel restaurant" ?
+
+---
+
+ID :
+0029
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+pour quel restaurant ?
+
+---
+
+ID :
+0030
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[assurée] For what restaurant ?
+
+---
+
+ID :
+0031
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+For what restaurant ? "Avez-vous une préférence" ?
+
+---
+
+ID :
+0032
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+avez-vous une préférence ?
+
+---
+
+ID :
+0033
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[bien rythmé] ...Do you have a preference...
+
+---
+
+ID :
+0034
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+...ce soir ?
+
+---
+
+ID :
+0035
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+do you have a preference... ce soir
+
+---
+
+ID :
+0036
+
+ROLE :
+ELEVE2
+
+AUDIO :
+...tonight.
+
+---
+
+ID :
+0037
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Good ! Encore une fois — comment dit-on "pour quel restaurant avez-vous une préférence ce soir" ?
+
+---
+
+ID :
+0038
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+pour quel restaurant avez-vous une préférence ce soir ?
+
+---
+
+ID :
+0039
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[reconstruit bloc par bloc] For... what restaurant... do you have... a preference... tonight.
+
+---
+
+ID :
+0040
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! For what restaurant do you have a preference tonight. Les mots français qui se terminent par -re comme "nécessaire", "contraire" sont presque les mêmes en anglais. En anglais, la terminaison -re devient -ARY. A-R-Y. Par exemple, "nécessaire" se dit NECESSARY. Necessary. Necessary. Comment dit-on "c'est nécessaire" ?
+
+---
+
+ID :
+0041
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est nécessaire
+
+---
+
+ID :
+0042
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[s'applique sur la fin] It's necessary.
+
+---
+
+ID :
+0043
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It's necessary. It is necessary. It's... necessary. "Ce n'est pas nécessaire" — sans la contraction ?
+
+---
+
+ID :
+0044
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+c'est nécessaire (sans contraction)
+
+---
+
+ID :
+0045
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[distinct] It is not... necessary.
+
+---
+
+ID :
+0046
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! It is not necessary. Et avec la contraction ?
+
+---
+
+ID :
+0047
+
+ROLE :
+BIP
+
+TITRE :
+Quelle est la contraction de ?
+
+QUESTION :
+it is not necessary
+
+---
+
+ID :
+0048
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésite légèrement] It isn't... necessary.
+
+---
+
+ID :
+0049
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It isn't... — finissez la phrase !
+
+---
+
+ID :
+0050
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+it isn't...
+
+---
+
+ID :
+0051
+
+ROLE :
+ELEVE1
+
+AUDIO :
+...it isn't necessary.
+
+---
+
+ID :
+0052
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! It isn't necessary. "Maintenant" se dit NOW. N-O-W. Now. Now. Comment dit-on "ce n'est pas nécessaire maintenant" ?
+
+---
+
+ID :
+0053
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas nécessaire maintenant
+
+---
+
+ID :
+0054
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[commence puis s'arrête] It's not necessary...
+
+---
+
+ID :
+0055
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Once more.
+
+---
+
+ID :
+0056
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+ce n'est pas nécessaire maintenant
+
+---
+
+ID :
+0057
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se concentre] It is not... necessary... now.
+
+---
+
+ID :
+0058
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes ! It is not necessary now. Et avec la contraction ?
+
+---
+
+ID :
+0059
+
+ROLE :
+BIP
+
+TITRE :
+Quelle est la contraction de ?
+
+QUESTION :
+it is not necessary now
+
+---
+
+ID :
+0060
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[fluide] It isn't... necessary now.
+
+---
+
+ID :
+0061
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It isn't necessary now. "Contraire" en anglais — comment se prononce "contraire" ?
+
+---
+
+ID :
+0062
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+contraire
+
+---
+
+ID :
+0063
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hésite puis propose] Heu... contrary ?
+
+---
+
+ID :
+0064
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Contrary. Contrary. "Au contraire" en anglais se dit ON THE CONTRARY. On the contrary. Au lieu de "au contraire", on dit littéralement "sur le contraire". On signifie "sur". On the contrary. On the contrary. Essayons avec un autre mot intéressant — "vocabulaire" ! Comment se prononce "vocabulaire" ?
+
+---
+
+ID :
+0065
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+vocabulaire
+
+---
+
+ID :
+0066
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[rit puis applique la règle] Heu... vocabulary ?
+
+---
+
+ID :
+0067
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! Vocabulary. Vocabulary. "Pas maintenant" — comment dit-on "pas maintenant" ?
+
+---
+
+ID :
+0068
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+pas maintenant
+
+---
+
+ID :
+0069
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Not now.
+
+---
+
+ID :
+0070
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Not now. "Peut-être" se dit PERHAPS. Perhaps. P-E-R-H-A-P-S. Perhaps. Perhaps. Comment dit-on "peut-être" ?
+
+---
+
+ID :
+0071
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+peut-être
+
+---
+
+ID :
+0072
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[accent] Perhaps.
+
+---
+
+ID :
+0073
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Perhaps. Perhaps. "Peut-être ce soir" — comment le dites-vous ?
+
+---
+
+ID :
+0074
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+peut-être ce soir
+
+---
+
+ID :
+0075
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[assurée] Perhaps tonight.
+
+---
+
+ID :
+0076
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Perhaps tonight. Perhaps tonight. Alors — comment dit-on "pas maintenant, peut-être ce soir" ?
+
+---
+
+ID :
+0077
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+pas maintenant, peut-être ce soir
+
+---
+
+ID :
+0078
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[légère hésitation sur le premier mot] Not n... Not now, perhaps tonight.
+
+---
+
+ID :
+0079
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Not now, perhaps tonight.

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Atelier des leçons — Admin</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Fraunces:opsz,wght@9..144,500&family=Lexend:wght@600;700&family=Outfit:wght@600;700;800&family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="aurora-1" aria-hidden="true"></div>
+<div class="aurora-2" aria-hidden="true"></div>
+
+<div class="wrap">
+  <header>
+    <div>
+      <h1>Atelier des leçons</h1>
+      <div class="sub">Méthode audio · éditeur no-code</div>
+    </div>
+    <div class="toolbar">
+      <button class="btn" id="importBtn">⬆ Importer</button>
+      <button class="btn primary" id="exportBtn">⬇ Exporter</button>
+    </div>
+  </header>
+
+  <div class="editor-layout">
+
+    <!-- ── Panneau édition ── -->
+    <div class="editor-pane">
+      <div class="meta">
+        <div>
+          <label class="lab" for="mTitle">Titre de la leçon</label>
+          <input type="text" id="mTitle" placeholder="Les mots en « -able / -ible »">
+        </div>
+        <div>
+          <label class="lab" for="mPair">Langues</label>
+          <select id="mPair">
+            <option value="fr-en">Français → Anglais</option>
+            <option value="fr-es">Français → Espagnol</option>
+            <option value="fr-de">Français → Allemand</option>
+            <option value="fr-it">Français → Italien</option>
+            <option value="other">Autre</option>
+          </select>
+        </div>
+        <div>
+          <label class="lab" for="mNameProf">Nom du professeur</label>
+          <input type="text" id="mNameProf" placeholder="Marc">
+        </div>
+        <div>
+          <label class="lab" for="mNameE1">Nom Élève 1</label>
+          <input type="text" id="mNameE1" placeholder="Sophie">
+        </div>
+        <div>
+          <label class="lab" for="mNameE2">Nom Élève 2</label>
+          <input type="text" id="mNameE2" placeholder="Julien">
+        </div>
+      </div>
+
+      <div class="tabs">
+        <button class="tab-btn active" data-tab="vocal"   onclick="switchTab('vocal')">🎵 Vocal</button>
+        <button class="tab-btn"        data-tab="tableau" onclick="switchTab('tableau')">📋 Tableau</button>
+      </div>
+
+      <div class="tab-content" data-tab="vocal" id="tabVocalContent"></div>
+      <div class="tab-content hidden" data-tab="tableau" id="tabTableauContent"></div>
+    </div>
+
+    <!-- ── Preview live permanente ── -->
+    <aside class="preview-pane" id="livePreviewPane">
+      <div class="pv-tag">● Live</div>
+
+      <div class="pv-board">
+        <div class="pv-speaker" id="pvLiveSpeaker" data-who="prof">Professeur</div>
+        <div class="pv-slate"   id="pvLiveSlate"></div>
+      </div>
+
+      <div class="pv-cap" id="pvLiveCap">—</div>
+
+      <div class="pv-controls">
+        <button class="pv-btn pv-play" id="pvLivePlayBtn" onclick="liveToggle()" title="Lancer la leçon complète">▶</button>
+        <button class="pv-btn" onclick="liveRestart()" title="Recommencer depuis le début">↺</button>
+        <button class="pv-btn pv-continue" id="pvContinueBtn" onclick="liveContinue()" title="Continuer après le bip" style="display:none">→ Continuer</button>
+      </div>
+
+      <!-- Barre de seek avec temps courant / total -->
+      <div class="pv-seek-area">
+        <span class="pv-t" id="pvLiveTimer">0.0s</span>
+        <div class="pv-progress-wrap" id="pvProgressWrap">
+          <div class="pv-progress-fill" id="pvProgressFill"></div>
+        </div>
+        <span class="pv-t pv-t-tot" id="pvTimeTot">—</span>
+      </div>
+
+      <!-- Boutons de navigation ±1s / ±5s -->
+      <div class="pv-nav">
+        <button class="pv-nav-btn" onclick="seekRelative(-5)" title="Reculer de 5s">«  5s</button>
+        <button class="pv-nav-btn" onclick="seekRelative(-1)" title="Reculer de 1s">‹  1s</button>
+        <span id="pvLiveStep">— / —</span>
+        <button class="pv-nav-btn" onclick="seekRelative(1)"  title="Avancer de 1s">1s  ›</button>
+        <button class="pv-nav-btn" onclick="seekRelative(5)"  title="Avancer de 5s">5s  »</button>
+      </div>
+    </aside>
+
+  </div><!-- /editor-layout -->
+</div><!-- /wrap -->
+
+<input type="file" id="fileImport" accept="application/json,.mtlesson,.json" style="display:none">
+<div class="toast" id="toast"></div>
+<script src="admin.js?v=20"></script>
+</body>
+</html>

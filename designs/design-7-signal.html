@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Design 7 — Signal</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#080a10;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:48px 24px;
+  font-family:'Inter',sans-serif;
+}
+.design-label{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;
+  color:rgba(255,255,255,.28);text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:6px 18px;border-radius:20px;white-space:nowrap;
+}
+
+/* ══════════ TÉLÉPHONE ══════════ */
+.phone{
+  width:390px;
+  background:#050608;
+  border-radius:52px;
+  overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 0 0 7px #0a0b10,
+    0 0 0 8px rgba(255,255,255,.04),
+    0 70px 150px rgba(0,0,0,.9);
+  position:relative;
+}
+.notch{
+  width:130px;height:36px;background:#020304;
+  border-radius:0 0 28px 28px;margin:0 auto;position:relative;z-index:10;
+}
+
+/* ══════════ HEADER ══════════ */
+.header{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:10px 22px 8px;
+}
+.h-tag{
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+  letter-spacing:.22em;color:rgba(255,255,255,.22);text-transform:uppercase;
+}
+.h-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:#ef4444;box-shadow:0 0 8px rgba(239,68,68,.6);
+  animation:pulse 1.8s ease-in-out infinite;
+}
+@keyframes pulse{0%,100%{opacity:.7}50%{opacity:1}}
+
+/* ══════════ TABLEAU ══════════
+   Concept : PAS de "cartes"
+   Juste du texte sur fond noir.
+   Chaque mot = une colonne
+   verticale indépendante avec
+   son marqueur coloré latéral.
+══════════ */
+.board{
+  background:#000;
+  padding:0;
+  position:relative;overflow:hidden;
+}
+
+/* Ligne de lumière ambiante très subtile */
+.board::after{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(to right,transparent,rgba(255,255,255,.08) 30%,rgba(255,255,255,.08) 70%,transparent);
+  pointer-events:none;
+}
+
+/* Chaque entrée = texte libre, pas de boîte */
+.entry{
+  padding:20px 24px 18px 0;
+  display:grid;
+  /* col1=marqueur coloré | col2=contenu */
+  grid-template-columns:4px 1fr;
+  gap:0 16px;
+  position:relative;
+}
+.entry+.entry{
+  /* Séparateur ultra-léger */
+  border-top:1px solid rgba(255,255,255,.045);
+}
+
+/* Marqueur coloré pleine hauteur */
+.marker{
+  width:4px;
+  align-self:stretch;
+  border-radius:0 3px 3px 0;
+  position:relative;
+  top:4px;
+}
+.entry[data-t="contraction"] .marker{background:linear-gradient(to bottom,#f43f5e,rgba(244,63,94,.2));}
+.entry[data-t="prono"]       .marker{background:linear-gradient(to bottom,#10b981,rgba(16,185,129,.2));}
+.entry[data-t="traduction"]  .marker{background:linear-gradient(to bottom,#38bdf8,rgba(56,189,248,.2));}
+
+.content{ min-width:0; }
+
+/* Type en tout petit en haut */
+.e-type{
+  font-family:'JetBrains Mono',monospace;font-size:8.5px;
+  letter-spacing:.14em;text-transform:uppercase;
+  margin-bottom:5px;opacity:.35;
+  color:#fff;
+}
+/* FR — contexte */
+.e-fr{
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:11px;color:rgba(255,255,255,.30);
+  letter-spacing:.02em;margin-bottom:6px;
+  font-style:italic;
+}
+/* EN — le mot. Occupe TOUT l'espace disponible */
+.e-en{
+  font-family:'Lexend',sans-serif;font-weight:900;
+  line-height:.96;letter-spacing:-.035em;
+  color:#fff;
+  /* taille dynamique selon nbr de mots */
+}
+/* État 2 mots */
+.board.two .e-en{ font-size:48px; }
+/* Couleur légère sur le mot par type */
+.entry[data-t="contraction"] .e-en{ color:#fff; text-shadow:0 0 60px rgba(244,63,94,.25); }
+.entry[data-t="prono"]       .e-en{ color:#fff; text-shadow:0 0 60px rgba(16,185,129,.25); }
+
+/* Phonétique — grande, lisible, colorée */
+.e-ph{
+  font-family:'JetBrains Mono',monospace;
+  font-size:13px;letter-spacing:.07em;
+  margin-top:8px;display:block;
+}
+.entry[data-t="contraction"] .e-ph{color:#f43f5e;opacity:.75;}
+.entry[data-t="prono"]       .e-ph{color:#10b981;opacity:.75;}
+.entry[data-t="traduction"]  .e-ph{color:#38bdf8;opacity:.75;}
+
+/* ══════════ SCÈNE VOCALE ══════════ */
+.stage{
+  display:flex;align-items:flex-end;justify-content:center;
+  gap:8px;padding:18px 16px 10px;
+  background:linear-gradient(to bottom,rgba(0,0,0,.4) 0%,transparent 100%);
+}
+.seat{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  width:68px;
+  filter:grayscale(1);opacity:.22;
+}
+.seat.on{filter:none;opacity:1;}
+.av{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  border:1.5px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.04);
+}
+.seat.on .av{
+  width:66px;height:66px;
+  border-color:rgba(251,191,36,.70);
+  box-shadow:0 0 28px rgba(251,191,36,.30);
+  background:rgba(251,191,36,.08);
+}
+.av svg{width:24px;height:24px;}
+.seat.on .av svg{width:40px;height:40px;}
+.sn{
+  font-family:'JetBrains Mono',monospace;font-size:8px;
+  color:rgba(255,255,255,.22);letter-spacing:.12em;text-transform:uppercase;
+}
+.seat.on .sn{color:rgba(255,255,255,.68);font-size:9px;}
+.sw{display:flex;align-items:flex-end;gap:2px;height:10px;}
+.sw span{width:2px;border-radius:2px;background:rgba(251,191,36,.55);}
+.sw span:nth-child(1){height:3px;}
+.sw span:nth-child(2){height:9px;}
+.sw span:nth-child(3){height:5px;}
+.sw span:nth-child(4){height:8px;}
+.sw span:nth-child(5){height:3px;}
+
+/* ══════════ PANEL MICRO ══════════ */
+.panel{
+  margin:6px 16px;padding:9px 14px 11px;
+  border:1px solid rgba(255,255,255,.055);
+  border-radius:18px;background:rgba(255,255,255,.028);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  opacity:.28;
+}
+.pw{width:100%;height:12px;border-radius:3px;background:rgba(255,255,255,.04);}
+.mic{
+  width:52px;height:52px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.10);background:rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+}
+.ctrl{display:flex;gap:6px;width:100%;}
+.cb{
+  flex:1;padding:9px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.07);background:rgba(255,255,255,.03);
+  color:rgba(255,255,255,.25);font-family:'JetBrains Mono',monospace;font-size:10px;
+  text-align:center;
+}
+
+/* ══════════ NAV ══════════ */
+.nav{
+  display:flex;justify-content:space-around;
+  padding:10px 32px 26px;
+  border-top:1px solid rgba(255,255,255,.045);margin-top:4px;
+}
+.ni{color:rgba(255,255,255,.16);}
+.ni.on{color:#fff;opacity:.70;}
+</style>
+</head>
+<body>
+<div class="design-label">Design 7 — Signal (pas de cartes, texte libre)</div>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="header">
+    <div class="h-tag">méthode audio · leçon 1</div>
+    <div class="h-dot"></div>
+  </div>
+
+  <div class="board two">
+    <div class="entry" data-t="contraction">
+      <div class="marker"></div>
+      <div class="content">
+        <div class="e-type">contraction</div>
+        <div class="e-fr">c'est possible</div>
+        <div class="e-en">it is possible</div>
+        <span class="e-ph">it iz po-si-beul</span>
+      </div>
+    </div>
+    <div class="entry" data-t="prono">
+      <div class="marker"></div>
+      <div class="content">
+        <div class="e-type">se dit</div>
+        <div class="e-fr">la table</div>
+        <div class="e-en">the table</div>
+        <span class="e-ph">ze téï-beul</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="seat">
+      <div class="av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="sn">Sophie</div>
+      <div class="sw"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="seat on">
+      <div class="av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".88"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".88"/></svg></div>
+      <div class="sn">Marc</div>
+      <div class="sw"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="seat">
+      <div class="av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="sn">Julien</div>
+      <div class="sw"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="pw"></div>
+    <div class="mic">🎙</div>
+    <div class="ctrl">
+      <div class="cb">▶ réponse</div>
+      <div class="cb">Continuer →</div>
+      <div class="cb">↺</div>
+    </div>
+  </div>
+
+  <div class="nav">
+    <div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+    <div class="ni on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,786 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Le verbe "vivre" — en anglais : TO LIVE. L-I-V-E. TO LIVE. Ça signifie aussi habiter. Vivre, habiter — c'est le même verbe : TO LIVE. Alors — comment dit-on en anglais : "j'habite ici" ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+j'habite ici
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[accent français, lent] I... live... here.
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I live here. I live here. Et — comment dit-on "je n'habite pas ici" ?
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+j'habite ici
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[accent français] I don't live here.
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I don't live here. I don't live here. Et — comment dit-on "où habitez-vous" ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+où habitez-vous ?
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hésitation courte] Euh... Where do you live ?
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! Where do you live ? Where do you live ? "Est-ce que vous habitez ici ?" ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous habitez ici
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[assuré] Do you live here ?
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Yes, do you live here ? Maintenant — "partir" se dit TO LEAVE. L-E-A-V-E. TO LEAVE. Il est très important de ne pas confondre "habiter" et "partir". I court pour LIVE — I long pour LEAVE. Comment dit-on "partir" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+partir (infinitif)
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[cherche, hésite] To... to leave.
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To leave. To leave. Mais "vivre, habiter" : to live. To live. TO LEAVE, ça veut dire aussi quitter et laisser. Partir, quitter, laisser quelque chose — c'est TO LEAVE. Maintenant — "quand" en anglais se dit WHEN. W-H-E-N. "Où" c'est WHERE. "Quand" ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quand
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE2
+
+AUDIO :
+When ?
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes, when. Et "où" ?
+
+---
+
+ID :
+0020
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+où
+
+---
+
+ID :
+0021
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Where.
+
+---
+
+ID :
+0022
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Where. WHERE s'écrit W-H-E-R-E. WHEN s'écrit W-H-E-N. Alors — comment dit-on "où habitez-vous" ?
+
+---
+
+ID :
+0023
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+où habitez-vous ?
+
+---
+
+ID :
+0024
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[se concentre] Euh... Where do you live ?
+
+---
+
+ID :
+0025
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Good ! Where do you live ? Comment dit-on "quand partez-vous" ?
+
+---
+
+ID :
+0026
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quand partez-vous ?
+
+---
+
+ID :
+0027
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[confond au début, se reprend] Euh... When do you live ?...
+
+---
+
+ID :
+0028
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+When do you LEAVE. Leave — partir. Encore une fois.
+
+---
+
+ID :
+0029
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+quand partez-vous ?
+
+---
+
+ID :
+0030
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[se reprend] When do you leave ?
+
+---
+
+ID :
+0031
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] When do you leave ? Right ! Comment dit-on "je pars ce soir" ?
+
+---
+
+ID :
+0032
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je pars ce soir
+
+---
+
+ID :
+0033
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fluide] I leave tonight.
+
+---
+
+ID :
+0034
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] I leave tonight. Right ! "Demain" en anglais se dit TOMORROW. T-O-M-O-R-R-O-W. TOMORROW. Et — comment dit-on "j'habite ici" ?
+
+---
+
+ID :
+0035
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+j'habite ici
+
+---
+
+ID :
+0036
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I live here.
+
+---
+
+ID :
+0037
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I live here. Comment dit-on "je pars demain" ?
+
+---
+
+ID :
+0038
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je pars demain
+
+---
+
+ID :
+0039
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[accent français] I leave tomorrow.
+
+---
+
+ID :
+0040
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Very good ! I leave tomorrow. "Aujourd'hui" se dit TODAY. T-O-D-A-Y. TODAY. Alors — today, aujourd'hui ; tomorrow, demain ; tonight, ce soir. Comment dit-on "je n'habite pas ici" ?
+
+---
+
+ID :
+0041
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+j'habite ici
+
+---
+
+ID :
+0042
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[confond les deux] I don't leave here.
+
+---
+
+ID :
+0043
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Once more. Attention — live ou leave ?
+
+---
+
+ID :
+0044
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+je n'habite pas ici
+
+---
+
+ID :
+0045
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[corrige] I don't leave here.
+
+---
+
+ID :
+0046
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+No. I don't LIVE here. Le I est plus court — live.
+
+---
+
+ID :
+0047
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[comprend] Live. Ah oui, oui.
+
+---
+
+ID :
+0048
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Live. I don't live here. I don't live here. Mais — comment dit-on "je ne pars pas aujourd'hui" ?
+
+---
+
+ID :
+0049
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je ne pars pas aujourd'hui
+
+---
+
+ID :
+0050
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[appliqué] I don't leave today.
+
+---
+
+ID :
+0051
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Bravo ! Right ! I don't leave today. "Où habitez-vous ?" ?
+
+---
+
+ID :
+0052
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+où habitez-vous ?
+
+---
+
+ID :
+0053
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Where do you live ?
+
+---
+
+ID :
+0054
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Good ! Good ! "Quand partez-vous ?" ?
+
+---
+
+ID :
+0055
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quand partez-vous ?
+
+---
+
+ID :
+0056
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[assuré] When do you leave ?
+
+---
+
+ID :
+0057
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Good ! When do you leave ? Alors — le mot anglais pour "message" ? C'est le même mot : MESSAGE. Mais il se prononce *MESSAGE*. Comment dit-on "je veux laisser un message" ?
+
+---
+
+ID :
+0058
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je veux laisser un message
+
+---
+
+ID :
+0059
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[construit la phrase] I want to leave a message.
+
+---
+
+ID :
+0060
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Good ! I want to leave a message. I want to leave a message. To leave — quitter, partir, laisser. Comment dit-on "voulez-vous laisser un message" ?
+
+---
+
+ID :
+0061
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+voulez-vous laisser un message ?
+
+---
+
+ID :
+0062
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fluide] Do you want to leave a message ?
+
+---
+
+ID :
+0063
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! Do you want to leave a message ? Comment dit-on "est-ce que vous avez un message pour moi" ?
+
+---
+
+ID :
+0064
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+est-ce que vous avez un message pour moi ?
+
+---
+
+ID :
+0065
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hésitation courte] Euh... Do you have a message for me ?
+
+---
+
+ID :
+0066
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! Do you have a message for me ? Yes, yes !

@@ -1,0 +1,548 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] "Je suis" en anglais se dit I AM. Je, c'est I — toujours avec une majuscule. Suis, c'est AM. A-M. I am. Je suis. Et "je ne suis pas" : I AM NOT. I am not. "Sûr" en anglais se dit SURE. S-U-R-E. Sure. Alors — comment dit-on en anglais : "c'est sûr" ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est sûr
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[intonation montante] It's sure.
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. It's sure. Comment dit-on "je suis sûr" ?
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je suis sûr
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I am sure. I am sure.
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Et "je ne suis pas sûr" — comment le dites-vous ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+je suis sûr
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[posé] I am not sure.
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. I am not sure. Tu et vous en anglais, c'est la même chose — YOU. Vous êtes, tu es, c'est YOU ARE. Are s'écrit A-R-E. You are. Vous êtes sûr, tu es sûr — comment dit-on "vous êtes sûr" ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+vous êtes sûr
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE2
+
+AUDIO :
+You are sure. You are sure.
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Et pour poser la question, "êtes-vous" se dit ARE YOU. Êtes-vous sûr — comment dit-on "êtes-vous sûr" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous êtes sûr
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[intonation montante] Are you sure ? Are you sure ?
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Oui se dit YES. Et non se dit NO. No. Non — comment dit-on "non" ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+non
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE2
+
+AUDIO :
+No. No.
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Mais pas NOT — not, c'est "pas". Non, je ne suis pas sûr — comment dit-on "non, je ne suis pas sûr" ?
+
+---
+
+ID :
+0020
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+non, je ne suis pas sûr
+
+---
+
+ID :
+0021
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[assurée] No, I am not sure. No, I am not sure.
+
+---
+
+ID :
+0022
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+"Je suis content" — I AM GLAD. Glad. Glad. Content, contente — glad. Glad s'écrit G-L-A-D. Glad. En anglais, les adjectifs ne s'accordent pas — content ou contente, c'est toujours GLAD. Comment dit-on "je suis content" ?
+
+---
+
+ID :
+0023
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je suis content
+
+---
+
+ID :
+0024
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I am glad. I am glad. I am glad.
+
+---
+
+ID :
+0025
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Ou bien avec la contraction : I'M. I'm. Comment dit-on "je suis content" avec la contraction ?
+
+---
+
+ID :
+0026
+
+ROLE :
+BIP
+
+TITRE :
+Quelle est la contraction de ?
+
+QUESTION :
+I am glad
+
+---
+
+ID :
+0027
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[plus fluide] I'm glad.
+
+---
+
+ID :
+0028
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Bien, I'm glad. Comment dit-on "êtes-vous content" ?
+
+---
+
+ID :
+0029
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous êtes content
+
+---
+
+ID :
+0030
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Are you glad ? Are you glad ?
+
+---
+
+ID :
+0031
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+"Je regrette" — je suis désolé — I AM SORRY. I am sorry. Sorry s'écrit S-O-R-R-Y. Je suis désolé — I am sorry. Et "mais" se dit BUT. But. Je regrette mais je ne suis pas sûr — comment dit-on "je suis désolé mais je ne suis pas sûr" ?
+
+---
+
+ID :
+0032
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+je suis désolé mais je ne suis pas sûr
+
+---
+
+ID :
+0033
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hésite sur le début] I sorry... once more... I'm sorry. I am sorry. I'm sorry. I'm sorry but I'm not sure.
+
+---
+
+ID :
+0034
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. I'm sorry but I'm not sure. Yes. Quel est le mot pour "non" ?
+
+---
+
+ID :
+0035
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+non
+
+---
+
+ID :
+0036
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[se trompe] Euh... not.
+
+---
+
+ID :
+0037
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Non.
+
+---
+
+ID :
+0038
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+non
+
+---
+
+ID :
+0039
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[comprend l'erreur] Not... c'est "pas". Non ? Ah — no. Once more. Ah. No. No. No. No.
+
+---
+
+ID :
+0040
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+No s'écrit comment ?
+
+---
+
+ID :
+0041
+
+ROLE :
+BIP
+
+TITRE :
+Épelle le mot.
+
+QUESTION :
+no
+
+---
+
+ID :
+0042
+
+ROLE :
+ELEVE2
+
+AUDIO :
+N-O. N-O.
+
+---
+
+ID :
+0043
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+C'est la même prononciation que pour le verbe "know" — K-N-O-W. I know. Je sais. Je sais. Le mot pour "où" est WHERE. Where. Where. W-H-E-R-E. Where. Je sais où c'est. Je sais où c'est. Comment dit-on "je sais où c'est" ?
+
+---
+
+ID :
+0044
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je sais où c'est
+
+---
+
+ID :
+0045
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fluide] I know where it is.
+
+---
+
+ID :
+0046
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right. I know where it is. I know where it is.

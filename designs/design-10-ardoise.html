@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Design 10 — Ardoise</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  /* Fond bois chaud */
+  background:
+    repeating-linear-gradient(
+      90deg,
+      rgba(0,0,0,.015) 0px, rgba(0,0,0,.015) 1px,
+      transparent 1px, transparent 18px
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0,0,0,.012) 0px, rgba(0,0,0,.012) 1px,
+      transparent 1px, transparent 22px
+    ),
+    linear-gradient(160deg,#3d2010 0%,#2a1608 40%,#1e0f06 100%);
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:60px 32px;
+  font-family:'Inter',sans-serif;
+}
+.label{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:rgba(230,200,160,.35);text-transform:uppercase;
+  background:rgba(230,200,160,.06);border:1px solid rgba(230,200,160,.12);
+  padding:5px 16px;border-radius:20px;white-space:nowrap;
+}
+
+/* ══════ TÉLÉPHONE — cadre bois ══════ */
+.phone{
+  width:385px;
+  border-radius:44px;
+  overflow:hidden;
+  /* Cadre bois multicouche */
+  box-shadow:
+    0 0 0 2px rgba(210,165,100,.35),    /* bord doré fin */
+    0 0 0 12px rgba(58,32,12,.90),      /* bois foncé */
+    0 0 0 14px rgba(210,165,100,.20),   /* listel doré */
+    0 0 0 16px rgba(40,22,8,.95),       /* bois extérieur */
+    0 40px 100px rgba(0,0,0,.85),
+    0 10px 30px rgba(0,0,0,.60);
+  position:relative;
+  background:#0f2218;
+}
+.notch{
+  width:124px;height:32px;background:#0a1a12;
+  border-radius:0 0 22px 22px;margin:0 auto;z-index:10;position:relative;
+}
+
+/* ══════ BARRE STATUS ══════ */
+.status{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:6px 18px 4px;
+}
+.st-left{display:flex;align-items:center;gap:5px;}
+.st-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:#b5d5a0;box-shadow:0 0 5px rgba(181,213,160,.7);
+}
+.st-text{
+  font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;
+  color:rgba(181,213,160,.45);text-transform:uppercase;
+}
+.st-right{
+  font-family:'JetBrains Mono',monospace;font-size:7.5px;
+  color:rgba(181,213,160,.30);
+}
+
+/* ══════ ARDOISE ══════
+   Le vrai tableau vert craie.
+   Texture, grain, chaleur.
+══════ */
+.ardoise{
+  margin:8px 14px;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+  /* Couleur tableau vert réaliste */
+  background:
+    radial-gradient(ellipse 120% 120% at 50% 50%, #1a4a35 0%, #0f2c1e 70%, #0a1e14 100%);
+  /* Grain de peinture */
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.04),
+    inset 0 2px 20px rgba(0,0,0,.30),
+    inset 0 -2px 20px rgba(0,0,0,.20),
+    0 2px 0 rgba(255,255,255,.04);
+}
+
+/* Texture grain craie */
+.ardoise::before{
+  content:'';position:absolute;inset:0;z-index:0;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+  background-size:200px 200px;
+  mix-blend-mode:overlay;
+  pointer-events:none;
+}
+
+/* Reflet subtil en haut */
+.ardoise::after{
+  content:'';position:absolute;
+  top:0;left:5%;right:5%;height:1px;
+  background:linear-gradient(to right,transparent,rgba(255,255,255,.06) 40%,rgba(255,255,255,.06) 60%,transparent);
+  pointer-events:none;z-index:1;
+}
+
+/* Gouttière gauche */
+.ardoise-inner{
+  position:relative;z-index:2;
+  padding:6px 0 6px 0;
+}
+
+/* Chaque ligne = comme écrit à la craie */
+.chalk-line{
+  padding:16px 18px 14px 20px;
+  position:relative;
+}
+.chalk-line+.chalk-line{
+  border-top:1px solid rgba(255,255,255,.04);
+}
+
+/* La petite note FR — craie fine, grisée */
+.cl-fr{
+  font-family:'Caveat',cursive;font-weight:400;
+  font-size:15px;
+  color:rgba(200,230,215,.32);
+  letter-spacing:.03em;
+  margin-bottom:2px;
+}
+
+/* Le mot EN — craie épaisse, blanche */
+.cl-en{
+  font-family:'Caveat',cursive;font-weight:700;
+  line-height:.95;
+  color:rgba(238,252,245,.90);
+  /* Légère texture craie via text-shadow */
+  text-shadow:
+    1px 0 0 rgba(255,255,255,.05),
+   -1px 0 0 rgba(255,255,255,.05),
+    0 1px 0 rgba(255,255,255,.03);
+}
+/* Taille selon nombre de mots sur l'ardoise */
+.ardoise.one  .cl-en{ font-size:64px; }
+.ardoise.two  .cl-en{ font-size:44px; }
+
+/* Soulignement craie — dessiné, pas CSS */
+.cl-underline{
+  height:2px;margin:2px 0 8px;
+  border-radius:2px;
+  opacity:.28;
+}
+.chalk-line[data-t="contraction"] .cl-underline{background:#93c5fd;}
+.chalk-line[data-t="prono"]       .cl-underline{background:#86efac;}
+
+/* La phonétique — encadrée, comme un encadré pédagogique */
+.cl-ph{
+  font-family:'Caveat',cursive;font-weight:500;
+  font-size:18px;letter-spacing:.04em;
+  display:inline-flex;align-items:center;gap:6px;
+  border:1px solid rgba(255,255,255,.10);
+  padding:2px 10px 2px 7px;border-radius:4px;
+  background:rgba(255,255,255,.03);
+}
+.cl-ph::before{
+  content:'≈';
+  font-family:'Caveat',cursive;font-size:14px;
+  color:rgba(255,255,255,.20);
+}
+.chalk-line[data-t="contraction"] .cl-ph{color:rgba(147,197,253,.70);}
+.chalk-line[data-t="prono"]       .cl-ph{color:rgba(134,239,172,.70);}
+
+/* Type — petit coin haut droite, écrit en petit */
+.cl-type{
+  position:absolute;top:8px;right:12px;
+  font-family:'Caveat',cursive;font-weight:400;
+  font-size:12px;color:rgba(255,255,255,.18);
+  letter-spacing:.02em;
+}
+
+/* ══════ BARRE MAGNÉTOPHONE ══════
+   Esthétique physique, cassette / hifi vintage.
+══════ */
+.cassette{
+  margin:8px 14px;
+  background:#0c0c0c;
+  border-radius:12px;
+  border:1px solid rgba(255,255,255,.06);
+  padding:12px 14px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+.cass-wave{
+  display:flex;align-items:flex-end;gap:2px;
+  height:20px;margin-bottom:8px;padding:0 2px;
+}
+.cass-wave span{
+  flex:1;min-width:2px;border-radius:2px;
+  background:rgba(181,213,160,.22);
+  position:relative;
+}
+.cass-wave span.hi{background:rgba(181,213,160,.50);}
+.cass-wave span.med{background:rgba(181,213,160,.35);}
+/* Barres de hauteurs variées */
+.cass-wave span:nth-child(1){height:4px}
+.cass-wave span:nth-child(2){height:12px}
+.cass-wave span:nth-child(3){height:8px}
+.cass-wave span:nth-child(4){height:16px}
+.cass-wave span:nth-child(5){height:5px}
+.cass-wave span:nth-child(6){height:18px}
+.cass-wave span:nth-child(7){height:9px}
+.cass-wave span:nth-child(8){height:14px}
+.cass-wave span:nth-child(9){height:7px}
+.cass-wave span:nth-child(10){height:20px}
+.cass-wave span:nth-child(11){height:12px}
+.cass-wave span:nth-child(12){height:6px}
+.cass-wave span:nth-child(13){height:17px}
+.cass-wave span:nth-child(14){height:11px}
+.cass-wave span:nth-child(15){height:4px}
+.cass-wave span:nth-child(16){height:15px}
+.cass-wave span:nth-child(17){height:9px}
+.cass-wave span:nth-child(18){height:7px}
+.cass-wave span:nth-child(19){height:13px}
+.cass-wave span:nth-child(20){height:5px}
+
+.cass-ctrl{display:flex;align-items:center;gap:6px;}
+.cass-btn{
+  width:34px;height:28px;border-radius:7px;
+  border:1px solid rgba(255,255,255,.06);
+  background:rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.30);font-size:10px;
+}
+.cass-play{
+  flex:1;height:34px;border-radius:10px;
+  border:1px solid rgba(181,213,160,.18);
+  background:rgba(181,213,160,.06);
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  color:rgba(181,213,160,.55);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.08em;
+}
+.cass-play .ico{font-size:14px;}
+.cass-time{
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;
+  color:rgba(255,255,255,.20);white-space:nowrap;padding:0 2px;
+}
+
+/* ══════ CLASSE AVATARS — petits, bas ══════ */
+.prof-strip{
+  display:flex;align-items:center;justify-content:center;
+  gap:6px;padding:8px 20px 6px;
+}
+.av-small{
+  display:flex;flex-direction:column;align-items:center;gap:2px;
+  opacity:.28;
+}
+.av-small.on{opacity:.80;}
+.av-circle{
+  width:28px;height:28px;border-radius:50%;
+  border:1px solid rgba(181,213,160,.12);
+  background:rgba(181,213,160,.04);
+  display:flex;align-items:center;justify-content:center;
+}
+.av-small.on .av-circle{
+  border-color:rgba(181,213,160,.45);
+  box-shadow:0 0 10px rgba(181,213,160,.18);
+  width:36px;height:36px;
+}
+.av-circle svg{width:14px;height:14px;}
+.av-small.on .av-circle svg{width:20px;height:20px;}
+.av-nm{
+  font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.12em;
+  color:rgba(255,255,255,.18);text-transform:uppercase;
+}
+.av-small.on .av-nm{color:rgba(255,255,255,.50);}
+
+/* ══════ BIP ══════ */
+.bip{
+  margin:4px 14px;padding:10px 16px;
+  border:1px solid rgba(181,213,160,.14);
+  border-radius:10px;
+  background:rgba(181,213,160,.04);
+  display:flex;align-items:center;gap:8px;
+}
+.bip-text{
+  flex:1;
+  font-family:'Caveat',cursive;font-size:15px;font-weight:500;
+  color:rgba(200,230,215,.55);
+}
+.bip-btn{
+  padding:6px 12px;border-radius:8px;
+  background:rgba(181,213,160,.10);
+  border:1px solid rgba(181,213,160,.20);
+  color:rgba(181,213,160,.60);
+  font-family:'JetBrains Mono',monospace;font-size:9px;
+}
+
+/* ══════ NAV ══════ */
+.nav{
+  display:flex;justify-content:space-around;
+  padding:8px 28px 26px;
+  border-top:1px solid rgba(255,255,255,.04);
+  margin-top:4px;
+}
+.ni{color:rgba(181,213,160,.15);}
+.ni.on{color:rgba(181,213,160,.55);}
+</style>
+</head>
+<body>
+<div class="label">Design 10 — Ardoise (tableau craie, vintage labo)</div>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="status">
+    <div class="st-left">
+      <div class="st-dot"></div>
+      <div class="st-text">méthode audio · L1 · fr→en</div>
+    </div>
+    <div class="st-right">7/24</div>
+  </div>
+
+  <!-- Ardoise craie -->
+  <div class="ardoise two">
+    <div class="ardoise-inner">
+      <div class="chalk-line" data-t="contraction">
+        <div class="cl-type">contraction</div>
+        <div class="cl-fr">c'est possible</div>
+        <div class="cl-en">it is possible</div>
+        <div class="cl-underline"></div>
+        <div class="cl-ph">it iz po-si-beul</div>
+      </div>
+      <div class="chalk-line" data-t="prono">
+        <div class="cl-type">se dit</div>
+        <div class="cl-fr">la table</div>
+        <div class="cl-en">the table</div>
+        <div class="cl-underline"></div>
+        <div class="cl-ph">ze téï-beul</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Personnages parlants — petite bande -->
+  <div class="prof-strip">
+    <div class="av-small">
+      <div class="av-circle"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="av-nm">Sophie</div>
+    </div>
+    <div class="av-small on">
+      <div class="av-circle"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".85"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".85"/></svg></div>
+      <div class="av-nm">Marc</div>
+    </div>
+    <div class="av-small">
+      <div class="av-circle"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="av-nm">Julien</div>
+    </div>
+  </div>
+
+  <!-- Magnétophone -->
+  <div class="cassette">
+    <div class="cass-wave">
+      <span></span><span class="med"></span><span></span><span class="hi"></span>
+      <span></span><span class="hi"></span><span class="med"></span><span class="hi"></span>
+      <span></span><span class="hi"></span><span class="med"></span><span></span>
+      <span class="hi"></span><span class="med"></span><span></span><span class="hi"></span>
+      <span class="med"></span><span></span><span class="med"></span><span></span>
+    </div>
+    <div class="cass-ctrl">
+      <div class="cass-btn">⏮</div>
+      <div class="cass-btn">⏸</div>
+      <div class="cass-play"><span class="ico">▶</span> en écoute</div>
+      <div class="cass-time">02:47</div>
+    </div>
+  </div>
+
+  <!-- Bip réponse -->
+  <div class="bip">
+    <div class="bip-text">🔔 À toi de répondre, Julien</div>
+    <div class="bip-btn">🎙 Rép.</div>
+  </div>
+
+  <!-- Nav -->
+  <div class="nav">
+    <div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+    <div class="ni on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+  </div>
+</div>
+</body>
+</html>

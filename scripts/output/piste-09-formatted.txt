@@ -1,0 +1,888 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Le mot pour dire "tard" — "tard" se dit LATE. L-A-T-E. Late. Late. Comment dit-on "il est tard" ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+il est tard
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[s'applique] It is late.
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It is late. It's late. Comment dit-on "c'est très tard" ?
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est très tard
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[assurée] It's very late.
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It's very late. "Trop tard" — TROP se dit TOO. Too... too... too... Too s'écrit T-O-O. Too late. Comment dit-on "c'est trop tard" ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est trop tard
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se concentre] It is too late.
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It is too late. It's too late. Comment dit-on "ce n'est pas trop tard" ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+c'est trop tard
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[fluide, pointe de fierté] It isn't too late.
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It isn't too late. Comment dit-on "ce n'est pas si tard" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas si tard
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésite un court instant] It's not... so...
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes...
+
+---
+
+ID :
+0017
+
+ROLE :
+ELEVE1
+
+AUDIO :
+...It's not so late.
+
+---
+
+ID :
+0018
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! It's not so late. It's not so late. Comment dit-on "très tard" ?
+
+---
+
+ID :
+0019
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+très tard
+
+---
+
+ID :
+0020
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Very late.
+
+---
+
+ID :
+0021
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Very late. "Trop tard" ?
+
+---
+
+ID :
+0022
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+trop tard
+
+---
+
+ID :
+0023
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Too late.
+
+---
+
+ID :
+0024
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Too late. "Si tard" ?
+
+---
+
+ID :
+0025
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+si tard
+
+---
+
+ID :
+0026
+
+ROLE :
+ELEVE1
+
+AUDIO :
+So late.
+
+---
+
+ID :
+0027
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+So late. En anglais, pour dire "plus tard" — "plus tard", on ajoute E-R au mot. On ajoute E-R à "late". On dit LATER. Later. Later. Later veut dire "plus tard". Later. Once more — encore une fois. "Tard" ?
+
+---
+
+ID :
+0028
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+tard
+
+---
+
+ID :
+0029
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Late.
+
+---
+
+ID :
+0030
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Late. "Plus tard" ?
+
+---
+
+ID :
+0031
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+plus tard
+
+---
+
+ID :
+0032
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[s'applique sur la prononciation] Later ?
+
+---
+
+ID :
+0033
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Later.
+
+---
+
+ID :
+0034
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[répète doucement pour elle] Later.
+
+---
+
+ID :
+0035
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Later. "Vite" se dit FAST. Fast. F-A-S-T. Fast. Fast. Comment dit-on "très vite" ?
+
+---
+
+ID :
+0036
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+très vite
+
+---
+
+ID :
+0037
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[voix posée, un peu interrogatif] Very fast ?
+
+---
+
+ID :
+0038
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+"Trop vite" ?
+
+---
+
+ID :
+0039
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+trop vite
+
+---
+
+ID :
+0040
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Too fast ?
+
+---
+
+ID :
+0041
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+"Si vite" ?
+
+---
+
+ID :
+0042
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+si vite
+
+---
+
+ID :
+0043
+
+ROLE :
+ELEVE2
+
+AUDIO :
+So fast ?
+
+---
+
+ID :
+0044
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+"Plus vite" !
+
+---
+
+ID :
+0045
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+plus vite
+
+---
+
+ID :
+0046
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[applique la règle] Faster ?
+
+---
+
+ID :
+0047
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Good ! Faster ! Faster ! Comment dit-on "c'est trop vite pour moi" ?
+
+---
+
+ID :
+0048
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est trop vite pour moi
+
+---
+
+ID :
+0049
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[cherche "trop"] Euh... It is... so fa... [rit] Ah non, "trop" vite...
+
+---
+
+ID :
+0050
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Ah oui !
+
+---
+
+ID :
+0051
+
+ROLE :
+ELEVE2
+
+AUDIO :
+...Too fast.
+
+---
+
+ID :
+0052
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Once more. It is too fast for me — comment dit-on "c'est trop vite pour moi" ?
+
+---
+
+ID :
+0053
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+c'est trop vite pour moi
+
+---
+
+ID :
+0054
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[reconstruit toute la phrase] Euh... It is too fast for me.
+
+---
+
+ID :
+0055
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! It is too fast for me. It is too fast for me. "Pas si vite" — comment dit-on "pas si vite" ?
+
+---
+
+ID :
+0056
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+pas si vite
+
+---
+
+ID :
+0057
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[assurée] Not so fast.
+
+---
+
+ID :
+0058
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! Not so fast. Not so fast. "S'il vous plaît" — ça c'est facile — PLEASE. Please. P-L-E-A-S-E. Please. Please. Comment dit-on "pas si vite, s'il vous plaît" ?
+
+---
+
+ID :
+0059
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+pas si vite, s'il vous plaît
+
+---
+
+ID :
+0060
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fluide] Euh... Not so fast, please.
+
+---
+
+ID :
+0061
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Not so fast, please. Not so fast, please. "Parce que" se dit BECAUSE. Because. B-E-C-A-U-S-E. Because. Because. "Je veux" se dit I WANT. I want. "Veux" se dit WANT. Want s'écrit W-A-N-T. I want. Comment dit-on "je veux" ?
+
+---
+
+ID :
+0062
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je veux
+
+---
+
+ID :
+0063
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I want.
+
+---
+
+ID :
+0064
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I want. I want. "Je sais" — d'un petit effort de mémoire ! Comment dit-on "je sais" ?
+
+---
+
+ID :
+0065
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je sais
+
+---
+
+ID :
+0066
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[cherche puis trouve fièrement] I know.
+
+---
+
+ID :
+0067
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[laughs] I knoooow. I know.
+
+---
+
+ID :
+0068
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[répète doucement] ...know. I know.
+
+---
+
+ID :
+0069
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Comment s'écrit "know" ?
+
+---
+
+ID :
+0070
+
+ROLE :
+BIP
+
+TITRE :
+Épelle le mot.
+
+QUESTION :
+know
+
+---
+
+ID :
+0071
+
+ROLE :
+ELEVE1
+
+AUDIO :
+K-N-O-W.
+
+---
+
+ID :
+0072
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Et oui ! Mais on ne prononce pas le K — c'est la même prononciation que pour "no" (non). No. Comment dit-on "je sais" encore une fois ?
+
+---
+
+ID :
+0073
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+je sais
+
+---
+
+ID :
+0074
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I know.
+
+---
+
+ID :
+0075
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+No. I know.

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bouton question 3D — variantes charte</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#111317;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;gap:34px;
+  padding:60px 32px;font-family:'JetBrains Mono',monospace;
+}
+.label{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.22);text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:5px 16px;border-radius:20px;white-space:nowrap;
+}
+/* Panneau = morceau d'écran de l'app */
+.panel{
+  width:260px;height:420px;border-radius:32px;
+  background:#1A2232;
+  box-shadow:0 0 0 1px rgba(255,255,255,.07),0 40px 80px rgba(0,0,0,.7);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;
+  position:relative;
+}
+.cap{
+  font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.18);
+  text-transform:uppercase;text-align:center;margin-top:14px;
+}
+/* Le bouton flotte doucement — objet posé sur l'écran */
+.qbtn{
+  cursor:pointer;
+  animation:float 3.4s ease-in-out infinite;
+  filter:drop-shadow(0 10px 22px rgba(0,0,0,.45));
+}
+.qbtn.small{width:58px;height:58px;animation-delay:.8s;}
+.qbtn.big{width:108px;height:108px;}
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+.qbtn:active{transform:scale(.94);animation:none;}
+</style>
+</head>
+<body>
+<div class="label">Bouton « question » 3D glossy — 3 variantes, pur SVG, charte ambre</div>
+
+<!-- ═══════ VARIANTE A — bulle ambre, ? sombre ═══════ -->
+<div>
+  <div class="panel">
+    <svg class="qbtn big" viewBox="0 0 120 120">
+      <defs>
+        <linearGradient id="bubA" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFE7A0"/>
+          <stop offset=".42" stop-color="#FCD34D"/>
+          <stop offset=".78" stop-color="#F59E0B"/>
+          <stop offset="1" stop-color="#D97706"/>
+        </linearGradient>
+        <radialGradient id="glosA" cx=".38" cy=".25" r=".55">
+          <stop offset="0" stop-color="#fff" stop-opacity=".85"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <filter id="blurA" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+      </defs>
+      <!-- ombre au sol -->
+      <ellipse cx="60" cy="107" rx="24" ry="5.5" fill="#000" opacity=".38" filter="url(#blurA)"/>
+      <!-- queue de bulle -->
+      <path d="M40 80 L29 99 L55 88 Z" fill="url(#bubA)"/>
+      <!-- bulle -->
+      <circle cx="60" cy="52" r="40" fill="url(#bubA)"/>
+      <!-- assombrissement bas (volume) -->
+      <path d="M22 60a40 40 0 0 0 76 0 44 44 0 0 1-76 0Z" fill="#B45309" opacity=".35"/>
+      <!-- reflet glossy -->
+      <ellipse cx="47" cy="34" rx="24" ry="16" fill="url(#glosA)"/>
+      <circle cx="40" cy="27" r="4.5" fill="#fff" opacity=".9"/>
+      <!-- le ? -->
+      <text x="60" y="69" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="#1A2232">?</text>
+      <text x="60" y="67.5" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="#FFE7A0" opacity=".30">?</text>
+    </svg>
+
+    <svg class="qbtn small" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="107" rx="24" ry="5.5" fill="#000" opacity=".38" filter="url(#blurA)"/>
+      <path d="M40 80 L29 99 L55 88 Z" fill="url(#bubA)"/>
+      <circle cx="60" cy="52" r="40" fill="url(#bubA)"/>
+      <path d="M22 60a40 40 0 0 0 76 0 44 44 0 0 1-76 0Z" fill="#B45309" opacity=".35"/>
+      <ellipse cx="47" cy="34" rx="24" ry="16" fill="url(#glosA)"/>
+      <circle cx="40" cy="27" r="4.5" fill="#fff" opacity=".9"/>
+      <text x="60" y="69" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="#1A2232">?</text>
+    </svg>
+  </div>
+  <div class="cap">A · ambre + ? sombre</div>
+</div>
+
+<!-- ═══════ VARIANTE B — bulle ambre, ? violet (couleur question de l'app) ═══════ -->
+<div>
+  <div class="panel">
+    <svg class="qbtn big" viewBox="0 0 120 120">
+      <defs>
+        <linearGradient id="bubB" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFE7A0"/>
+          <stop offset=".42" stop-color="#FCD34D"/>
+          <stop offset=".78" stop-color="#F59E0B"/>
+          <stop offset="1" stop-color="#D97706"/>
+        </linearGradient>
+        <radialGradient id="glosB" cx=".38" cy=".25" r=".55">
+          <stop offset="0" stop-color="#fff" stop-opacity=".85"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="qB" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#8B5CF6"/>
+          <stop offset="1" stop-color="#6D28D9"/>
+        </linearGradient>
+        <filter id="blurB" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+      </defs>
+      <ellipse cx="60" cy="107" rx="24" ry="5.5" fill="#000" opacity=".38" filter="url(#blurB)"/>
+      <path d="M40 80 L29 99 L55 88 Z" fill="url(#bubB)"/>
+      <circle cx="60" cy="52" r="40" fill="url(#bubB)"/>
+      <path d="M22 60a40 40 0 0 0 76 0 44 44 0 0 1-76 0Z" fill="#B45309" opacity=".35"/>
+      <ellipse cx="47" cy="34" rx="24" ry="16" fill="url(#glosB)"/>
+      <circle cx="40" cy="27" r="4.5" fill="#fff" opacity=".9"/>
+      <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="url(#qB)">?</text>
+      <text x="60" y="68.5" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="#fff" opacity=".22">?</text>
+    </svg>
+
+    <svg class="qbtn small" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="107" rx="24" ry="5.5" fill="#000" opacity=".38" filter="url(#blurB)"/>
+      <path d="M40 80 L29 99 L55 88 Z" fill="url(#bubB)"/>
+      <circle cx="60" cy="52" r="40" fill="url(#bubB)"/>
+      <path d="M22 60a40 40 0 0 0 76 0 44 44 0 0 1-76 0Z" fill="#B45309" opacity=".35"/>
+      <ellipse cx="47" cy="34" rx="24" ry="16" fill="url(#glosB)"/>
+      <circle cx="40" cy="27" r="4.5" fill="#fff" opacity=".9"/>
+      <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="url(#qB)">?</text>
+    </svg>
+  </div>
+  <div class="cap">B · ambre + ? violet «&nbsp;question&nbsp;»</div>
+</div>
+
+<!-- ═══════ VARIANTE C — bulle sombre glossy, ? ambre ═══════ -->
+<div>
+  <div class="panel">
+    <svg class="qbtn big" viewBox="0 0 120 120">
+      <defs>
+        <linearGradient id="bubC" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#3A4763"/>
+          <stop offset=".5" stop-color="#232E47"/>
+          <stop offset="1" stop-color="#141B2B"/>
+        </linearGradient>
+        <radialGradient id="glosC" cx=".38" cy=".25" r=".55">
+          <stop offset="0" stop-color="#fff" stop-opacity=".40"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+        <linearGradient id="qC" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#FFE7A0"/>
+          <stop offset=".6" stop-color="#FCD34D"/>
+          <stop offset="1" stop-color="#F59E0B"/>
+        </linearGradient>
+        <filter id="blurC" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
+      </defs>
+      <ellipse cx="60" cy="107" rx="24" ry="5.5" fill="#000" opacity=".45" filter="url(#blurC)"/>
+      <path d="M40 80 L29 99 L55 88 Z" fill="url(#bubC)"/>
+      <circle cx="60" cy="52" r="40" fill="url(#bubC)"/>
+      <!-- liseré ambre — rappelle les bordures actives de l'app -->
+      <circle cx="60" cy="52" r="39.2" fill="none" stroke="rgba(251,191,36,.45)" stroke-width="1.6"/>
+      <ellipse cx="47" cy="34" rx="24" ry="16" fill="url(#glosC)"/>
+      <circle cx="40" cy="27" r="4.5" fill="#fff" opacity=".75"/>
+      <!-- halo ambre derrière le ? -->
+      <circle cx="60" cy="52" r="18" fill="#F59E0B" opacity=".22" filter="url(#blurC)"/>
+      <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="url(#qC)">?</text>
+    </svg>
+
+    <svg class="qbtn small" viewBox="0 0 120 120">
+      <ellipse cx="60" cy="107" rx="24" ry="5.5" fill="#000" opacity=".45" filter="url(#blurC)"/>
+      <path d="M40 80 L29 99 L55 88 Z" fill="url(#bubC)"/>
+      <circle cx="60" cy="52" r="40" fill="url(#bubC)"/>
+      <circle cx="60" cy="52" r="39.2" fill="none" stroke="rgba(251,191,36,.45)" stroke-width="1.6"/>
+      <ellipse cx="47" cy="34" rx="24" ry="16" fill="url(#glosC)"/>
+      <circle cx="40" cy="27" r="4.5" fill="#fff" opacity=".75"/>
+      <circle cx="60" cy="52" r="18" fill="#F59E0B" opacity=".22" filter="url(#blurC)"/>
+      <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="50" fill="url(#qC)">?</text>
+    </svg>
+  </div>
+  <div class="cap">C · sombre + ? ambre, liseré doré</div>
+</div>
+
+</body>
+</html>

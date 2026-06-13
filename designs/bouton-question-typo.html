@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bouton C3 — choix de la typo du ?</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=Caveat:wght@700&family=Fraunces:ital,opsz,wght@1,9..144,500&family=JetBrains+Mono:wght@700&family=Syne:wght@800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#111317;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;gap:22px;
+  padding:60px 24px;font-family:'JetBrains Mono',monospace;flex-wrap:wrap;
+}
+.label{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.22);text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:5px 16px;border-radius:20px;white-space:nowrap;z-index:50;
+}
+.panel{
+  width:170px;height:300px;border-radius:28px;
+  background:#1A2232;
+  box-shadow:0 0 0 1px rgba(255,255,255,.07),0 30px 60px rgba(0,0,0,.7);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px;
+}
+.cap{
+  font-size:8.5px;letter-spacing:.13em;color:rgba(255,255,255,.18);
+  text-transform:uppercase;text-align:center;margin-top:12px;line-height:1.8;
+}
+.qbtn{cursor:pointer;width:98px;height:98px;}
+.qbtn.small{width:56px;height:56px;}
+.qbtn:active{transform:scale(.95);}
+/* halo ambre qui respire — la signature du C3 */
+.breathe{animation:halo 3.8s ease-in-out infinite;}
+@keyframes halo{
+  0%,100%{filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) drop-shadow(0 0 10px rgba(251,191,36,.10));}
+  50%{filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) drop-shadow(0 0 22px rgba(251,191,36,.28));}
+}
+svg{display:block;width:100%;height:100%;}
+</style>
+</head>
+<body>
+<div class="label">Bouton C3 (matière identique) — 5 typographies pour le « ? »</div>
+
+<!-- defs partagées : matière exacte du C3 validé -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="c3body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#283450"/>
+      <stop offset="1" stop-color="#101726"/>
+    </linearGradient>
+    <linearGradient id="c3rim" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#FFE7A0"/>
+      <stop offset=".5" stop-color="#E0A52E"/>
+      <stop offset="1" stop-color="#8A5A10"/>
+    </linearGradient>
+    <filter id="c3blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+  </defs>
+</svg>
+
+<!-- ═══ 1 · FRAUNCES ITALIQUE (actuelle du C3, pour comparer) ═══ -->
+<div>
+  <div class="panel">
+    <div class="qbtn breathe">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c3blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="1.8"/>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+    <div class="qbtn small breathe">
+      <svg viewBox="0 0 120 120">
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="2.2"/>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+  </div>
+  <div class="cap">1 · fraunces italique<br>(actuelle)</div>
+</div>
+
+<!-- ═══ 2 · SYNE — géométrique costaud ═══ -->
+<div>
+  <div class="panel">
+    <div class="qbtn breathe">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c3blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="1.8"/>
+        <text x="60" y="69" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="47" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="69" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="47" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+    <div class="qbtn small breathe">
+      <svg viewBox="0 0 120 120">
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="2.2"/>
+        <text x="60" y="69" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="47" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="69" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="47" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+  </div>
+  <div class="cap">2 · syne<br>géométrique</div>
+</div>
+
+<!-- ═══ 3 · CAVEAT — craie manuscrite ═══ -->
+<div>
+  <div class="panel">
+    <div class="qbtn breathe">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c3blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="1.8"/>
+        <text x="60" y="71" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="62" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="71" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="62" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+    <div class="qbtn small breathe">
+      <svg viewBox="0 0 120 120">
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="2.2"/>
+        <text x="60" y="71" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="62" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="71" text-anchor="middle" font-family="Caveat,cursive" font-weight="700" font-size="62" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+  </div>
+  <div class="cap">3 · caveat<br>craie manuscrite</div>
+</div>
+
+<!-- ═══ 4 · BARLOW CONDENSED — la typo de tes mots EN ═══ -->
+<div>
+  <div class="panel">
+    <div class="qbtn breathe">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c3blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="1.8"/>
+        <text x="60" y="70" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="600" font-size="56" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="70" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="600" font-size="56" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+    <div class="qbtn small breathe">
+      <svg viewBox="0 0 120 120">
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="2.2"/>
+        <text x="60" y="70" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="600" font-size="56" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="70" text-anchor="middle" font-family="'Barlow Condensed',sans-serif" font-weight="600" font-size="56" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+  </div>
+  <div class="cap">4 · barlow condensed<br>= tes mots EN</div>
+</div>
+
+<!-- ═══ 5 · JETBRAINS MONO — la typo de tes phonétiques ═══ -->
+<div>
+  <div class="panel">
+    <div class="qbtn breathe">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c3blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="1.8"/>
+        <text x="60" y="67" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="44" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="67" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="44" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+    <div class="qbtn small breathe">
+      <svg viewBox="0 0 120 120">
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="2.2"/>
+        <text x="60" y="67" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="44" fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="67" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-weight="700" font-size="44" fill="#FCD34D">?</text>
+      </svg>
+    </div>
+  </div>
+  <div class="cap">5 · jetbrains mono<br>= tes phonétiques</div>
+</div>
+
+</body>
+</html>

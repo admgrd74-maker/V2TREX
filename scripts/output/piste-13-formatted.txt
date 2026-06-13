@@ -1,0 +1,858 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Tous les mots français qui se terminent par -ion, -sion ou -tion sont identiques en anglais — ils s'écrivent de la même façon. "Opinion", *opinion*. "Condition", "situation", "réservation", "impression", "expression". En anglais, la terminaison "sion" se prononce toujours *shun*. *Shun*. Sans accentuer la fin. "Condition" se dit donc CONDITION. Comment se prononce "condition" ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+condition
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[applique la règle] *Condition.*
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Condition*. The condition — Comment dit-on "la condition" en anglais ?
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+la condition
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE2
+
+AUDIO :
+*The condition.*
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*The condition*. A condition — Comment dit-on "une condition" en anglais ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+une condition
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE2
+
+AUDIO :
+*A condition.*
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*A condition*. What condition — Comment dit-on "quelle condition" en anglais ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quelle condition ?
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE1
+
+AUDIO :
+*What condition ?*
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*What condition. Yes, what condition !* Avec la même règle — "position" se dit POSITION. Comment se prononce "position" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+position
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[applique la règle] Euh, *position* ?
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Position.* "Expression" se dit EXPRESSION. Comment se prononce "expression" ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+expression
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Euh, *expression* ?
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Expression.* "Impression" se dit IMPRESSION. Comment se prononce "impression" ?
+
+---
+
+ID :
+0020
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+impression
+
+---
+
+ID :
+0021
+
+ROLE :
+ELEVE1
+
+AUDIO :
+*Impression ?*
+
+---
+
+ID :
+0022
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Impression.* What impression — Comment dit-on "quelle impression" en anglais ?
+
+---
+
+ID :
+0023
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quelle impression ?
+
+---
+
+ID :
+0024
+
+ROLE :
+ELEVE1
+
+AUDIO :
+*What impression ?*
+
+---
+
+ID :
+0025
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] "Avez-vous" — comment dit-on "avez-vous" en anglais ?
+
+---
+
+ID :
+0026
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+avez-vous ?
+
+---
+
+ID :
+0027
+
+ROLE :
+ELEVE1
+
+AUDIO :
+*Do you have ?*
+
+---
+
+ID :
+0028
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! Alors — comment dit-on "quelle impression avez-vous" ?
+
+---
+
+ID :
+0029
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+quelle impression avez-vous ?
+
+---
+
+ID :
+0030
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[reconstruit la phrase] *What impression do you have ?*
+
+---
+
+ID :
+0031
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] *What impression do you have ? What impression do you have ?* Maintenant — les mots français qui se terminent par -ation, comme "réservation", "nation", "préparation". En anglais, la lettre A se dit *A*. -ation se prononce donc *-ation*. *-ation*. Comme NATION. Comment se prononce "nation" ?
+
+---
+
+ID :
+0032
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+nation
+
+---
+
+ID :
+0033
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésite au début] M-... *Nation* ?
+
+---
+
+ID :
+0034
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Nation*. *Nation*. "Réservation" se prononce RESERVATION avec la même règle. Comment se prononce "réservation" ?
+
+---
+
+ID :
+0035
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+réservation
+
+---
+
+ID :
+0036
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[applique la règle] *Reservation* ?
+
+---
+
+ID :
+0037
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] *Reservation, right !* A reservation — Comment dit-on "une réservation" en anglais ?
+
+---
+
+ID :
+0038
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+une réservation
+
+---
+
+ID :
+0039
+
+ROLE :
+ELEVE2
+
+AUDIO :
+*A reservation.*
+
+---
+
+ID :
+0040
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*A reservation.* Do you have a reservation for me for tonight — comment dit-on "avez-vous une réservation pour moi pour ce soir" ?
+
+---
+
+ID :
+0041
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+avez-vous une réservation pour moi pour ce soir ?
+
+---
+
+ID :
+0042
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[construit la phrase, hésite sur la fin] *Do you have a reservation for me ?* Pour ce soir ? Ah... euh... *for to-* *to-* *tonight* ?
+
+---
+
+ID :
+0043
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! Very good ! "Avez-vous une réservation" — *Do you have a reservation* — "pour moi" — *for me* — "pour ce soir" — *for tonight*. *Do you have a reservation for me for tonight ?* Avec la règle -ation — comment se prononce "confirmation" ?
+
+---
+
+ID :
+0044
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+confirmation
+
+---
+
+ID :
+0045
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[applique la règle] *Confirmation* ?
+
+---
+
+ID :
+0046
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Confirmation*. "De" en anglais se dit OF. O-F. *Of*. "La confirmation DE la réservation" — *the confirmation OF the reservation*. Comment dit-on "la confirmation de la réservation" ?
+
+---
+
+ID :
+0047
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+la confirmation de la réservation
+
+---
+
+ID :
+0048
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[commence bien, hésite sur "de"] *The confirmation...* um... *the confirmation of reservation...*
+
+---
+
+ID :
+0049
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+De *la* réservation.
+
+---
+
+ID :
+0050
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[complète] *...of the reservation.*
+
+---
+
+ID :
+0051
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Of the reservation.* Do you have the confirmation of the reservation for me for tonight — comment dit-on "avez-vous la confirmation de la réservation pour moi pour ce soir" ?
+
+---
+
+ID :
+0052
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+avez-vous la confirmation de la réservation pour moi pour ce soir ?
+
+---
+
+ID :
+0053
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[construit par blocs] *Do you have the confirmation of the reservation for me for tonight.*
+
+---
+
+ID :
+0054
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Yes ! *Do you have the confirmation of the reservation for me for tonight ?* "Quelle sorte" se dit WHAT KIND. W-H-A-T K-I-N-D. *What kind*. Comment dit-on "quelle sorte de réservation avez-vous pour moi" ?
+
+---
+
+ID :
+0055
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+quelle sorte de réservation avez-vous pour moi ?
+
+---
+
+ID :
+0056
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fluide et assuré] *What kind of reservation do you have for me ?*
+
+---
+
+ID :
+0057
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] *What kind of reservation do you have for me ?* Qui se souvient — comment dit-on "je veux" ?
+
+---
+
+ID :
+0058
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je veux
+
+---
+
+ID :
+0059
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se souvient] Um, *I want*.
+
+---
+
+ID :
+0060
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Bravo ! *I want.* Comment dit-on "je ne veux pas" ?
+
+---
+
+ID :
+0061
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+je veux
+
+---
+
+ID :
+0062
+
+ROLE :
+ELEVE1
+
+AUDIO :
+*I don't want.*
+
+---
+
+ID :
+0063
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*I don't want !* Comment dit-on "vouloir" à l'infinitif ?
+
+---
+
+ID :
+0064
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+vouloir (infinitif)
+
+---
+
+ID :
+0065
+
+ROLE :
+ELEVE1
+
+AUDIO :
+*To want.*
+
+---
+
+ID :
+0066
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*To want.* Do you want — comment dit-on "voulez-vous" ?
+
+---
+
+ID :
+0067
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous voulez
+
+---
+
+ID :
+0068
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[appliqué] Uh, *do you want ?*
+
+---
+
+ID :
+0069
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+*Do you want.* Comment dit-on "quelle sorte de réservation voulez-vous" ?
+
+---
+
+ID :
+0070
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+quelle sorte de réservation voulez-vous ?
+
+---
+
+ID :
+0071
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[assemble la phrase] *What kind of reservation do you want ?*
+
+---
+
+ID :
+0072
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! *What kind of reservation do you want ?*

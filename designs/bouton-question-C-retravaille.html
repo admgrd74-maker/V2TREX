@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Bouton question C — retravaillé premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,500&family=JetBrains+Mono:wght@400;700&family=Lilita+One&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#111317;min-height:100vh;
+  display:flex;align-items:center;justify-content:center;gap:30px;
+  padding:60px 28px;font-family:'JetBrains Mono',monospace;
+}
+.label{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  font-size:10px;letter-spacing:.18em;color:rgba(255,255,255,.22);text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:5px 16px;border-radius:20px;white-space:nowrap;z-index:50;
+}
+.panel{
+  width:250px;height:410px;border-radius:32px;
+  background:#1A2232;
+  box-shadow:0 0 0 1px rgba(255,255,255,.07),0 40px 80px rgba(0,0,0,.7);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:44px;
+  position:relative;
+}
+.cap{
+  font-size:9px;letter-spacing:.15em;color:rgba(255,255,255,.18);
+  text-transform:uppercase;text-align:center;margin-top:14px;line-height:1.8;
+}
+.qbtn{cursor:pointer;}
+.qbtn.big{width:106px;height:106px;}
+.qbtn.small{width:58px;height:58px;}
+.qbtn:active{transform:scale(.95);}
+/* respiration du halo — uniquement variante C3 */
+.breathe{animation:halo 3.8s ease-in-out infinite;}
+@keyframes halo{
+  0%,100%{filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) drop-shadow(0 0 10px rgba(251,191,36,.10));}
+  50%{filter:drop-shadow(0 10px 18px rgba(0,0,0,.45)) drop-shadow(0 0 22px rgba(251,191,36,.28));}
+}
+svg{display:block;width:100%;height:100%;}
+</style>
+</head>
+<body>
+<div class="label">Variante C retravaillée — bulle sombre · ? ambre · liseré doré, sans glossy</div>
+
+<!-- ════════════════════════════════════════════════
+     C1 — VERRE PROFOND · ? Syne
+     Bulle organique (queue fondue), matière translucide,
+     liseré doré usiné (clair en haut → sombre en bas)
+════════════════════════════════════════════════ -->
+<div>
+  <div class="panel">
+
+    <div class="qbtn big" style="filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <linearGradient id="c1body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#324059"/>
+            <stop offset=".55" stop-color="#222D45"/>
+            <stop offset="1" stop-color="#131A2A"/>
+          </linearGradient>
+          <linearGradient id="c1rim" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFE7A0"/>
+            <stop offset=".5" stop-color="#E0A52E"/>
+            <stop offset="1" stop-color="#8A5A10"/>
+          </linearGradient>
+          <linearGradient id="c1q" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFE7A0"/>
+            <stop offset="1" stop-color="#F59E0B"/>
+          </linearGradient>
+          <filter id="c1blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+        </defs>
+        <!-- ombre au sol -->
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c1blur)"/>
+        <!-- bulle organique, queue fondue dans la forme -->
+        <path id="c1shape" d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c1body)" stroke="url(#c1rim)" stroke-width="2"/>
+        <!-- lueur du ? derrière (halo doux, pas un reflet) -->
+        <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="46"
+              fill="#F59E0B" opacity=".55" filter="url(#c1blur)">?</text>
+        <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="46"
+              fill="url(#c1q)">?</text>
+      </svg>
+    </div>
+
+    <div class="qbtn small" style="filter:drop-shadow(0 6px 12px rgba(0,0,0,.45));">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c1blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c1body)" stroke="url(#c1rim)" stroke-width="2.4"/>
+        <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="46"
+              fill="#F59E0B" opacity=".55" filter="url(#c1blur)">?</text>
+        <text x="60" y="70" text-anchor="middle" font-family="Syne,sans-serif" font-weight="800" font-size="46"
+              fill="url(#c1q)">?</text>
+      </svg>
+    </div>
+
+  </div>
+  <div class="cap">C1 · verre profond<br>? Syne · liseré usiné</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     C2 — MAT GRAVÉ · ? Fraunces italique
+     Plus sobre : liseré double fin (extérieur doré,
+     intérieur sombre en retrait), ? serif à la craie
+════════════════════════════════════════════════ -->
+<div>
+  <div class="panel">
+
+    <div class="qbtn big" style="filter:drop-shadow(0 10px 18px rgba(0,0,0,.45));">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <linearGradient id="c2body2" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#283450"/>
+            <stop offset="1" stop-color="#101726"/>
+          </linearGradient>
+          <linearGradient id="c2rim" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#F2C75C"/>
+            <stop offset="1" stop-color="#9A6A14"/>
+          </linearGradient>
+          <filter id="c2blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+        </defs>
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c2blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c2body2)" stroke="url(#c2rim)" stroke-width="1.6"/>
+        <!-- second anneau intérieur, gravé, en retrait -->
+        <path d="M60 17C79.3 17 95 32.7 95 52C95 71.3 79.3 87 60 87C53.4 87 47.2 85.2 41.9 82L34 90.5C35.8 85.3 36.9 81.6 37.6 78.8C30.8 72.4 25 62.8 25 52C25 32.7 40.7 17 60 17Z"
+              fill="none" stroke="rgba(251,191,36,.16)" stroke-width="1"/>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50"
+              fill="#F59E0B" opacity=".45" filter="url(#c2blur)">?</text>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50"
+              fill="#FCD34D">?</text>
+      </svg>
+    </div>
+
+    <div class="qbtn small" style="filter:drop-shadow(0 6px 12px rgba(0,0,0,.45));">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c2blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c2body2)" stroke="url(#c2rim)" stroke-width="2"/>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50"
+              fill="#F59E0B" opacity=".45" filter="url(#c2blur)">?</text>
+        <text x="60" y="68" text-anchor="middle" font-family="Fraunces,serif" font-style="italic" font-weight="500" font-size="50"
+              fill="#FCD34D">?</text>
+      </svg>
+    </div>
+
+  </div>
+  <div class="cap">C2 · mat gravé<br>? Fraunces italique · double liseré</div>
+</div>
+
+<!-- ════════════════════════════════════════════════
+     C3 — SIGNATURE VIVANTE · C2 + halo qui respire
+     La bulle émet une lueur ambre lente — elle "vit"
+     pendant la leçon sans jamais crier
+════════════════════════════════════════════════ -->
+<div>
+  <div class="panel">
+
+    <div class="qbtn big breathe">
+      <svg viewBox="0 0 120 120">
+        <defs>
+          <linearGradient id="c3body" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#283450"/>
+            <stop offset="1" stop-color="#101726"/>
+          </linearGradient>
+          <linearGradient id="c3rim" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#FFE7A0"/>
+            <stop offset=".5" stop-color="#E0A52E"/>
+            <stop offset="1" stop-color="#8A5A10"/>
+          </linearGradient>
+          <filter id="c3blur" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="4"/></filter>
+        </defs>
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c3blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="1.8"/>
+        <text x="60" y="69" text-anchor="middle" font-family="'Lilita One',cursive" font-weight="400" font-size="47"
+              fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="69" text-anchor="middle" font-family="'Lilita One',cursive" font-weight="400" font-size="47"
+              fill="#FCD34D">?</text>
+      </svg>
+    </div>
+
+    <div class="qbtn small breathe">
+      <svg viewBox="0 0 120 120">
+        <ellipse cx="60" cy="110" rx="23" ry="4.5" fill="#000" opacity=".40" filter="url(#c3blur)"/>
+        <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+              fill="url(#c3body)" stroke="url(#c3rim)" stroke-width="2.2"/>
+        <text x="60" y="69" text-anchor="middle" font-family="'Lilita One',cursive" font-weight="400" font-size="47"
+              fill="#F59E0B" opacity=".5" filter="url(#c3blur)">?</text>
+        <text x="60" y="69" text-anchor="middle" font-family="'Lilita One',cursive" font-weight="400" font-size="47"
+              fill="#FCD34D">?</text>
+      </svg>
+    </div>
+
+  </div>
+  <div class="cap">C3 · signature vivante<br>? Lilita One · halo qui respire</div>
+</div>
+
+</body>
+</html>

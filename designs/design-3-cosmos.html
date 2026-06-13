@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Design 3 — Cosmos</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:radial-gradient(ellipse 120% 100% at 30% 0%, #0e0620 0%, #050510 60%);
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  gap:48px;padding:48px 24px;
+  font-family:'Inter',sans-serif;
+}
+
+.design-label{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:rgba(167,139,250,.45);text-transform:uppercase;
+  background:rgba(167,139,250,.06);border:1px solid rgba(167,139,250,.15);
+  padding:6px 18px;border-radius:20px;
+}
+
+/* Orbes flottantes */
+.orb1{
+  position:fixed;width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(circle,rgba(124,58,237,.30) 0%,transparent 70%);
+  top:-200px;left:-180px;filter:blur(60px);pointer-events:none;
+}
+.orb2{
+  position:fixed;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(6,182,212,.20) 0%,transparent 70%);
+  bottom:-160px;right:-140px;filter:blur(60px);pointer-events:none;
+}
+
+/* ── Téléphone ── */
+.phone{
+  width:390px;
+  background:rgba(10,8,22,.97);
+  border-radius:50px;
+  overflow:hidden;
+  box-shadow:
+    0 80px 160px rgba(0,0,0,.85),
+    0 0 0 1px rgba(167,139,250,.12),
+    0 0 0 1px rgba(255,255,255,.03) inset,
+    0 1px 0 rgba(255,255,255,.10) inset;
+  position:relative;backdrop-filter:blur(0);
+}
+
+/* Notch */
+.notch{
+  width:126px;height:36px;
+  background:rgba(5,4,14,.95);
+  border-radius:0 0 26px 26px;
+  margin:0 auto;position:relative;z-index:10;
+}
+
+/* Tag */
+.lesson-tag{
+  text-align:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;letter-spacing:.28em;
+  color:rgba(167,139,250,.55);
+  text-transform:uppercase;
+  padding:12px 0 12px;
+}
+
+/* ── TABLEAU COSMOS ── */
+.board{
+  margin:0;
+  background:rgba(255,255,255,.028);
+  border-top:1px solid rgba(255,255,255,.06);
+  border-bottom:1px solid rgba(255,255,255,.06);
+  padding:6px 0;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Halo violet derrière le tableau */
+.board::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(124,58,237,.12), transparent 70%),
+    radial-gradient(ellipse 60% 40% at 50% 100%, rgba(6,182,212,.06), transparent 70%);
+  pointer-events:none;
+}
+
+.card{
+  padding:16px 28px 16px 24px;
+  position:relative;
+}
+.card+.card{
+  border-top:1px solid rgba(255,255,255,.05);
+}
+.card::after{
+  content:'';
+  position:absolute;left:0;top:10%;bottom:10%;width:2.5px;
+  border-radius:0 2px 2px 0;
+}
+.card[data-t="contraction"]::after{background:linear-gradient(to bottom,rgba(251,113,133,.8),rgba(251,113,133,.3));}
+.card[data-t="prono"]::after      {background:linear-gradient(to bottom,rgba(74,222,128,.8),rgba(74,222,128,.3));}
+
+/* Fond subtil par carte */
+.card[data-t="contraction"]{background:rgba(251,113,133,.025);}
+.card[data-t="prono"]      {background:rgba(74,222,128,.018);}
+
+.badge{
+  position:absolute;top:8px;right:12px;
+  font-family:'JetBrains Mono',monospace;font-size:8px;
+  letter-spacing:.10em;text-transform:lowercase;
+  color:rgba(255,255,255,.22);
+}
+
+.c-fr{
+  font-family:'Syne',sans-serif;font-weight:700;
+  font-size:10.5px;color:rgba(255,255,255,.28);
+  letter-spacing:.04em;margin-bottom:4px;
+}
+.c-en{
+  font-family:'Lexend',sans-serif;font-weight:700;
+  font-size:40px;color:#ffffff;
+  line-height:1.05;letter-spacing:-.02em;
+  text-shadow:0 0 40px rgba(167,139,250,.25);
+}
+.c-en.sm{font-size:32px;}
+.card[data-t="contraction"] .c-en{text-shadow:0 0 40px rgba(251,113,133,.30);}
+.card[data-t="prono"]       .c-en{text-shadow:0 0 40px rgba(74,222,128,.22);}
+
+.c-phon{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:#22d3ee;
+  margin-top:4px;letter-spacing:.06em;
+  opacity:.80;
+}
+.card[data-t="contraction"] .c-phon{color:#fb7185;}
+.card[data-t="prono"]       .c-phon{color:#4ade80;}
+
+/* ── Scène vocale ── */
+.stage{
+  display:flex;justify-content:center;align-items:flex-end;
+  gap:8px;padding:18px 20px 10px;
+}
+.seat{
+  display:flex;flex-direction:column;align-items:center;
+  gap:4px;width:68px;opacity:.20;
+}
+.seat.on{opacity:1;}
+.avatar{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.08);
+  background:rgba(255,255,255,.03);
+  display:flex;align-items:center;justify-content:center;
+}
+.seat.on .avatar{
+  width:62px;height:62px;
+  border-color:rgba(251,191,36,.75);
+  box-shadow:0 0 24px rgba(251,191,36,.30),0 0 60px rgba(251,191,36,.10);
+  background:rgba(251,191,36,.07);
+}
+.avatar svg{width:24px;height:24px;}
+.seat.on .avatar svg{width:38px;height:38px;}
+.sname{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px;color:rgba(255,255,255,.22);
+  letter-spacing:.10em;text-transform:uppercase;
+}
+.seat.on .sname{color:rgba(255,255,255,.72);font-size:9.5px;}
+.swave{display:flex;align-items:flex-end;gap:2px;height:11px;}
+.swave span{width:2px;border-radius:2px;background:rgba(251,191,36,.55);}
+.swave span:nth-child(1){height:3px;}
+.swave span:nth-child(2){height:10px;}
+.swave span:nth-child(3){height:6px;}
+.swave span:nth-child(4){height:9px;}
+.swave span:nth-child(5){height:4px;}
+
+/* ── Panel micro ── */
+.panel{
+  margin:7px 16px;padding:10px 14px 12px;
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:18px;
+  background:rgba(255,255,255,.03);
+  backdrop-filter:blur(12px);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  opacity:.28;
+}
+.pwave{width:100%;height:14px;border-radius:4px;background:rgba(34,211,238,.04);}
+.mic{
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:center;
+  font-size:21px;
+}
+.ctrl{display:flex;gap:6px;width:100%;}
+.cbtn{
+  flex:1;padding:9px 6px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.04);
+  color:rgba(255,255,255,.28);
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  text-align:center;
+}
+
+/* ── Nav ── */
+.bnav{
+  display:flex;justify-content:space-around;
+  padding:10px 28px 26px;
+  border-top:1px solid rgba(255,255,255,.05);
+  margin-top:6px;
+}
+.bico{color:rgba(255,255,255,.15);}
+.bico.on{color:rgba(167,139,250,.80);}
+</style>
+</head>
+<body>
+<div class="orb1"></div>
+<div class="orb2"></div>
+<div class="design-label">Design 3 — Cosmos (couleur par type)</div>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="lesson-tag">● méthode audio · leçon 1 · fr → en</div>
+
+  <div class="board">
+    <div class="card" data-t="contraction">
+      <div class="badge">contraction</div>
+      <div class="c-fr">c'est possible</div>
+      <div class="c-en">it is possible</div>
+      <div class="c-phon">it iz po-si-beul</div>
+    </div>
+    <div class="card" data-t="prono">
+      <div class="badge">se dit</div>
+      <div class="c-fr">la table</div>
+      <div class="c-en sm">the table</div>
+      <div class="c-phon">ze téï-beul</div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="seat">
+      <div class="avatar"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="sname">Sophie</div>
+      <div class="swave"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="seat on">
+      <div class="avatar"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".85"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".85"/></svg></div>
+      <div class="sname">Marc</div>
+      <div class="swave"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="seat">
+      <div class="avatar"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="sname">Julien</div>
+      <div class="swave"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="pwave"></div>
+    <div class="mic">🎙</div>
+    <div class="ctrl">
+      <div class="cbtn">▶ réponse</div>
+      <div class="cbtn">Continuer →</div>
+      <div class="cbtn">↺</div>
+    </div>
+  </div>
+
+  <div class="bnav">
+    <div class="bico">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <div class="bico on">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div class="bico">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </div>
+  </div>
+</div>
+</body>
+</html>

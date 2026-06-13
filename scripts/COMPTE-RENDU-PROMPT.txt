@@ -1,0 +1,176 @@
+COMPTE-RENDU — ANALYSE DU PROMPT vs SCRIPTS BRUTS
+Scripts traités : piste 05 à piste 13 (9 scripts, 1 doublon)
+═══════════════════════════════════════════════════════════════
+
+──────────────────────────────────────────────────────────────
+POINTS POSITIFS
+──────────────────────────────────────────────────────────────
+
+1. STRUCTURE DE SORTIE : PARFAITEMENT RESPECTÉE
+   Le format ID / ROLE / AUDIO (ou TITRE + QUESTION pour les BIP)
+   est toujours correct, sans ambiguïté. L'IA ne mélange pas les
+   champs, ne met pas de tableau, ne rajoute pas de commentaires.
+   → C'est la plus grande réussite du prompt.
+
+2. RÈGLE BIP BIEN COMPRISE
+   La règle "le professeur dit la réponse AVANT de poser la
+   question" est respectée dans quasi tous les cas. Le BIP arrive
+   toujours après une question explicite en français.
+   → Aucun BIP "à l'aveugle" constaté sur les 9 scripts.
+
+3. LISTE DE TITRES BIP : TRÈS UTILE
+   La diversité des 20 titres (traduction, forme négative,
+   contraction, construction...) donne des BIP précis et variés.
+   Sans cette liste, l'IA utilise toujours "Comment dit-on ?".
+   → La liste est le deuxième point fort du prompt.
+
+4. BALISES ELEVENLABS BIEN PLACÉES
+   [excited], [encouraging] sur le professeur, [accent français],
+   [hésitant] sur les élèves — utilisés correctement, jamais en
+   excès, toujours en début de réplique comme demandé.
+
+5. NATUREL DES ÉLÈVES : NETTEMENT AMÉLIORÉ
+   Par rapport aux scripts bruts qui donnent des réponses sèches
+   sans aucune indication de jeu, les scripts produits ont des
+   hésitations, bégaiements et faux départs crédibles.
+   → La section "RÈGLES DE NATUREL VOCAL" fonctionne bien.
+
+6. PROGRESSION PÉDAGOGIQUE RESPECTÉE
+   L'IA ne saute pas d'étapes et suit l'ordre du script brut.
+   Les notions clés (négation, interrogation, contraction) sont
+   introduites dans le bon ordre.
+
+──────────────────────────────────────────────────────────────
+POINTS NÉGATIFS / LIMITES CONSTATÉES
+──────────────────────────────────────────────────────────────
+
+1. PISTE 13 : FORMAT INCOMPATIBLE AVEC LE PROMPT
+   La piste 13 est une "leçon par répétition guidée" : le prof
+   fait répéter chaque mot un par un, il n'y a quasi pas de BIP
+   formel. Le prompt ne prévoit pas ce cas.
+   → Résultat : j'ai dû forcer des BIP sur les constructions de
+   phrases complètes et mettre le reste en répliques simples.
+   J'ai ajouté une note d'avertissement en tête de fichier.
+   → À CORRIGER : ajouter une règle pour les leçons de type
+   "répétition guidée" (ex : BIP seulement sur les constructions
+   complètes, pas sur la répétition d'un seul mot).
+
+2. HÉSITATIONS DES ÉLÈVES TROP SYSTÉMATIQUES
+   Le prompt demande de varier les hésitations selon la difficulté
+   ("phrase courte et connue → légère ou aucune hésitation"), mais
+   l'IA en ajoute presque toujours une, même sur des réponses
+   très simples comme "I know." ou "Late.".
+   → L'effet est que même les moments fluides semblent laborieux.
+   → À CORRIGER : ajouter un exemple explicite de réplique SANS
+   hésitation pour les mots simples déjà connus.
+
+3. VALIDATIONS DU PROFESSEUR QUI SE RÉPÈTENT
+   Malgré la règle de varier les validations, "[excited] Right !"
+   revient très souvent sur les scripts longs (piste 10 = 151 IDs).
+   L'IA suit la liste fournie mais finit par cycler de façon
+   mécanique sur les mêmes 3-4 formules.
+   → À CORRIGER : augmenter la liste de variantes ET ajouter une
+   règle "pas la même validation deux fois de suite".
+
+4. QUESTIONS AJOUTÉES PAR L'IA : PARFOIS ARTIFICIELLES
+   Pour respecter la règle "le prof termine toujours par une
+   question", l'IA ajoute parfois des questions qui n'existent pas
+   dans le script brut et qui sonnent faux.
+   Exemple type : le prof vient de valider "Right ! I leave tonight."
+   et l'IA ajoute "Comment dit-on 'je pars ce soir' ?" alors que
+   le prof passe naturellement au mot suivant.
+   → Le prompt dit "tu PEUX ajouter des questions manquantes"
+   mais l'IA l'interprète comme une obligation.
+   → À CLARIFIER : "ajoute une question uniquement si la transition
+   le rend naturel. Ne force jamais une question artificielle."
+
+5. LANGUE DU CHAMP "QUESTION" DU BIP : AMBIGUË
+   Pas de règle explicite sur la langue du champ QUESTION.
+   Sur certains BIP l'IA met la phrase en français (correct),
+   sur d'autres elle met la réponse attendue en anglais (incorrect
+   d'un point de vue UX — l'utilisateur voit la réponse avant de
+   répondre). Observé surtout sur les révisions.
+   → À CORRIGER : ajouter "Le champ QUESTION est toujours en
+   français (ou contient la phrase de départ, jamais la réponse
+   attendue en anglais)."
+
+6. ÉQUILIBRE ELEVE1 / ELEVE2 : PEU DIVERSIFIÉ
+   Le prompt décrit les deux personnages mais ne donne pas de règle
+   d'alternance. L'IA a tendance à donner les réponses longues et
+   complexes à ELEVE2 et les courtes à ELEVE1 de façon prévisible.
+   → L'effet est que ELEVE1 semble moins compétente, ce qui n'est
+   pas voulu.
+   → À CORRIGER : ajouter une règle d'alternance explicite :
+   "Alterner régulièrement ELEVE1 et ELEVE2. Ne pas donner
+   systématiquement les phrases longues au même élève."
+
+7. FORMAT DES ÉPELLATIONS DU PROFESSEUR : NON STANDARDISÉ
+   Le professeur épelle souvent les mots (L-I-V-E, T-O-N-I-G-H-T,
+   W-H-E-N...). Le prompt ne dit pas comment les formater.
+   J'ai utilisé la convention X-X-X-X avec tirets, mais ce n'est
+   pas précisé et l'IA peut faire autrement.
+   → À CORRIGER : ajouter un exemple d'épellation dans la section
+   OPTIMISATION ou dans les exemples BIP.
+   Format recommandé : L-I-V-E (majuscules + tirets).
+
+8. VRAIES ERREURS DES ÉLÈVES : RÈGLE MANQUANTE
+   Dans les scripts bruts, les élèves se trompent parfois
+   (ex piste 12 : ELEVE2 dit "I don't leave here" au lieu de
+   "I don't live here", et le prof corrige).
+   Le prompt ne dit pas comment traiter ces erreurs :
+   - faut-il les reproduire fidèlement ? (crédit : authenticité)
+   - faut-il les effacer ? (risque : l'IA apprend quelque chose de faux)
+   - faut-il les signaler ?
+   → À DÉCIDER ET CLARIFIER dans le prompt.
+
+9. PISTE 07 = DOUBLON DE PISTE 06
+   Les deux fichiers sources étaient identiques. Le prompt ne
+   peut pas détecter ça — c'est un problème de fichiers source,
+   pas du prompt. Mais il faudra vérifier chaque paire de fichiers
+   avant de lancer l'IA.
+
+──────────────────────────────────────────────────────────────
+BILAN CHIFFRÉ
+──────────────────────────────────────────────────────────────
+
+Scripts traités avec succès    : 8/9
+Scripts avec adaptation manuelle : 2 (piste 13 format différent,
+                                      piste 07 doublon noté)
+BIP mal formés constatés       : 0
+Erreurs de structure           : 0
+Hésitations manquantes         : 0
+Hésitations excessives/mécaniques : observées sur pistes 10, 11
+
+Qualité globale estimée (prêt ElevenLabs) :
+  Piste 05 → ✅ Bon
+  Piste 06 → ✅ Bon
+  Piste 07 → ⚠️ Doublon de 06
+  Piste 08 → ✅ Bon
+  Piste 09 → ✅ Bon
+  Piste 10 → ✅ Bon (long : risque de répétitions de formules)
+  Piste 11 → ✅ Bon
+  Piste 12 → ✅ Bon
+  Piste 13 → ⚠️ Format adapté manuellement (leçon répétition guidée)
+
+──────────────────────────────────────────────────────────────
+RECOMMANDATIONS PRIORITAIRES POUR AMÉLIORER LE PROMPT
+──────────────────────────────────────────────────────────────
+
+PRIORITÉ HAUTE :
+  → Ajouter règle : "Le champ QUESTION est en français,
+    jamais la réponse anglaise attendue."
+  → Ajouter règle pour les leçons de type répétition guidée
+    (peu ou pas de BIP formel).
+  → Préciser le format des épellations : X-X-X-X.
+
+PRIORITÉ MOYENNE :
+  → Ajouter un exemple de réplique ELEVE sans hésitation
+    (pour les mots courts et connus).
+  → Étendre la liste de validations du professeur (10+ variantes).
+  → Ajouter règle : "Pas la même validation deux fois de suite."
+  → Préciser la règle d'alternance ELEVE1/ELEVE2.
+
+PRIORITÉ BASSE :
+  → Définir comment traiter les vraies erreurs des élèves.
+  → Préciser que les questions ajoutées doivent être naturelles,
+    pas forcées.

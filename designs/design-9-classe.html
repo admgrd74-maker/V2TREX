@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Design 9 — La Classe</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700;9..144,900&family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#0d0f14;
+  min-height:100vh;
+  display:flex;align-items:center;justify-content:center;
+  padding:60px 32px;
+  font-family:'Inter',sans-serif;
+}
+.label{
+  position:fixed;top:18px;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:rgba(255,255,255,.22);text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:5px 16px;border-radius:20px;white-space:nowrap;
+}
+
+/* ══════ TÉLÉPHONE ══════ */
+.phone{
+  width:390px;
+  background:#080910;
+  border-radius:52px;
+  overflow:hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.07),
+    0 0 0 7px #090a0d,
+    0 0 0 8px rgba(255,255,255,.04),
+    0 80px 160px rgba(0,0,0,.9),
+    0 0 80px rgba(99,102,241,.04);
+}
+.notch{
+  width:126px;height:34px;background:#040509;
+  border-radius:0 0 24px 24px;margin:0 auto;z-index:10;position:relative;
+}
+
+/* ══════ HEADER MINIMAL ══════ */
+.hdr{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:8px 20px 0;
+}
+.hdr-left{
+  display:flex;align-items:center;gap:6px;
+}
+.live-dot{
+  width:5px;height:5px;border-radius:50%;
+  background:#ef4444;box-shadow:0 0 6px rgba(239,68,68,.8);
+}
+.hdr-tag{
+  font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.20em;
+  color:rgba(255,255,255,.25);text-transform:uppercase;
+}
+.hdr-prog{
+  font-family:'JetBrains Mono',monospace;font-size:8.5px;
+  color:rgba(255,255,255,.18);
+}
+
+/* ══════ ZONE CLASSE — HAUT ══════
+   Paradigme différent : les personnages
+   ont une VRAIE place visuelle, pas des
+   petits icons en bas. Comme une visio.
+══════ */
+.classe{
+  margin:10px 14px 0;
+  display:grid;
+  grid-template-columns:1fr 1fr 1fr;
+  gap:6px;
+  border-radius:16px;
+  overflow:hidden;
+}
+
+.seat-cell{
+  position:relative;
+  aspect-ratio:1/1;
+  background:#0e0f14;
+  border-radius:10px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  gap:6px;
+  border:1px solid rgba(255,255,255,.05);
+  overflow:hidden;
+}
+/* La personne qui parle */
+.seat-cell.speaking{
+  border-color:rgba(251,191,36,.35);
+  box-shadow:0 0 0 1px rgba(251,191,36,.15) inset;
+  background:#0d0e11;
+}
+.seat-cell.speaking::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse at 50% 120%, rgba(251,191,36,.08) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+/* L'icône de parole en coin */
+.speaking-badge{
+  position:absolute;top:5px;right:5px;
+  display:flex;align-items:flex-end;gap:1.5px;height:8px;
+}
+.speaking-badge span{
+  width:2px;border-radius:1px;background:rgba(251,191,36,.70);
+}
+.speaking-badge span:nth-child(1){height:3px;animation:wave1 .9s ease-in-out infinite;}
+.speaking-badge span:nth-child(2){height:7px;animation:wave2 .9s ease-in-out .1s infinite;}
+.speaking-badge span:nth-child(3){height:4px;animation:wave3 .9s ease-in-out .2s infinite;}
+@keyframes wave1{0%,100%{height:3px}50%{height:6px}}
+@keyframes wave2{0%,100%{height:7px}50%{height:4px}}
+@keyframes wave3{0%,100%{height:4px}50%{height:7px}}
+
+/* Avatar silhouette SVG */
+.seat-av{
+  width:40px;height:40px;
+  opacity:.25;
+}
+.seat-cell.speaking .seat-av{opacity:.70;}
+.seat-cell.moi .seat-av{opacity:.50;}
+
+/* Nom */
+.seat-name{
+  font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.12em;
+  color:rgba(255,255,255,.22);text-transform:uppercase;
+}
+.seat-cell.speaking .seat-name{color:rgba(255,255,255,.60);}
+
+/* Role tag */
+.seat-role{
+  position:absolute;bottom:5px;left:5px;
+  font-family:'JetBrains Mono',monospace;font-size:6.5px;letter-spacing:.10em;
+  color:rgba(255,255,255,.18);text-transform:lowercase;
+}
+.seat-cell.moi{
+  border-style:dashed;
+  border-color:rgba(99,102,241,.25);
+  background:rgba(99,102,241,.04);
+}
+.seat-cell.moi .seat-role{color:rgba(99,102,241,.50);}
+
+/* ══════ TABLEAU — bas de l'écran ══════
+   Layout complètement différent :
+   les mots flottent dans un espace ouvert,
+   pas des "cartes" rectangulaires.
+   Chaque entrée = ligne horizontale large.
+══════ */
+.board{
+  margin:10px 14px;
+  background:#000;
+  border-radius:16px;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.05);
+  flex:1;
+}
+.board-header{
+  padding:9px 14px 7px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.04);
+}
+.bh-title{
+  font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.18em;
+  color:rgba(255,255,255,.18);text-transform:uppercase;
+}
+.bh-count{
+  font-family:'JetBrains Mono',monospace;font-size:8px;
+  color:rgba(255,255,255,.14);
+}
+
+/* Chaque ligne du tableau — layout horizontal */
+.row{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  align-items:center;
+  gap:10px;
+  padding:14px 16px;
+  position:relative;
+}
+.row+.row{border-top:1px solid rgba(255,255,255,.04);}
+
+/* Puce colorée à gauche */
+.row-dot{
+  width:5px;height:5px;border-radius:50%;
+  flex-shrink:0;
+}
+.row[data-t="contraction"] .row-dot{background:#3b82f6;}
+.row[data-t="prono"] .row-dot{background:#10b981;}
+
+/* Centre : FR + EN + phon */
+.row-content{min-width:0;}
+.row-fr{
+  font-family:'Inter',sans-serif;font-weight:300;
+  font-size:9.5px;color:rgba(255,255,255,.22);
+  font-style:italic;margin-bottom:2px;
+}
+.row-en{
+  font-family:'Fraunces',serif;font-weight:900;
+  /* Fraunces optique = épaisseur variable selon taille */
+  font-optical-sizing:auto;
+  font-size:38px;line-height:1.0;letter-spacing:-.025em;
+  color:#fff;
+}
+.row-ph{
+  font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.06em;
+  margin-top:3px;display:block;
+}
+.row[data-t="contraction"] .row-ph{color:rgba(96,165,250,.65);}
+.row[data-t="prono"] .row-ph{color:rgba(52,211,153,.65);}
+
+/* Badge type à droite */
+.row-tag{
+  font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.10em;
+  text-transform:lowercase;color:rgba(255,255,255,.18);
+  writing-mode:vertical-rl;text-orientation:mixed;
+  transform:rotate(180deg);
+  white-space:nowrap;
+}
+
+/* ══════ BIP / MICRO ══════ */
+.bip{
+  margin:8px 14px 14px;
+  padding:12px 18px;
+  background:rgba(99,102,241,.09);
+  border:1px solid rgba(99,102,241,.22);
+  border-radius:14px;
+  display:flex;align-items:center;gap:10px;
+}
+.bip-icon{font-size:18px;}
+.bip-text{
+  flex:1;
+  font-family:'Inter',sans-serif;font-weight:500;
+  font-size:12px;color:rgba(255,255,255,.55);
+}
+.bip-text strong{
+  display:block;font-weight:600;font-size:13px;
+  color:rgba(255,255,255,.80);
+}
+.bip-btn{
+  padding:7px 14px;border-radius:10px;
+  background:rgba(99,102,241,.25);
+  border:1px solid rgba(99,102,241,.35);
+  color:rgba(255,255,255,.70);
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;
+}
+
+/* ══════ NAV ══════ */
+.nav{
+  display:flex;justify-content:space-around;
+  padding:8px 24px 28px;
+  border-top:1px solid rgba(255,255,255,.04);
+}
+.ni{color:rgba(255,255,255,.15);}
+.ni.on{color:rgba(255,255,255,.70);}
+</style>
+</head>
+<body>
+<div class="label">Design 9 — La Classe (visio + tableau)</div>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="hdr">
+    <div class="hdr-left">
+      <div class="live-dot"></div>
+      <div class="hdr-tag">méthode audio · leçon 1</div>
+    </div>
+    <div class="hdr-prog">étape 7/24</div>
+  </div>
+
+  <!-- Zone Classe — personnages en grid visio -->
+  <div class="classe">
+    <div class="seat-cell">
+      <svg class="seat-av" viewBox="0 0 56 68" fill="none"><circle cx="28" cy="18" r="14" fill="white"/><path d="M4 66c0-20 48-20 48 0" fill="white"/></svg>
+      <div class="seat-name">Sophie</div>
+      <div class="seat-role">prof</div>
+    </div>
+    <div class="seat-cell speaking">
+      <div class="speaking-badge"><span></span><span></span><span></span></div>
+      <svg class="seat-av" viewBox="0 0 56 68" fill="none"><circle cx="28" cy="18" r="14" fill="white"/><path d="M4 66c0-20 48-20 48 0" fill="white"/></svg>
+      <div class="seat-name">Marc</div>
+      <div class="seat-role">élève 1</div>
+    </div>
+    <div class="seat-cell">
+      <svg class="seat-av" viewBox="0 0 56 68" fill="none"><circle cx="28" cy="18" r="14" fill="white"/><path d="M4 66c0-20 48-20 48 0" fill="white"/></svg>
+      <div class="seat-name">Julien</div>
+      <div class="seat-role">élève 2</div>
+    </div>
+  </div>
+
+  <!-- Tableau -->
+  <div class="board">
+    <div class="board-header">
+      <div class="bh-title">tableau</div>
+      <div class="bh-count">2 expressions</div>
+    </div>
+
+    <div class="row" data-t="contraction">
+      <div class="row-dot"></div>
+      <div class="row-content">
+        <div class="row-fr">c'est possible</div>
+        <div class="row-en">it is possible</div>
+        <span class="row-ph">it iz po-si-beul</span>
+      </div>
+      <div class="row-tag">contraction</div>
+    </div>
+
+    <div class="row" data-t="prono">
+      <div class="row-dot"></div>
+      <div class="row-content">
+        <div class="row-fr">la table</div>
+        <div class="row-en">the table</div>
+        <span class="row-ph">ze téï-beul</span>
+      </div>
+      <div class="row-tag">se dit</div>
+    </div>
+  </div>
+
+  <!-- Panel bip -->
+  <div class="bip">
+    <div class="bip-icon">🎙</div>
+    <div class="bip-text">
+      <strong>À toi, Julien</strong>
+      Répète la dernière expression
+    </div>
+    <div class="bip-btn">Enr.</div>
+  </div>
+
+  <!-- Nav -->
+  <div class="nav">
+    <div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+    <div class="ni on"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+    <div class="ni"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div>
+  </div>
+</div>
+</body>
+</html>

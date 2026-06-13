@@ -1,0 +1,1600 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Nous, c'est WE. Nous sommes, WE ARE. Vous êtes, YOU ARE. Ils sont, THEY ARE. T-H-E-Y, they. On écrit ARE : A-R-E. We are, you are, they are — dans ces trois cas, on peut contracter : WE'RE, YOU'RE, THEY'RE. Alors, comment dit-on en anglais : "nous sommes prêts" ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+nous sommes prêts
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hesitant] We are ready.
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Yes, we are ready ! Et avec la contraction — comment dit-on "nous sommes prêts" ?
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Quelle est la contraction de ?
+
+QUESTION :
+we are ready
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE1
+
+AUDIO :
+We're... ready.
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] We're ready ! Comment dit-on en anglais : "nous ne sommes pas prêts" ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+nous ne sommes pas prêts
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE1
+
+AUDIO :
+We are not... ready.
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+We are not ready. Comment dit-on en anglais : "vous êtes prêts" ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+vous êtes prêts
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE1
+
+AUDIO :
+You are ready.
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+You are ready. Et avec la contraction — comment dit-on "vous êtes prêts" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Quelle est la contraction de ?
+
+QUESTION :
+you are ready
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE1
+
+AUDIO :
+You're ready.
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] You're ready ! Comment dit-on en anglais : "vous n'êtes pas prêts" ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+vous n'êtes pas prêts
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hesitant] They are...
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+"Vous" n'êtes pas...
+
+---
+
+ID :
+0020
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Heu... you are... you are not ready.
+
+---
+
+ID :
+0021
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Yes ! You are not ready. Comment dit-on en anglais : "ils sont prêts" ?
+
+---
+
+ID :
+0022
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ils sont prêts
+
+---
+
+ID :
+0023
+
+ROLE :
+ELEVE2
+
+AUDIO :
+They are ready.
+
+---
+
+ID :
+0024
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+They are ready. Et avec la contraction — comment dit-on "ils sont prêts" ?
+
+---
+
+ID :
+0025
+
+ROLE :
+BIP
+
+TITRE :
+Quelle est la contraction de ?
+
+QUESTION :
+they are ready
+
+---
+
+ID :
+0026
+
+ROLE :
+ELEVE2
+
+AUDIO :
+They're ready.
+
+---
+
+ID :
+0027
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Bien ! They're ready. Comment dit-on en anglais : "ils ne sont pas prêts" ?
+
+---
+
+ID :
+0028
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ils ne sont pas prêts
+
+---
+
+ID :
+0029
+
+ROLE :
+ELEVE2
+
+AUDIO :
+They are not ready.
+
+---
+
+ID :
+0030
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+They are not ready. Comment dit-on en anglais : "nous ne sommes pas encore prêts" ?
+
+---
+
+ID :
+0031
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+nous ne sommes pas encore prêts
+
+---
+
+ID :
+0032
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hesitant] Heu... we are not ready... yet ?
+
+---
+
+ID :
+0033
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] We are not ready yet. Maintenant, "il" en anglais, c'est HE. H-E. HE. "Il est" — HE IS. He is. Comment dit-on en anglais : "il" ?
+
+---
+
+ID :
+0034
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+il
+
+---
+
+ID :
+0035
+
+ROLE :
+ELEVE2
+
+AUDIO :
+He...
+
+---
+
+ID :
+0036
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+He. Et "il est" — HE... il est ?
+
+---
+
+ID :
+0037
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+il est
+
+---
+
+ID :
+0038
+
+ROLE :
+ELEVE2
+
+AUDIO :
+He is ?
+
+---
+
+ID :
+0039
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] He is. "Est" se dit IS. I-S. He is. Comment dit-on "il est" ?
+
+---
+
+ID :
+0040
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+il est
+
+---
+
+ID :
+0041
+
+ROLE :
+ELEVE2
+
+AUDIO :
+He is.
+
+---
+
+ID :
+0042
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+He is. Alors, comment dit-on en anglais : "il est prêt" ?
+
+---
+
+ID :
+0043
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+il est prêt
+
+---
+
+ID :
+0044
+
+ROLE :
+ELEVE2
+
+AUDIO :
+He is ready.
+
+---
+
+ID :
+0045
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] He's ready. Comment dit-on en anglais : "il n'est pas prêt" ?
+
+---
+
+ID :
+0046
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+il n'est pas prêt
+
+---
+
+ID :
+0047
+
+ROLE :
+ELEVE2
+
+AUDIO :
+He isn't ready.
+
+---
+
+ID :
+0048
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Yes ! He isn't ready. He is not ready. Maintenant, "elle" en anglais, c'est SHE. S-H-E. SHE. Comment dit-on en anglais : "elle est prête" ?
+
+---
+
+ID :
+0049
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+elle est prête
+
+---
+
+ID :
+0050
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hesitant] She... is... ready ?
+
+---
+
+ID :
+0051
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+She is ready. Comment dit-on en anglais : "elle n'est pas prête encore" ?
+
+---
+
+ID :
+0052
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+elle n'est pas prête encore
+
+---
+
+ID :
+0053
+
+ROLE :
+ELEVE1
+
+AUDIO :
+She is not ready... yet.
+
+---
+
+ID :
+0054
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! She is not ready yet. Comment dit-on en anglais : "c'est prêt" ?
+
+---
+
+ID :
+0055
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est prêt
+
+---
+
+ID :
+0056
+
+ROLE :
+ELEVE1
+
+AUDIO :
+It is ready ?
+
+---
+
+ID :
+0057
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It is ready. Comment dit-on en anglais : "ce n'est pas prêt encore" ?
+
+---
+
+ID :
+0058
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas prêt encore
+
+---
+
+ID :
+0059
+
+ROLE :
+ELEVE1
+
+AUDIO :
+It isn't ready yet.
+
+---
+
+ID :
+0060
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] It isn't ready yet. Passons au verbe aller. Pour dire "je vais", on emploie I'M GOING. Littéralement : "je suis en train d'aller". I'm going. On emploie GOING dans tous les cas — seul le verbe être change. Alors, comment dit-on en anglais : "je vais" ?
+
+---
+
+ID :
+0061
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je vais
+
+---
+
+ID :
+0062
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hesitant] Heu... I'm go ? I... I go ? I'm...
+
+---
+
+ID :
+0063
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I'm...
+
+---
+
+ID :
+0064
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I'm going ?
+
+---
+
+ID :
+0065
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I'm going. Comment dit-on en anglais : "je ne vais pas" ?
+
+---
+
+ID :
+0066
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je ne vais pas
+
+---
+
+ID :
+0067
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I'm not going.
+
+---
+
+ID :
+0068
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I'm not going. "Allez-vous ?" — sous forme de question. Comment dit-on en anglais : "allez-vous ?" ?
+
+---
+
+ID :
+0069
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+allez-vous ?
+
+---
+
+ID :
+0070
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Are you going ?
+
+---
+
+ID :
+0071
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Are you going. Comment dit-on en anglais : "vous allez" ?
+
+---
+
+ID :
+0072
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+vous allez
+
+---
+
+ID :
+0073
+
+ROLE :
+ELEVE2
+
+AUDIO :
+You are going.
+
+---
+
+ID :
+0074
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] You are going ! Comment dit-on en anglais : "nous allons" ?
+
+---
+
+ID :
+0075
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+nous allons
+
+---
+
+ID :
+0076
+
+ROLE :
+ELEVE2
+
+AUDIO :
+We are going.
+
+---
+
+ID :
+0077
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] We are going. Notez bien — on emploie toujours GOING. Seul le verbe être change : "je suis", "vous êtes", "nous sommes", "ils sont", "il est". Toujours GOING. Alors, comment dit-on en anglais : "je vais" ?
+
+---
+
+ID :
+0078
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je vais
+
+---
+
+ID :
+0079
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I'm going.
+
+---
+
+ID :
+0080
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I'm going. Comment dit-on en anglais : "je ne vais pas" ?
+
+---
+
+ID :
+0081
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je ne vais pas
+
+---
+
+ID :
+0082
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I'm not going.
+
+---
+
+ID :
+0083
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I'm not going. "Vous allez", "vous êtes"... going. Comment dit-on "vous allez" ?
+
+---
+
+ID :
+0084
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+vous êtes... going
+
+---
+
+ID :
+0085
+
+ROLE :
+ELEVE1
+
+AUDIO :
+You are going.
+
+---
+
+ID :
+0086
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+You are going. "Je vais", "je suis"... going. Comment dit-on "je vais" ?
+
+---
+
+ID :
+0087
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+je suis... going
+
+---
+
+ID :
+0088
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I... am going.
+
+---
+
+ID :
+0089
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I am not going. "Je ne vais pas", "je ne suis pas"... going. Comment dit-on "je ne vais pas" ?
+
+---
+
+ID :
+0090
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+je ne suis pas... going
+
+---
+
+ID :
+0091
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I'm not going.
+
+---
+
+ID :
+0092
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I'm not going. "Vous allez", "vous êtes"... going. Comment dit-on "vous allez" ?
+
+---
+
+ID :
+0093
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+vous êtes... going
+
+---
+
+ID :
+0094
+
+ROLE :
+ELEVE1
+
+AUDIO :
+You are going.
+
+---
+
+ID :
+0095
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+You are going. "Vous n'allez pas", "vous n'êtes pas"... going. Comment dit-on "vous n'allez pas" ?
+
+---
+
+ID :
+0096
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+vous n'êtes pas... going
+
+---
+
+ID :
+0097
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hesitant] You... are not... going.
+
+---
+
+ID :
+0098
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+You are not going. "Nous allons", "nous sommes"... going. Comment dit-on "nous allons" ?
+
+---
+
+ID :
+0099
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+nous sommes... going
+
+---
+
+ID :
+0100
+
+ROLE :
+ELEVE2
+
+AUDIO :
+We are going.
+
+---
+
+ID :
+0101
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+We are going. "Nous n'allons pas", "nous ne sommes pas"... going. Comment dit-on "nous n'allons pas" ?
+
+---
+
+ID :
+0102
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+nous ne sommes pas... going
+
+---
+
+ID :
+0103
+
+ROLE :
+ELEVE2
+
+AUDIO :
+We are not going.
+
+---
+
+ID :
+0104
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+We are not going. "Ils vont", "ils sont"... going. Comment dit-on "ils vont" ?
+
+---
+
+ID :
+0105
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+ils sont... going
+
+---
+
+ID :
+0106
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[sighs] They are... not... Non, heu... [laughs] they are going.
+
+---
+
+ID :
+0107
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[laughs] They are going. "Ils ne vont pas", "ils ne sont pas"... going. Comment dit-on "ils ne vont pas" ?
+
+---
+
+ID :
+0108
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+ils ne sont pas... going
+
+---
+
+ID :
+0109
+
+ROLE :
+ELEVE2
+
+AUDIO :
+They are not going.
+
+---
+
+ID :
+0110
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+They are not going. "Il va", "il est"... going. Comment dit-on "il va" ?
+
+---
+
+ID :
+0111
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+il est... going
+
+---
+
+ID :
+0112
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hesitant] He... is going ?
+
+---
+
+ID :
+0113
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] He is going. He is going. "Il n'est pas"... going. Comment dit-on "il ne va pas" ?
+
+---
+
+ID :
+0114
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+il n'est pas... going
+
+---
+
+ID :
+0115
+
+ROLE :
+ELEVE2
+
+AUDIO :
+He is not going.
+
+---
+
+ID :
+0116
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+He is not going. "Elle va", "elle est"... going. Comment dit-on "elle va" ?
+
+---
+
+ID :
+0117
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+elle est... going
+
+---
+
+ID :
+0118
+
+ROLE :
+ELEVE1
+
+AUDIO :
+She is going.
+
+---
+
+ID :
+0119
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] She is going ! "Elle n'est pas"... going. Comment dit-on "elle ne va pas" ?
+
+---
+
+ID :
+0120
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+elle n'est pas... going
+
+---
+
+ID :
+0121
+
+ROLE :
+ELEVE1
+
+AUDIO :
+She is not going.
+
+---
+
+ID :
+0122
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+She is not going. "Ça va", dans le sens d'aller quelque part... "ça est"... going. Comment dit-on "ça va" ?
+
+---
+
+ID :
+0123
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+ça est... going
+
+---
+
+ID :
+0124
+
+ROLE :
+ELEVE1
+
+AUDIO :
+It is going ?
+
+---
+
+ID :
+0125
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It is going. Comment dit-on "ça ne va pas" ?
+
+---
+
+ID :
+0126
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+ça n'est pas... going
+
+---
+
+ID :
+0127
+
+ROLE :
+ELEVE1
+
+AUDIO :
+It is not going.
+
+---
+
+ID :
+0128
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It is not going. Encore une fois — "il va" ?
+
+---
+
+ID :
+0129
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+il va
+
+---
+
+ID :
+0130
+
+ROLE :
+ELEVE1
+
+AUDIO :
+He is going.
+
+---
+
+ID :
+0131
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] He is going. Retenez bien : "va" se traduit TOUJOURS par IS GOING. "Mon ami", c'est MY FRIEND. My friend, mon ami. Comment dit-on en anglais : "mon ami va" ?
+
+---
+
+ID :
+0132
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+mon ami va
+
+---
+
+ID :
+0133
+
+ROLE :
+ELEVE1
+
+AUDIO :
+My friend is going.
+
+---
+
+ID :
+0134
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! My friend is going. "Va" se traduit par IS GOING. Toujours IS GOING. "Va" : IS GOING.

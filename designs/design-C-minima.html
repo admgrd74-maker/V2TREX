@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design C — Minima</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:        #F0EBE3;
+  --phone-lec: #FAFAF7;
+  --phone-bip: #0C0C0E;
+  --bezel-lec: #DDD8D0;
+  --bezel-bip: #020204;
+  --ink:        #111111;
+  --ink60:      rgba(17,17,17,.60);
+  --ink30:      rgba(17,17,17,.30);
+  --ink12:      rgba(17,17,17,.12);
+  --ink06:      rgba(17,17,17,.06);
+  --white90:    rgba(255,255,255,.90);
+  --white50:    rgba(255,255,255,.50);
+  --white20:    rgba(255,255,255,.20);
+  --white10:    rgba(255,255,255,.10);
+  --amber:      #E8900A;
+  --amber-bip:  #FBBF24;
+  /* Type colors — bold single hue */
+  --c-con:   #D63C3C;
+  --c-trad:  #1A6FC4;
+  --c-prono: #1A9E4A;
+  --c-expr:  #7C3AED;
+}
+body{
+  background:var(--bg);
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:64px 32px 80px;font-family:'Syne',sans-serif;overflow-x:hidden;
+}
+/* Fond crème avec très subtile texture */
+body::before{
+  content:'';position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 60% 50% at 30% 50%, rgba(232,144,10,.04) 0%, transparent 70%),
+    radial-gradient(ellipse 60% 50% at 70% 50%, rgba(26,111,196,.04) 0%, transparent 70%);
+  pointer-events:none;
+}
+
+.label{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.18em;
+  color:rgba(17,17,17,.22);text-transform:uppercase;
+  background:rgba(17,17,17,.04);border:1px solid rgba(17,17,17,.10);
+  padding:5px 18px;border-radius:20px;white-space:nowrap;z-index:100;
+}
+
+/* ══ PHONES ══ */
+.phones{display:flex;gap:40px;align-items:center;position:relative;z-index:1;}
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:14px;}
+
+/* Téléphone LECTURE — clair */
+.phone.lec{
+  width:375px;border-radius:48px;overflow:hidden;
+  background:var(--phone-lec);
+  box-shadow:
+    0 0 0 1px rgba(17,17,17,.08),
+    0 0 0 8px var(--bezel-lec),
+    0 0 0 9px rgba(17,17,17,.06),
+    0 60px 120px rgba(0,0,0,.20),
+    0 20px 40px rgba(0,0,0,.10),
+    inset 0 1px 0 rgba(255,255,255,.90);
+}
+/* Téléphone BIP — sombre */
+.phone.bip{
+  width:375px;border-radius:48px;overflow:hidden;
+  background:var(--phone-bip);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 0 0 8px var(--bezel-bip),
+    0 0 0 9px rgba(255,255,255,.03),
+    0 60px 140px rgba(0,0,0,.90),
+    inset 0 1px 0 rgba(255,255,255,.05);
+}
+
+/* ══ NOTCH ══ */
+.notch{
+  position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  width:116px;height:34px;border-radius:20px;z-index:50;
+}
+.phone.lec .notch{background:var(--bezel-lec);box-shadow:0 0 0 1px rgba(17,17,17,.07);}
+.phone.bip .notch{background:var(--bezel-bip);box-shadow:0 0 0 1px rgba(255,255,255,.05);}
+
+/* ══ SCREEN ══ */
+.screen{position:relative;min-height:820px;display:flex;flex-direction:column;overflow:hidden;}
+.phone.lec .screen{background:var(--phone-lec);}
+.phone.bip .screen{background:var(--phone-bip);}
+
+/* ══ HEADER ══ */
+.hd{
+  position:absolute;top:0;left:0;right:0;
+  padding:54px 26px 0;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:20;pointer-events:none;
+}
+.hd-tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.20em;text-transform:uppercase;}
+.phone.lec .hd-tag{color:rgba(17,17,17,.30);}
+.phone.bip .hd-tag{color:rgba(255,255,255,.28);}
+.hd-dot{
+  width:6px;height:6px;border-radius:50%;background:#22c55e;
+  box-shadow:0 0 10px rgba(34,197,94,.85);
+  animation:dot-blink 2.8s ease-in-out infinite;
+}
+@keyframes dot-blink{0%,100%{box-shadow:0 0 10px rgba(34,197,94,.85);}50%{box-shadow:0 0 20px rgba(34,197,94,.45);}}
+
+/* ══ WORD ZONE ══ */
+.word-zone{
+  flex:1;display:flex;flex-direction:column;
+  justify-content:center;padding:80px 0 152px;
+}
+.word-block{
+  flex:none;padding:46px 28px;
+  display:flex;flex-direction:column;position:relative;
+}
+.word-block+.word-block{border-top:1px solid var(--ink12);}
+
+/* Badge type — texte coloré, pas de fond */
+.w-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'JetBrains Mono',monospace;font-size:9.5px;font-weight:600;
+  letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.badge-bar{width:18px;height:2px;border-radius:1px;background:currentColor;flex-shrink:0;}
+.word-block[data-t="contraction"] .w-badge{color:var(--c-con);}
+.word-block[data-t="traduction"]   .w-badge{color:var(--c-trad);}
+.word-block[data-t="prono"]        .w-badge{color:var(--c-prono);}
+.word-block[data-t="expression"]   .w-badge{color:var(--c-expr);}
+
+/* Mot FR */
+.w-fr{
+  font-family:'Syne',sans-serif;font-weight:500;
+  font-size:20px;color:var(--ink60);
+  letter-spacing:.01em;margin-bottom:8px;
+}
+/* Mot EN — géant, toute la largeur */
+.w-en{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:86px;line-height:.84;letter-spacing:-.03em;
+  color:var(--ink);
+}
+/* Glow couleur très subtil sur EN */
+.word-block[data-t="contraction"] .w-en{text-shadow:0 4px 60px rgba(214,60,60,.08);}
+.word-block[data-t="traduction"]   .w-en{text-shadow:0 4px 60px rgba(26,111,196,.08);}
+
+/* Phonétique */
+.w-ph{
+  font-family:'JetBrains Mono',monospace;font-weight:400;
+  font-size:12.5px;letter-spacing:.10em;
+  margin-top:14px;display:block;color:var(--ink30);
+}
+
+/* ══ BIP ZONE ══ */
+.bip-zone{
+  flex:1;display:flex;flex-direction:column;
+  justify-content:flex-start;align-items:center;
+  padding:108px 28px 248px;gap:20px;
+}
+.bip-q-label{
+  font-family:'Syne',sans-serif;font-weight:500;
+  font-size:14px;color:rgba(255,255,255,.40);
+  letter-spacing:.03em;text-align:center;
+}
+.bip-q-phrase{
+  font-family:'Syne',sans-serif;font-weight:800;
+  font-size:72px;line-height:.88;letter-spacing:-.03em;
+  color:#fff;text-align:center;
+}
+/* Bouton voir réponse */
+.voir-rep-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:12px 26px;
+  background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:28px;
+  color:rgba(255,255,255,.40);
+  font-family:'Syne',sans-serif;font-size:13px;font-weight:500;
+  letter-spacing:.02em;cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s;
+}
+.voir-rep-btn:hover{background:rgba(255,255,255,.12);color:rgba(255,255,255,.70);border-color:rgba(255,255,255,.20);}
+
+/* ══ OVERLAY BAS ══ */
+.overlay-bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:18px 24px 36px;z-index:20;
+}
+.phone.lec .overlay-bottom{background:linear-gradient(to top,rgba(250,250,247,.98) 60%,transparent 100%);}
+.phone.bip .overlay-bottom{background:linear-gradient(to top,rgba(9,9,12,.98) 60%,transparent 100%);}
+
+/* Avatars */
+.chars{display:flex;align-items:flex-end;justify-content:center;gap:22px;margin-bottom:14px;}
+.char-item{display:flex;flex-direction:column;align-items:center;gap:5px;cursor:pointer;}
+
+/* LECTURE avatars — clairs */
+.lec .char-av{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid var(--ink12);background:var(--ink06);
+  display:flex;align-items:center;justify-content:center;
+  opacity:.28;transition:all .28s ease;
+}
+.lec .char-item.on .char-av{
+  width:56px;height:56px;opacity:1;
+  border-color:rgba(17,17,17,.35);background:rgba(17,17,17,.06);
+  animation:lec-halo 1.8s ease-in-out infinite;
+}
+@keyframes lec-halo{
+  0%,100%{box-shadow:0 0 0 3px rgba(17,17,17,.04),0 4px 20px rgba(17,17,17,.12);}
+  50%    {box-shadow:0 0 0 4px rgba(17,17,17,.08),0 4px 32px rgba(17,17,17,.22);}
+}
+.lec .char-av svg{width:17px;height:17px;transition:width .28s,height .28s;}
+.lec .char-item.on .char-av svg{width:27px;height:27px;}
+.lec .char-name{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink30);transition:color .25s;}
+.lec .char-item.on .char-name{color:var(--ink60);}
+
+/* BIP avatars — clairs sur fond noir */
+.bip .char-av{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid var(--white10);background:rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:center;
+  opacity:.25;transition:all .28s ease;
+}
+.bip .char-item.on .char-av{
+  width:56px;height:56px;opacity:1;
+  border-color:rgba(251,191,36,.60);background:rgba(251,191,36,.09);
+  animation:bip-halo 1.6s ease-in-out infinite;
+}
+@keyframes bip-halo{
+  0%,100%{box-shadow:0 0 0 3px rgba(251,191,36,.08),0 0 20px rgba(251,191,36,.24);}
+  50%    {box-shadow:0 0 0 4px rgba(251,191,36,.14),0 0 42px rgba(251,191,36,.50);}
+}
+.bip .char-av svg{width:17px;height:17px;transition:width .28s,height .28s;}
+.bip .char-item.on .char-av svg{width:27px;height:27px;}
+.bip .char-name{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--white20);transition:color .25s;}
+.bip .char-item.on .char-name{color:var(--white50);}
+
+/* Barre de progression */
+.progress{height:2px;border-radius:1px;margin-bottom:12px;position:relative;overflow:hidden;}
+.phone.lec .progress{background:var(--ink06);}
+.phone.bip .progress{background:var(--white10);}
+.progress-fill{position:absolute;left:0;top:0;bottom:0;width:35%;border-radius:1px;}
+.phone.lec .progress-fill{background:linear-gradient(90deg,rgba(17,17,17,.20) 0%,rgba(17,17,17,.50) 100%);}
+.phone.bip .progress-fill{background:linear-gradient(90deg,rgba(251,191,36,.35) 0%,rgba(251,191,36,.70) 100%);}
+
+/* Boutons LECTURE */
+.actions{display:flex;gap:8px;}
+.btn-lec{
+  flex:1;padding:13px 8px;border-radius:14px;
+  border:1px solid var(--ink12);background:var(--ink06);
+  color:var(--ink30);
+  font-family:'Syne',sans-serif;font-size:11.5px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;transition:background .18s,color .18s;
+}
+.btn-lec:hover{background:rgba(17,17,17,.09);color:var(--ink60);}
+.btn-lec.primary{flex:2;background:rgba(17,17,17,.08);border-color:rgba(17,17,17,.16);color:rgba(17,17,17,.80);}
+.btn-lec.primary:hover{background:rgba(17,17,17,.13);}
+.play-btn .ico-pause{display:none;}
+.play-btn.paused .ico-play{display:none;}
+.play-btn.paused .ico-pause{display:block;}
+
+/* BIP PANEL */
+.bip-panel{display:flex;flex-direction:column;gap:8px;width:100%;}
+.bip-card{
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  border-radius:18px;padding:14px 16px 16px;
+  display:flex;flex-direction:column;align-items:center;gap:10px;
+}
+.bip-hold{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(251,191,36,.38);}
+
+/* Waveform BIP — toujours animé */
+.bip-wave-row{width:calc(100% + 56px);display:flex;align-items:center;gap:8px;}
+.bip-wave-side{flex:1;display:flex;align-items:center;gap:2.5px;height:56px;}
+.bip-wave-side.l{justify-content:flex-end;-webkit-mask-image:linear-gradient(to right,transparent 0%,black 52%);mask-image:linear-gradient(to right,transparent 0%,black 52%);}
+.bip-wave-side.r{justify-content:flex-start;-webkit-mask-image:linear-gradient(to left,transparent 0%,black 52%);mask-image:linear-gradient(to left,transparent 0%,black 52%);}
+.bip-wave-side span{
+  width:2.5px;flex-shrink:0;border-radius:2px;
+  background:rgba(251,191,36,.55);transform-origin:center;
+  animation:wbar 1.15s ease-in-out infinite;
+}
+.bip-wave-side.l span:nth-child(1){height:3px;animation-delay:.75s;}.bip-wave-side.l span:nth-child(2){height:4px;animation-delay:.68s;}.bip-wave-side.l span:nth-child(3){height:5px;animation-delay:.61s;}.bip-wave-side.l span:nth-child(4){height:6px;animation-delay:.54s;}.bip-wave-side.l span:nth-child(5){height:8px;animation-delay:.47s;}.bip-wave-side.l span:nth-child(6){height:10px;animation-delay:.40s;}.bip-wave-side.l span:nth-child(7){height:12px;animation-delay:.33s;}.bip-wave-side.l span:nth-child(8){height:14px;animation-delay:.26s;}.bip-wave-side.l span:nth-child(9){height:16px;animation-delay:.20s;}.bip-wave-side.l span:nth-child(10){height:18px;animation-delay:.14s;}.bip-wave-side.l span:nth-child(11){height:19px;animation-delay:.08s;}.bip-wave-side.l span:nth-child(12){height:20px;animation-delay:.03s;}
+.bip-wave-side.r span:nth-child(1){height:20px;animation-delay:.03s;}.bip-wave-side.r span:nth-child(2){height:19px;animation-delay:.08s;}.bip-wave-side.r span:nth-child(3){height:18px;animation-delay:.14s;}.bip-wave-side.r span:nth-child(4){height:16px;animation-delay:.20s;}.bip-wave-side.r span:nth-child(5){height:14px;animation-delay:.26s;}.bip-wave-side.r span:nth-child(6){height:12px;animation-delay:.33s;}.bip-wave-side.r span:nth-child(7){height:10px;animation-delay:.40s;}.bip-wave-side.r span:nth-child(8){height:8px;animation-delay:.47s;}.bip-wave-side.r span:nth-child(9){height:6px;animation-delay:.54s;}.bip-wave-side.r span:nth-child(10){height:5px;animation-delay:.61s;}.bip-wave-side.r span:nth-child(11){height:4px;animation-delay:.68s;}.bip-wave-side.r span:nth-child(12){height:3px;animation-delay:.75s;}
+@keyframes wbar{0%,100%{transform:scaleY(.18);opacity:.20;}50%{transform:scaleY(1);opacity:.90;}}
+
+/* Micro */
+.bip-mic-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;flex-shrink:0;}
+.bip-mic{
+  position:relative;width:60px;height:60px;border-radius:50%;
+  background:rgba(251,191,36,.11);border:2px solid rgba(251,191,36,.58);
+  box-shadow:0 0 26px rgba(251,191,36,.16);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  transition:transform .12s;
+}
+.bip-mic:active{transform:scale(.90);}
+.bip-mic-ring{position:absolute;inset:-9px;border-radius:50%;border:1.5px solid rgba(251,191,36,.28);animation:bip-expand 1.9s ease-out infinite;}
+.bip-mic-ring-2{position:absolute;inset:-18px;border-radius:50%;border:1px solid rgba(251,191,36,.14);animation:bip-expand 1.9s ease-out infinite .60s;}
+@keyframes bip-expand{0%{transform:scale(1);opacity:.7;}100%{transform:scale(1.22);opacity:0;}}
+.bip-mic-name{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:rgba(251,191,36,.55);}
+
+/* Boutons BIP */
+.bip-actions{display:flex;gap:8px;width:100%;}
+.bip-act{
+  height:44px;border-radius:14px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  cursor:pointer;font-family:'Syne',sans-serif;font-size:12px;font-weight:600;
+  transition:background .18s,color .18s;
+}
+.bip-act.listen{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:var(--white50);}
+.bip-act.listen:hover{background:rgba(255,255,255,.10);}
+.bip-act.retry{width:44px;flex-shrink:0;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.09);color:var(--white20);}
+.bip-act.next{flex:1;background:rgba(251,191,36,.90);border:1px solid rgba(251,191,36,.60);color:rgba(0,0,0,.80);font-weight:700;}
+.bip-act.next:hover{background:#FBBF24;}
+
+.phone-label{
+  font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;
+}
+.lec-label{color:rgba(17,17,17,.22);}
+.bip-label{color:rgba(255,255,255,.16);}
+
+@media(prefers-reduced-motion:reduce){
+  .bip-wave-side span,.bip-mic-ring,.bip-mic-ring-2,.hd-dot,.char-item.on .char-av{animation:none;}
+}
+</style>
+</head>
+<body>
+<div class="label">Design C — Minima · Méthode Langue</div>
+
+<div class="phones">
+
+  <!-- PHONE 1 — LECTURE (light) -->
+  <div class="phone-wrap">
+    <div class="phone lec">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="hd">
+          <div class="hd-tag">méthode · L1</div>
+          <div class="hd-dot"></div>
+        </div>
+
+        <div class="word-zone">
+          <div class="word-block" data-t="contraction">
+            <div class="w-badge"><div class="badge-bar"></div>contraction</div>
+            <div class="w-fr">je ne sais pas</div>
+            <div class="w-en">I don't<br>know</div>
+            <span class="w-ph">aï · don't · no</span>
+          </div>
+          <div class="word-block" data-t="traduction">
+            <div class="w-badge"><div class="badge-bar"></div>traduction</div>
+            <div class="w-fr">le livre</div>
+            <div class="w-en">the<br>book</div>
+            <span class="w-ph">ze · bouk</span>
+          </div>
+        </div>
+
+        <div class="overlay-bottom">
+          <div class="chars lec">
+            <div class="char-item">
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="black" opacity=".7"/><path d="M4 62c0-18 48-18 48 0" fill="black" opacity=".7"/></svg></div>
+              <div class="char-name">Sophie</div>
+            </div>
+            <div class="char-item on">
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="black"/><path d="M4 62c0-18 48-18 48 0" fill="black"/></svg></div>
+              <div class="char-name">Marc</div>
+            </div>
+            <div class="char-item">
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="black" opacity=".7"/><path d="M4 62c0-18 48-18 48 0" fill="black" opacity=".7"/></svg></div>
+              <div class="char-name">Julien</div>
+            </div>
+          </div>
+          <div class="progress"><div class="progress-fill"></div></div>
+          <div class="actions">
+            <div class="btn-lec"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1,4 1,10 7,10"/><path d="M3.51 15a9 9 0 1 0 .49-4.67"/></svg></div>
+            <div class="btn-lec primary play-btn" onclick="this.classList.toggle('paused')">
+              <svg class="ico-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+              <svg class="ico-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            </div>
+            <div class="btn-lec"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label lec-label">État lecture</div>
+  </div>
+
+  <!-- PHONE 2 — BIP (dark, inverted) -->
+  <div class="phone-wrap">
+    <div class="phone bip">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="hd">
+          <div class="hd-tag">méthode · L1</div>
+          <div class="hd-dot"></div>
+        </div>
+
+        <div class="bip-zone">
+          <div class="bip-q-label">Comment dit-on en anglais :</div>
+          <div class="bip-q-phrase">c'est<br>possible ?</div>
+          <div class="voir-rep-btn" id="voir-rep-c">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            voir la réponse
+          </div>
+        </div>
+
+        <div class="overlay-bottom">
+          <div class="chars bip">
+            <div class="char-item">
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".85"/><path d="M4 62c0-18 48-18 48 0" fill="white" opacity=".85"/></svg></div>
+              <div class="char-name">Sophie</div>
+            </div>
+            <div class="char-item on">
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white"/><path d="M4 62c0-18 48-18 48 0" fill="white"/></svg></div>
+              <div class="char-name">Marc</div>
+            </div>
+            <div class="char-item">
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".85"/><path d="M4 62c0-18 48-18 48 0" fill="white" opacity=".85"/></svg></div>
+              <div class="char-name">Julien</div>
+            </div>
+          </div>
+          <div class="bip-panel">
+            <div class="bip-card">
+              <div class="bip-hold">maintiens pour parler</div>
+              <div class="bip-wave-row">
+                <div class="bip-wave-side l"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="bip-mic-wrap">
+                  <div class="bip-mic" id="mic-c">
+                    <div class="bip-mic-ring"></div><div class="bip-mic-ring-2"></div>
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(251,191,36,.90)" stroke-width="1.8" stroke-linecap="round">
+                      <rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10a7 7 0 0 1-14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/>
+                    </svg>
+                  </div>
+                  <div class="bip-mic-name">moi</div>
+                </div>
+                <div class="bip-wave-side r"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+              </div>
+            </div>
+            <div class="bip-actions">
+              <div class="bip-act listen"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>ma réponse</div>
+              <div class="bip-act retry"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1,4 1,10 7,10"/><path d="M3.51 15a9 9 0 1 0 .49-4.67"/></svg></div>
+              <div class="bip-act next">Continuer →</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label bip-label">État bip</div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+document.getElementById('voir-rep-c').addEventListener('click',function(){
+  if(this.dataset.done)return;this.dataset.done='1';
+  gsap.to(this,{opacity:0,y:6,scale:.93,duration:.22,ease:'power2.in',onComplete:()=>{
+    this.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(251,191,36,.90)" stroke-width="2" stroke-linecap="round"><polyline points="20,6 9,17 4,12"/></svg> Is it possible?';
+    this.style.color='rgba(251,191,36,.85)';this.style.borderColor='rgba(251,191,36,.28)';this.style.background='rgba(251,191,36,.08)';
+    gsap.to(this,{opacity:1,y:0,scale:1,duration:.35,ease:'expo.out'});
+  }});
+});
+const mic=document.getElementById('mic-c');
+mic.addEventListener('mousedown',()=>{mic.style.background='rgba(251,191,36,.22)';gsap.to(mic,{scale:.88,duration:.12,ease:'power3.in'});});
+mic.addEventListener('mouseup',  ()=>{mic.style.background='';gsap.to(mic,{scale:1,duration:.45,ease:'elastic.out(1.5,.5)'});});
+mic.addEventListener('mouseleave',()=>{mic.style.background='';gsap.to(mic,{scale:1,duration:.25});});
+document.querySelectorAll('.btn-lec,.bip-act,.voir-rep-btn,.char-av').forEach(el=>{
+  el.addEventListener('mouseenter',()=>gsap.to(el,{scale:1.04,duration:.18,ease:'power2.out'}));
+  el.addEventListener('mouseleave',()=>gsap.to(el,{scale:1,duration:.30,ease:'elastic.out(1.2,.5)'}));
+  el.addEventListener('mousedown', ()=>gsap.to(el,{scale:.94,duration:.10,ease:'power3.in'}));
+  el.addEventListener('mouseup',   ()=>gsap.to(el,{scale:1,duration:.30,ease:'elastic.out(1.4,.5)'}));
+});
+document.querySelectorAll('.phone').forEach(ph=>{
+  ph.addEventListener('mousemove',e=>{const r=ph.getBoundingClientRect();gsap.to(ph,{rotateY:(e.clientX-r.left-r.width/2)/r.width*5,rotateX:-(e.clientY-r.top-r.height/2)/r.height*3.5,duration:.55,ease:'power1.out'});});
+  ph.addEventListener('mouseleave',()=>gsap.to(ph,{rotateY:0,rotateX:0,duration:.75,ease:'elastic.out(1.1,.5)'}));
+});
+</script>
+</body>
+</html>

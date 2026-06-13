@@ -1,0 +1,1459 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Les mots français qui se terminent par -ant ou -ent — comme "important", "évident", "récent", "différent" — sont identiques en anglais. Ils s'écrivent exactement de la même façon. "Important" en anglais se dit IMPORTANT. Important. C'est important. Comment dit-on "c'est important" en anglais ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est important
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hésitation légère] Uh, it's important ?
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It's important. It is important. Avec la contraction : it's important. Sans la contraction — comment dit-on "ce n'est pas important" ?
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme négative.
+
+QUESTION :
+c'est important (sans contraction)
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[appliqué, lent] It is not important.
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! It is not important. Et avec la contraction — comment le dites-vous ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Quelle est la contraction de ?
+
+QUESTION :
+it is not important
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE2
+
+AUDIO :
+It's not important. It isn't important.
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Bravo ! It's not important. It isn't important. Comment dit-on en anglais : "c'est très important pour moi" ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est très important pour moi
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fluide] It's very important for me.
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It's very important for me. It is very important for me. Avec la contraction : it's very important for me. Comment dit-on avec la contraction : "ce n'est pas si important" ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas si important
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[cherche le mot "si", hésite] It's not... s-... so... important.
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[laughs] Très bien ! It's not so important. Alors, "si" ? So. It's not so important. Avec la même règle que "important" — comment se prononce "différent" en anglais ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+différent
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[applique la règle] Different ?
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Different. Different. En anglais, le T à la fin du mot se prononce. Different. Important, different. Comment dit-on en anglais : "ce n'est pas si différent" ?
+
+---
+
+ID :
+0020
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas si différent
+
+---
+
+ID :
+0021
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se trompe] It's no so...
+
+---
+
+ID :
+0022
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Once more — encore une fois.
+
+---
+
+ID :
+0023
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+ce n'est pas si différent
+
+---
+
+ID :
+0024
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[comprend l'erreur, rit] Oh ! It's not so...
+
+---
+
+ID :
+0025
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! It's not... — finissez la phrase !
+
+---
+
+ID :
+0026
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+it's not so...
+
+---
+
+ID :
+0027
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[saute sur l'occasion, taquin] So important !
+
+---
+
+ID :
+0028
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésitante] Euh... different ?
+
+---
+
+ID :
+0029
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Different. Encore une fois — comment dit-on "différent" ?
+
+---
+
+ID :
+0030
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+différent
+
+---
+
+ID :
+0031
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se concentre] Different.
+
+---
+
+ID :
+0032
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It's not so different. It's not so different. Sans la contraction — comment dit-on "c'est très différent" ?
+
+---
+
+ID :
+0033
+
+ROLE :
+BIP
+
+TITRE :
+Développe la contraction.
+
+QUESTION :
+c'est très différent (sans contraction)
+
+---
+
+ID :
+0034
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[assurée] It is very different.
+
+---
+
+ID :
+0035
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It is very different. Essayons un autre mot — comment dit-on "c'est évident" en anglais ?
+
+---
+
+ID :
+0036
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est évident
+
+---
+
+ID :
+0037
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[applique la règle] Evident ?
+
+---
+
+ID :
+0038
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Good ! Evident. Comment dit-on en anglais : "c'est évident" ?
+
+---
+
+ID :
+0039
+
+ROLE :
+BIP
+
+TITRE :
+Construis la phrase.
+
+QUESTION :
+c'est évident
+
+---
+
+ID :
+0040
+
+ROLE :
+ELEVE2
+
+AUDIO :
+It's evident.
+
+---
+
+ID :
+0041
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It's evident. It is evident. Avec la même règle — comment se prononce "récent" en anglais ?
+
+---
+
+ID :
+0042
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+récent
+
+---
+
+ID :
+0043
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hésite sur la fin] Recent ?
+
+---
+
+ID :
+0044
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Recent. Encore une fois — comment se prononce "récent" ?
+
+---
+
+ID :
+0045
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+récent
+
+---
+
+ID :
+0046
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[bégaye] Re-...
+
+---
+
+ID :
+0047
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Recent. Encore une fois.
+
+---
+
+ID :
+0048
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+récent
+
+---
+
+ID :
+0049
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fait un effort] Re-... recent ?
+
+---
+
+ID :
+0050
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Recent. Avec la même règle — comment se prononce "urgent" en anglais ?
+
+---
+
+ID :
+0051
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+urgent
+
+---
+
+ID :
+0052
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[hésite sur le début] Ur-...
+
+---
+
+ID :
+0053
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Urgent. Encore une fois.
+
+---
+
+ID :
+0054
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+urgent
+
+---
+
+ID :
+0055
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[applique la correction] Urgent ?
+
+---
+
+ID :
+0056
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Urgent. Urgent. Ça s'écrit de la même façon qu'en français, mais U-R en anglais se prononce *er*. Ce mot se prononce URGENT. Urgent. Urgent. Encore une fois — comment se prononce "urgent" ?
+
+---
+
+ID :
+0057
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+urgent
+
+---
+
+ID :
+0058
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[appliqué] Urgent.
+
+---
+
+ID :
+0059
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Urgent. Comment dit-on en anglais : "c'est très urgent" ?
+
+---
+
+ID :
+0060
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+c'est très urgent
+
+---
+
+ID :
+0061
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[fluide] It's very urgent.
+
+---
+
+ID :
+0062
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right ! It's very urgent. Comment dit-on en anglais : "ce n'est pas si urgent" ?
+
+---
+
+ID :
+0063
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+ce n'est pas si urgent
+
+---
+
+ID :
+0064
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[se trompe sur la négation] It's no...
+
+---
+
+ID :
+0065
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Once more — encore une fois.
+
+---
+
+ID :
+0066
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+ce n'est pas si urgent
+
+---
+
+ID :
+0067
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[reprend, hésite] Ah ! It's not... um... so...
+
+---
+
+ID :
+0068
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+It's not, yes — finissez la phrase !
+
+---
+
+ID :
+0069
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+it's not so...
+
+---
+
+ID :
+0070
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[trouve] ...so urgent.
+
+---
+
+ID :
+0071
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Right ! It's not so urgent. Yes ! It's not so urgent. Les mots qui se terminent en français par -ence ou -ance — E-N-C-E, A-N-C-E — sont identiques en anglais. Comment se prononce "différence" en anglais ?
+
+---
+
+ID :
+0072
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+différence
+
+---
+
+ID :
+0073
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésitante] Euh... difference ?
+
+---
+
+ID :
+0074
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Difference. Difference. "La différence" — "la" ou "le", l'article, se dit THE. The. Ça s'écrit T-H-E. Le T-H se prononce *the*. Comment se prononce THE ?
+
+---
+
+ID :
+0075
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+the
+
+---
+
+ID :
+0076
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[accent français fort] Ze.
+
+---
+
+ID :
+0077
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+The. Encore une fois.
+
+---
+
+ID :
+0078
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+the
+
+---
+
+ID :
+0079
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[essaie de corriger] Ze.
+
+---
+
+ID :
+0080
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Avec la langue entre les dents : the. Comment dit-on "la différence" en anglais ?
+
+---
+
+ID :
+0081
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+la différence
+
+---
+
+ID :
+0082
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[se concentre] The difference.
+
+---
+
+ID :
+0083
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+The difference. En anglais, il n'y a pas d'article pour différencier le masculin du féminin. Il n'y a donc pas de différence entre "la" et "le" — on dit toujours THE. Et "une différence" — "une" se dit A. Ça s'écrit simplement A. Comment dit-on "une différence" en anglais ?
+
+---
+
+ID :
+0084
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+une différence
+
+---
+
+ID :
+0085
+
+ROLE :
+ELEVE1
+
+AUDIO :
+A difference.
+
+---
+
+ID :
+0086
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+A difference. A difference. A difference. "Quel" — WHAT. What s'écrit W-H-A-T. Quelle différence — WHAT DIFFERENCE. What difference. What difference. Alors, encore une fois — comment dit-on "la différence" ?
+
+---
+
+ID :
+0087
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+la différence
+
+---
+
+ID :
+0088
+
+ROLE :
+ELEVE1
+
+AUDIO :
+The difference.
+
+---
+
+ID :
+0089
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+The difference. Comment dit-on "une différence" ?
+
+---
+
+ID :
+0090
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+une différence
+
+---
+
+ID :
+0091
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[plus assurée] A difference.
+
+---
+
+ID :
+0092
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+A difference. Comment dit-on "quelle différence" ?
+
+---
+
+ID :
+0093
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quelle différence ?
+
+---
+
+ID :
+0094
+
+ROLE :
+ELEVE1
+
+AUDIO :
+What difference ?
+
+---
+
+ID :
+0095
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] Avec la même règle -ence — comment dit-on "la préférence" en anglais ?
+
+---
+
+ID :
+0096
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+la préférence
+
+---
+
+ID :
+0097
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[confond les articles] A preference ?
+
+---
+
+ID :
+0098
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+L'article défini — comment dit-on "la préférence" ?
+
+---
+
+ID :
+0099
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+la préférence
+
+---
+
+ID :
+0100
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[se reprend] The preference... the preference.
+
+---
+
+ID :
+0101
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Comment dit-on "une préférence" en anglais ?
+
+---
+
+ID :
+0102
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+une préférence
+
+---
+
+ID :
+0103
+
+ROLE :
+ELEVE2
+
+AUDIO :
+A preference... a preference.
+
+---
+
+ID :
+0104
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+A preference. Comment dit-on "quelle préférence" ?
+
+---
+
+ID :
+0105
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+quelle préférence ?
+
+---
+
+ID :
+0106
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[assuré] What preference ?
+
+---
+
+ID :
+0107
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+What preference. Avec la règle -ance — comment se prononce "importance" en anglais ?
+
+---
+
+ID :
+0108
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+importance
+
+---
+
+ID :
+0109
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Importance ?
+
+---
+
+ID :
+0110
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Importance. Comment se prononce "présence" en anglais ?
+
+---
+
+ID :
+0111
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+présence
+
+---
+
+ID :
+0112
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésitation légère] Presence... presence ?
+
+---
+
+ID :
+0113
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Presence. Comment se prononce "absence" en anglais ?
+
+---
+
+ID :
+0114
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+absence
+
+---
+
+ID :
+0115
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[cherche] Absence ?
+
+---
+
+ID :
+0116
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Absence. Encore une fois.
+
+---
+
+ID :
+0117
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+absence
+
+---
+
+ID :
+0118
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[trouve] Ah oui ! Ab-... absence.
+
+---
+
+ID :
+0119
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Absence. Alors, essayons un autre mot — "influence" se dit INFLUENCE. Comment se prononce "influence" en anglais ?
+
+---
+
+ID :
+0120
+
+ROLE :
+BIP
+
+TITRE :
+Comment se prononce ?
+
+QUESTION :
+influence
+
+---
+
+ID :
+0121
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[applique la règle] Influence.
+
+---
+
+ID :
+0122
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[excited] Influence. Excellent !

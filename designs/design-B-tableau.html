@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design B — Tableau Noir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Caveat:wght@600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:       #0a1209;
+  --phone:    #111f10;
+  --bezel:    #060c05;
+  --board:    #152115;
+  --chalk:    rgba(240,236,222,.90);
+  --chalk50:  rgba(240,236,222,.50);
+  --chalk25:  rgba(240,236,222,.25);
+  --chalk10:  rgba(240,236,222,.10);
+  --chalk-b:  #8DC8EE;   /* craie bleue */
+  --chalk-y:  #F6D155;   /* craie jaune */
+  --chalk-r:  #F08080;   /* craie rose/rouge */
+  --chalk-g:  #98DBA0;   /* craie verte */
+}
+body{
+  background:var(--bg);
+  min-height:100vh;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:64px 32px 80px;font-family:'Space Mono',monospace;overflow-x:hidden;
+}
+body::before{
+  content:'';position:fixed;inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 55%, rgba(21,33,21,.80) 0%, rgba(10,18,9,1) 70%);
+  pointer-events:none;
+}
+
+.label{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.18em;
+  color:rgba(240,236,222,.18);text-transform:uppercase;
+  background:rgba(240,236,222,.04);border:1px solid rgba(240,236,222,.08);
+  padding:5px 18px;border-radius:3px;white-space:nowrap;z-index:100;
+}
+
+/* ══ PHONES ══ */
+.phones{display:flex;gap:44px;align-items:center;position:relative;z-index:1;}
+.phone-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;}
+
+.phone{
+  width:375px;border-radius:40px;overflow:hidden;
+  background:var(--board);
+  box-shadow:
+    0 0 0 1px rgba(240,236,222,.07),
+    0 0 0 8px var(--bezel),
+    0 0 0 9px rgba(240,236,222,.03),
+    0 80px 180px rgba(0,0,0,.96),
+    0 0 60px rgba(21,33,21,.40);
+}
+/* Texture tableau — lignes très subtiles */
+.phone::after{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(
+    180deg,
+    transparent,transparent 28px,
+    rgba(255,255,255,.015) 28px,rgba(255,255,255,.015) 29px
+  );
+  pointer-events:none;z-index:55;border-radius:40px;
+}
+
+/* ══ NOTCH ══ */
+.notch{
+  position:absolute;top:12px;left:50%;transform:translateX(-50%);
+  width:116px;height:34px;background:var(--bezel);border-radius:20px;z-index:50;
+}
+
+/* ══ SCREEN ══ */
+.screen{position:relative;min-height:820px;background:var(--board);display:flex;flex-direction:column;overflow:hidden;}
+
+/* Bord de tableau — cadre en bois simulé */
+.board-frame{
+  position:absolute;inset:0;
+  border:6px solid rgba(255,255,255,.04);
+  border-radius:40px;
+  pointer-events:none;z-index:56;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
+}
+
+/* ══ HEADER ══ */
+.hd{
+  position:absolute;top:0;left:0;right:0;
+  padding:50px 22px 0;
+  display:flex;align-items:center;justify-content:space-between;
+  z-index:20;pointer-events:none;
+}
+.hd-lecon{
+  font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:.20em;
+  color:var(--chalk50);text-transform:uppercase;
+}
+/* Éponge / bouton effacement */
+.hd-erase{
+  display:flex;align-items:center;gap:5px;
+  font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.14em;
+  color:var(--chalk25);text-transform:uppercase;
+}
+.erase-icon{
+  width:16px;height:10px;border-radius:3px;
+  background:rgba(240,236,222,.14);border:1px solid rgba(240,236,222,.20);
+}
+
+/* ══ WORD ZONE ══ */
+.word-zone{flex:1;display:flex;flex-direction:column;justify-content:center;padding:80px 0 148px;}
+
+.word-block{
+  flex:none;padding:42px 28px;
+  display:flex;flex-direction:column;position:relative;overflow:hidden;
+}
+.word-block+.word-block{
+  /* Ligne à la craie entre les blocs */
+  border-top:0;
+  position:relative;
+}
+/* Ligne craie ondulée */
+.chalk-line{
+  position:relative;height:3px;margin:0 28px;
+  overflow:visible;
+}
+.chalk-line::after{
+  content:'';
+  position:absolute;inset:0;
+  background:repeating-linear-gradient(90deg,
+    rgba(240,236,222,.35) 0px,rgba(240,236,222,.35) 6px,
+    transparent 6px,transparent 9px,
+    rgba(240,236,222,.22) 9px,rgba(240,236,222,.22) 14px,
+    transparent 14px,transparent 18px
+  );
+  border-radius:1px;
+}
+
+/* Badge type — souligné à la craie colorée */
+.w-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.18em;text-transform:uppercase;
+  margin-bottom:10px;
+}
+.w-badge-line{
+  flex:none;height:2px;width:20px;border-radius:1px;
+  background:currentColor;opacity:.80;
+}
+/* Couleurs par type */
+.word-block[data-t="contraction"] .w-badge{color:var(--chalk-r);}
+.word-block[data-t="prono"]        .w-badge{color:var(--chalk-g);}
+.word-block[data-t="traduction"]   .w-badge{color:var(--chalk-b);}
+.word-block[data-t="expression"]   .w-badge{color:var(--chalk-y);}
+
+/* Mot FR — Caveat (handwriting) */
+.w-fr{
+  font-family:'Caveat',cursive;font-weight:600;
+  font-size:28px;color:var(--chalk50);
+  letter-spacing:.02em;margin-bottom:6px;
+  line-height:1.1;
+}
+
+/* Mot EN — Bebas Neue avec effet craie */
+.w-en{
+  font-family:'Bebas Neue',display;
+  font-size:86px;line-height:.86;letter-spacing:.01em;
+  color:var(--chalk);
+  /* Effet craie : text-shadow multiple directions */
+  text-shadow:
+    0 0 1px rgba(240,236,222,.70),
+    1px  1px 0 rgba(240,236,222,.12),
+   -1px -1px 0 rgba(240,236,222,.08),
+    2px  0   2px rgba(240,236,222,.06),
+    0    0  20px rgba(240,236,222,.05);
+  filter:contrast(1.05);
+}
+
+/* Couleur chalk par type */
+.word-block[data-t="contraction"] .w-en{color:var(--chalk);text-shadow:0 0 1px rgba(240,130,130,.80),1px 1px 0 rgba(240,130,130,.12),0 0 25px rgba(240,130,130,.08);}
+.word-block[data-t="traduction"]   .w-en{color:rgba(180,220,255,.92);text-shadow:0 0 1px rgba(141,200,238,.80),1px 1px 0 rgba(141,200,238,.12),0 0 25px rgba(141,200,238,.08);}
+
+/* Phonétique */
+.w-ph{
+  font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.08em;
+  margin-top:12px;display:block;
+  color:var(--chalk-y);opacity:.75;
+}
+
+/* ══ POUSSIÈRE DE CRAIE — CSS particles ══ */
+.dust{
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  pointer-events:none;overflow:hidden;z-index:2;
+}
+.dust span{
+  position:absolute;
+  border-radius:50%;
+  background:rgba(240,236,222,.22);
+  animation:dust-float linear infinite;
+}
+.dust span:nth-child(1){width:2px;height:2px;left:15%;top:30%;animation-duration:8s;animation-delay:0s;}
+.dust span:nth-child(2){width:1px;height:1px;left:45%;top:60%;animation-duration:12s;animation-delay:2s;}
+.dust span:nth-child(3){width:2px;height:2px;left:75%;top:40%;animation-duration:9s;animation-delay:4s;}
+.dust span:nth-child(4){width:1px;height:1px;left:30%;top:70%;animation-duration:14s;animation-delay:1s;}
+.dust span:nth-child(5){width:2px;height:2px;left:60%;top:25%;animation-duration:11s;animation-delay:3s;}
+.dust span:nth-child(6){width:1px;height:1px;left:85%;top:55%;animation-duration:10s;animation-delay:5s;}
+@keyframes dust-float{
+  0%  {transform:translateY(0) translateX(0);opacity:.22;}
+  25% {transform:translateY(-20px) translateX(6px);opacity:.35;}
+  50% {transform:translateY(-8px) translateX(-4px);opacity:.18;}
+  75% {transform:translateY(-28px) translateX(8px);opacity:.28;}
+  100%{transform:translateY(-40px) translateX(2px);opacity:0;}
+}
+
+/* ══ BIP ZONE ══ */
+.bip-zone{
+  flex:1;display:flex;flex-direction:column;
+  justify-content:flex-start;align-items:flex-start;
+  padding:96px 28px 248px;gap:16px;
+}
+/* Flèche pointeur maître */
+.pointer-row{
+  display:flex;align-items:center;gap:10px;
+  font-family:'Space Mono',monospace;font-size:8.5px;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--chalk-y);opacity:.70;
+}
+.pointer-arrow{
+  font-size:18px;color:var(--chalk-y);
+  animation:pointer-tap .8s ease-in-out infinite;
+}
+@keyframes pointer-tap{0%,100%{transform:translateY(0);}50%{transform:translateY(-4px);}}
+
+.bip-q-label{
+  font-family:'Caveat',cursive;font-weight:600;
+  font-size:24px;color:var(--chalk50);
+}
+.bip-q-phrase{
+  font-family:'Bebas Neue',display;
+  font-size:68px;line-height:.90;letter-spacing:.01em;
+  color:var(--chalk);
+  text-shadow:
+    0 0 1px rgba(240,236,222,.70),
+    1px 1px 0 rgba(240,236,222,.12),
+    0 0 50px rgba(240,236,222,.08);
+}
+/* Cercle SVG autour de la phrase — dessin en cours */
+.bip-circle{
+  position:relative;margin-top:6px;
+}
+.bip-circle svg{
+  position:absolute;top:-14px;left:-18px;
+  pointer-events:none;z-index:2;
+}
+.bip-circle path{
+  stroke-dasharray:420;
+  stroke-dashoffset:420;
+  animation:draw-circle 2.4s ease-out forwards 0.5s;
+}
+@keyframes draw-circle{to{stroke-dashoffset:0;}}
+
+.voir-rep-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;
+  background:rgba(240,236,222,.06);border:1px solid rgba(240,236,222,.14);
+  border-radius:4px;
+  color:rgba(240,236,222,.42);
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.10em;text-transform:uppercase;
+  cursor:pointer;transition:background .18s,color .18s;
+}
+.voir-rep-btn:hover{background:rgba(240,236,222,.10);color:rgba(240,236,222,.70);}
+
+/* ══ OVERLAY BAS ══ */
+.overlay-bottom{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(to top, rgba(8,14,8,.97) 60%, transparent 100%);
+  padding:18px 20px 34px;z-index:20;
+}
+
+/* Avatars — cercles à la craie */
+.chars{display:flex;align-items:flex-end;justify-content:center;gap:20px;margin-bottom:14px;}
+.char-item{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.char-av{
+  width:40px;height:40px;border-radius:50%;
+  border:1.5px solid rgba(240,236,222,.14);
+  background:rgba(240,236,222,.04);
+  display:flex;align-items:center;justify-content:center;
+  opacity:.24;transition:all .28s ease;
+}
+.char-item.on .char-av{
+  width:58px;height:58px;opacity:1;
+  border-color:rgba(240,236,222,.55);
+  border-width:2px;
+  background:rgba(240,236,222,.07);
+  animation:chalk-halo 1.8s ease-in-out infinite;
+}
+@keyframes chalk-halo{
+  0%,100%{box-shadow:0 0 0 2px rgba(240,236,222,.08),0 0 18px rgba(240,236,222,.14);}
+  50%    {box-shadow:0 0 0 4px rgba(240,236,222,.12),0 0 32px rgba(240,236,222,.28);}
+}
+.char-av svg{width:18px;height:18px;transition:width .28s,height .28s;}
+.char-item.on .char-av svg{width:28px;height:28px;}
+.char-name{font-family:'Space Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(240,236,222,.18);transition:color .25s;}
+.char-item.on .char-name{color:rgba(240,236,222,.55);}
+
+/* Ondes */
+.char-wave{display:flex;align-items:flex-end;gap:2px;height:10px;opacity:0;transition:opacity .25s;}
+.char-item.on .char-wave{opacity:1;}
+.char-wave span{width:2px;border-radius:1px;background:rgba(240,236,222,.70);transform-origin:bottom;animation:cwave .90s ease-in-out infinite;}
+.char-wave span:nth-child(1){height:3px;animation-delay:.00s;}
+.char-wave span:nth-child(2){height:9px;animation-delay:.10s;}
+.char-wave span:nth-child(3){height:6px;animation-delay:.20s;}
+.char-wave span:nth-child(4){height:10px;animation-delay:.15s;}
+.char-wave span:nth-child(5){height:4px;animation-delay:.05s;}
+@keyframes cwave{0%,100%{transform:scaleY(.30);}50%{transform:scaleY(1);}}
+
+/* Ligne de progression craie */
+.chalk-progress{
+  height:3px;background:rgba(240,236,222,.07);border-radius:1px;
+  margin-bottom:12px;position:relative;overflow:hidden;
+}
+.chalk-progress-fill{
+  position:absolute;left:0;top:0;bottom:0;width:35%;
+  background:repeating-linear-gradient(90deg,
+    rgba(240,236,222,.40) 0px,rgba(240,236,222,.40) 5px,
+    rgba(240,236,222,.20) 5px,rgba(240,236,222,.20) 8px
+  );
+  border-radius:1px;
+}
+
+/* Boutons */
+.controls{display:flex;gap:7px;}
+.ctrl-btn{
+  flex:1;padding:11px 8px;border-radius:5px;
+  border:1px solid rgba(240,236,222,.09);
+  background:rgba(240,236,222,.05);
+  color:rgba(240,236,222,.36);
+  font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.04em;
+  display:flex;align-items:center;justify-content:center;gap:5px;
+  cursor:pointer;transition:background .18s,color .18s;
+}
+.ctrl-btn:hover{background:rgba(240,236,222,.09);color:rgba(240,236,222,.65);}
+.ctrl-btn.primary{flex:2;background:rgba(240,236,222,.10);border-color:rgba(240,236,222,.22);color:rgba(240,236,222,.80);}
+.ctrl-btn.primary:hover{background:rgba(240,236,222,.16);}
+.play-btn .ico-pause{display:none;}
+.play-btn.paused .ico-play{display:none;}
+.play-btn.paused .ico-pause{display:block;}
+
+/* BIP controls */
+.bip-waveform{
+  display:flex;align-items:center;gap:3px;height:44px;
+  margin-bottom:10px;
+}
+.bip-waveform span{
+  flex:1;border-radius:2px;
+  background:rgba(240,236,222,.50);
+  transform-origin:center;
+  animation:wbar 1.1s ease-in-out infinite;
+}
+.bip-waveform span:nth-child(1) {height:20%;animation-delay:.00s;}
+.bip-waveform span:nth-child(2) {height:55%;animation-delay:.06s;}
+.bip-waveform span:nth-child(3) {height:80%;animation-delay:.12s;}
+.bip-waveform span:nth-child(4) {height:100%;animation-delay:.18s;}
+.bip-waveform span:nth-child(5) {height:85%;animation-delay:.24s;}
+.bip-waveform span:nth-child(6) {height:65%;animation-delay:.30s;}
+.bip-waveform span:nth-child(7) {height:45%;animation-delay:.36s;}
+.bip-waveform span:nth-child(8) {height:75%;animation-delay:.42s;}
+.bip-waveform span:nth-child(9) {height:55%;animation-delay:.48s;}
+.bip-waveform span:nth-child(10){height:35%;animation-delay:.54s;}
+.bip-waveform span:nth-child(11){height:70%;animation-delay:.60s;}
+.bip-waveform span:nth-child(12){height:50%;animation-delay:.66s;}
+@keyframes wbar{0%,100%{transform:scaleY(.18);opacity:.20;}50%{transform:scaleY(1);opacity:.90;}}
+
+.bip-row{display:flex;gap:6px;align-items:center;}
+.bip-mic{
+  position:relative;width:56px;height:56px;border-radius:50%;
+  background:rgba(240,236,222,.09);border:2px solid rgba(240,236,222,.45);
+  box-shadow:0 0 18px rgba(240,236,222,.10);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;flex-shrink:0;
+  transition:background .22s,box-shadow .22s,transform .12s;
+}
+.bip-mic:active{transform:scale(.90);}
+.bip-mic-ring{position:absolute;inset:-8px;border-radius:50%;border:1.5px solid rgba(240,236,222,.22);animation:bip-expand 1.9s ease-out infinite;}
+@keyframes bip-expand{0%{transform:scale(1);opacity:.6;}100%{transform:scale(1.22);opacity:0;}}
+.bip-btn{
+  flex:1;height:44px;border-radius:5px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+  font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;
+  cursor:pointer;transition:background .18s,color .18s;
+}
+.bip-btn.listen{background:rgba(240,236,222,.06);border:1px solid rgba(240,236,222,.10);color:rgba(240,236,222,.44);}
+.bip-btn.next{background:rgba(240,236,222,.85);border:none;color:rgba(15,25,15,.85);font-weight:700;}
+.bip-btn.next:hover{background:var(--chalk);}
+
+.phone-label{font-family:'Space Mono',monospace;font-size:8px;letter-spacing:.16em;color:rgba(240,236,222,.14);text-transform:uppercase;}
+
+@media(prefers-reduced-motion:reduce){
+  .bip-waveform span,.bip-mic-ring,.char-item.on .char-av,.char-wave span,.dust span,.pointer-arrow,.bip-circle path{animation:none;stroke-dashoffset:0;}
+}
+</style>
+</head>
+<body>
+<div class="label">Design B — Tableau Noir · Méthode Langue</div>
+
+<div class="phones">
+
+  <!-- PHONE 1 — LECTURE -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="board-frame"></div>
+        <div class="dust">
+          <span></span><span></span><span></span>
+          <span></span><span></span><span></span>
+        </div>
+        <div class="hd">
+          <div class="hd-lecon">Leçon 1 · 3ème élève</div>
+          <div class="hd-erase"><div class="erase-icon"></div>effacer</div>
+        </div>
+
+        <div class="word-zone">
+          <div class="word-block" data-t="contraction">
+            <div class="w-badge">
+              <div class="w-badge-line"></div>
+              contraction
+            </div>
+            <div class="w-fr">je ne sais pas</div>
+            <div class="w-en">I don't<br>know</div>
+            <span class="w-ph">/ aï · don't · no /</span>
+          </div>
+
+          <div class="chalk-line"></div>
+
+          <div class="word-block" data-t="traduction">
+            <div class="w-badge">
+              <div class="w-badge-line"></div>
+              traduction
+            </div>
+            <div class="w-fr">le livre</div>
+            <div class="w-en">the book</div>
+            <span class="w-ph">/ ze · bouk /</span>
+          </div>
+        </div>
+
+        <div class="overlay-bottom">
+          <div class="chars">
+            <div class="char-item">
+              <div class="char-wave"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".8"/><path d="M4 62c0-18 48-18 48 0" fill="white" opacity=".8"/></svg></div>
+              <div class="char-name">Sophie</div>
+            </div>
+            <div class="char-item on">
+              <div class="char-wave"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white"/><path d="M4 62c0-18 48-18 48 0" fill="white"/></svg></div>
+              <div class="char-name">Marc</div>
+            </div>
+            <div class="char-item">
+              <div class="char-wave"><span></span><span></span><span></span><span></span><span></span></div>
+              <div class="char-av"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".8"/><path d="M4 62c0-18 48-18 48 0" fill="white" opacity=".8"/></svg></div>
+              <div class="char-name">Julien</div>
+            </div>
+          </div>
+          <div class="chalk-progress"><div class="chalk-progress-fill"></div></div>
+          <div class="controls">
+            <div class="ctrl-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="1,4 1,10 7,10"/><path d="M3.51 15a9 9 0 1 0 .49-4.67"/></svg></div>
+            <div class="ctrl-btn primary play-btn" onclick="this.classList.toggle('paused')">
+              <svg class="ico-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+              <svg class="ico-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+            </div>
+            <div class="ctrl-btn"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">État lecture</div>
+  </div>
+
+  <!-- PHONE 2 — BIP -->
+  <div class="phone-wrap">
+    <div class="phone">
+      <div class="notch"></div>
+      <div class="screen">
+        <div class="board-frame"></div>
+        <div class="dust"><span></span><span></span><span></span><span></span></div>
+        <div class="hd">
+          <div class="hd-lecon">Leçon 1 · Répondez</div>
+          <div class="hd-erase"></div>
+        </div>
+
+        <div class="bip-zone">
+          <div class="pointer-row">
+            <span class="pointer-arrow">→</span>
+            maintenant vous
+          </div>
+          <div class="bip-q-label">Comment dit-on en anglais :</div>
+          <div class="bip-circle">
+            <svg width="230" height="120" viewBox="0 0 230 120" fill="none" style="position:absolute;top:-18px;left:-22px;pointer-events:none;">
+              <ellipse cx="115" cy="60" rx="108" ry="52" stroke="rgba(246,209,85,.55)" stroke-width="2.5" stroke-linecap="round" fill="none" stroke-dasharray="420" stroke-dashoffset="420" style="animation:draw-circle 2.4s ease-out forwards .5s;"/>
+            </svg>
+            <div class="bip-q-phrase" style="position:relative;z-index:2;">c'est<br>possible ?</div>
+          </div>
+          <div class="voir-rep-btn" id="voir-rep-b">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            voir la réponse
+          </div>
+        </div>
+
+        <div class="overlay-bottom">
+          <div class="bip-waveform">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="bip-row">
+            <div class="bip-btn listen">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+              écouter
+            </div>
+            <div class="bip-mic" id="mic-b">
+              <div class="bip-mic-ring"></div>
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="rgba(240,236,222,.85)" stroke-width="1.8" stroke-linecap="round">
+                <rect x="9" y="2" width="6" height="12" rx="3"/>
+                <path d="M19 10a7 7 0 0 1-14 0"/>
+                <line x1="12" y1="19" x2="12" y2="22"/>
+                <line x1="8" y1="22" x2="16" y2="22"/>
+              </svg>
+            </div>
+            <div class="bip-btn next">Continuer →</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="phone-label">État bip</div>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+document.getElementById('voir-rep-b').addEventListener('click',function(){
+  if(this.dataset.done)return;this.dataset.done='1';
+  gsap.to(this,{opacity:0,y:6,scale:.93,duration:.22,ease:'power2.in',onComplete:()=>{
+    this.innerHTML='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(246,209,85,.90)" stroke-width="2" stroke-linecap="round"><polyline points="20,6 9,17 4,12"/></svg> Is it possible?';
+    this.style.color='rgba(246,209,85,.80)';this.style.borderColor='rgba(246,209,85,.25)';this.style.background='rgba(246,209,85,.07)';
+    gsap.to(this,{opacity:1,y:0,scale:1,duration:.35,ease:'expo.out'});
+  }});
+});
+['mic-b'].forEach(id=>{
+  const m=document.getElementById(id);
+  m.addEventListener('mousedown',()=>{m.style.background='rgba(240,236,222,.18)';gsap.to(m,{scale:.88,duration:.12,ease:'power3.in'});});
+  m.addEventListener('mouseup',  ()=>{m.style.background='';gsap.to(m,{scale:1,duration:.45,ease:'elastic.out(1.5,.5)'});});
+  m.addEventListener('mouseleave',()=>{m.style.background='';gsap.to(m,{scale:1,duration:.25});});
+});
+document.querySelectorAll('.ctrl-btn,.bip-btn,.voir-rep-btn,.char-av').forEach(el=>{
+  el.addEventListener('mouseenter',()=>gsap.to(el,{scale:1.04,duration:.18,ease:'power2.out'}));
+  el.addEventListener('mouseleave',()=>gsap.to(el,{scale:1,duration:.30,ease:'elastic.out(1.2,.5)'}));
+  el.addEventListener('mousedown', ()=>gsap.to(el,{scale:.94,duration:.10,ease:'power3.in'}));
+  el.addEventListener('mouseup',   ()=>gsap.to(el,{scale:1,duration:.30,ease:'elastic.out(1.4,.5)'}));
+});
+document.querySelectorAll('.phone').forEach(ph=>{
+  ph.addEventListener('mousemove',e=>{const r=ph.getBoundingClientRect();gsap.to(ph,{rotateY:(e.clientX-r.left-r.width/2)/r.width*5,rotateX:-(e.clientY-r.top-r.height/2)/r.height*3.5,duration:.55,ease:'power1.out'});});
+  ph.addEventListener('mouseleave',()=>gsap.to(ph,{rotateY:0,rotateX:0,duration:.75,ease:'elastic.out(1.1,.5)'}));
+});
+</script>
+</body>
+</html>

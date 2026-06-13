@@ -1,0 +1,253 @@
+Voici le script exact de votre dialogue, mot à mot, sans oublier aucune réplique, intégrant les rôles (Professeur, Élève 1, Élève 2) et le bip sonore :
+
+---
+
+**Professeur :** Et pour exprimer une négation en anglais, par exemple pour dire « je ne comprends pas », on emploie *I do not*. La contraction de *I do not* est *I don't*. *I don't* suivi de l'infinitif sans *to*. Alors, « je ne comprends pas » : *I don't understand*. *(Bip)*
+
+**Élève 1 :** *I don't understand.*
+
+**Professeur :** *I don't understand.* Encore une fois, je comprends. *(Bip)*
+
+**Élève 1 :** *I understand.*
+
+**Professeur :** *I understand.* Avec la négation, « je ne comprends pas ». *(Bip)*
+
+**Élève 1 :** *I don't understand.*
+
+**Professeur :** *I don't understand.* Et « comprenez-vous ? » *(Bip)*
+
+**Élève 1 :** Euh... *Do you understand ?*
+
+**Professeur :** *Do you understand.* Savoir ? *(Bip)*
+
+**Élève 2 :** *To know*
+
+**Professeur :** *To know.* Question : « savez-vous ? » *(Bip)*
+
+**Élève 2 :** *Do you know ?*
+
+**Professeur :** *Do you know.* « Je sais ». *(Bip)*
+
+**Élève 2 :** *I know*
+
+**Professeur :** *I know.* Négation : « je ne sais pas ». *(Bip)*
+
+**Élève 2 :** *I don't know.*
+
+**Professeur :** *I don't know.* Avoir ? *(Bip)*
+
+**Élève 2 :** *To have*
+
+**Professeur :** *To have.* Question : « avez-vous ? » *(Bip)*
+
+**Élève 2 :** *Do you have ?*
+
+**Professeur :** *Do you have.* « J'ai ». *(Bip)*
+
+**Élève 2 :** *I have*
+
+**Professeur :** *I have.* La négation : « je n'ai pas ». *(Bip)*
+
+**Élève 2 :** *I don't have.*
+
+**Professeur :** *I don't have.* Voir ? *(Bip)*
+
+**Élève 1 :** *To see*
+
+**Professeur :** *To see.* « Voyez-vous ? » *(Bip)*
+
+**Élève 1 :** *Do you see ?*
+
+**Professeur :** *Do you see.* On peut aussi exprimer une question en utilisant l'inflexion de la voix, comme en français, donc dans : « vous voyez ? », *you see ?* « Vous voyez ? », *you see ?* Mais « voyez-vous ? », « est-ce que vous voyez ? », mais ça se dit : *do you see ?* Comment dit-on « comprendre », vous vous souvenez ? *(Bip)*
+
+**Élève 1 :** *To understand*
+
+**Professeur :** *To understand.* « Comprenez-vous ? », « est-ce que vous comprenez ? » *(Bip)*
+
+**Élève 1 :** *Do you understand ?*
+
+**Professeur :** *Do you understand ?* Mais « vous comprenez ? » *(Bip)*
+
+**Élève 1 :** *You understand ?*
+
+**Professeur :** *You understand ?* « Je comprends », encore une fois. *(Bip)*
+
+**Élève 1 :** *I understand.*
+
+**Professeur :** *I understand.* « Je ne comprends pas », la négation. *(Bip)*
+
+**Élève 1 :** *I don't understand.*
+
+**Professeur :** *I don't understand.* Pour dire « je le comprends », en anglais, on dit « je comprends ça » ou « je comprends le ». On place alors ces pronoms neutres, « le », « ça », ça se dit en anglais *it*, après le verbe. « Je le comprends », « je comprends ça » : *I understand it*. *I understand it*. « Je ne le comprends pas », « je ne comprends pas ça », alors ça se dit comment ? *(Bip)*
+
+**Élève 1 :** *I don't understand it.*
+
+**Professeur :** *I don't understand it.* « Comprenez-vous ? » *(Bip)*
+
+**Élève 1 :** *Do you understand ?*
+
+**Professeur :** *Do you understand ?* « Le comprenez-vous ? », « est-ce que vous le comprenez ? », « est-ce que vous comprenez ça ? » *(Bip)*
+
+**Élève 1 :** *Do you understand it ?*
+
+**Professeur :** *Do you understand it ?* « Vous le voyez ? », « est-ce que vous le voyez ? », « le voyez-vous ? » *(Bip)*
+
+**Élève 2 :** *Do you see it ?*
+
+**Professeur :** *Do you see it ? Do you see it ?* « Oui, je le vois ». *(Bip)*
+
+**Élève 2 :** *Yes, I see it.*
+
+**Professeur :** *Right ! Yes, I see it.* « Je vois ça ». *(Bip)*
+
+**Élève 2 :** *I see it.*
+
+**Professeur :** « Je l'ai », « j'ai ça ». *(Bip)*
+
+**Élève 2 :** *I have it.*
+
+**Professeur :** *I have it. I have it.* « Je ne l'ai pas », « je n'ai pas ça ». *(Bip)*
+
+**Élève 2 :** *I don't... it... I don't have it.*
+
+**Professeur :** *I don't have it. Yes.* Est-ce que vous vous souvenez : « je regrette », « je suis désolé » ? *(Bip)*
+
+**Élève 2 :** *I'm sorry.*
+
+**Professeur :** *I'm sorry. I am sorry.* « Je suis désolé », « je suis », *I am*. « Je suis désolé », *I'm sorry*. « Je suis désolé », « je regrette », mais... mais, comment dit-on « mais » ? *(Bip)*
+
+**Élève 2 :** *But*
+
+**Professeur :** *But.* « Je suis désolé mais je ne l'ai pas ». *(Bip)*
+
+**Élève 2 :** *I sorry...*
+
+**Professeur :** Non, non, non. *Once more.* *(Bip)*
+
+**Élève 2 :** *I'm sorry...*
+
+**Professeur :** *I'm*, yes. *(Bip)*
+
+**Élève 2 :** *I'm sorry.*
+
+**Professeur :** *I'm sorry.* *(Bip)*
+
+**Élève 2 :** *But I don't have it.*
+
+**Professeur :** Bravo ! *I'm sorry but I don't have it.* « Comprenez-vous ? » *(Bip)*
+
+**Élève 1 :** *Do you understand ?*
+
+**Professeur :** *Do you understand ?* « Le comprenez-vous ? » *(Bip)*
+
+**Élève 1 :** *Do you understand it ?*
+
+**Professeur :** *Good. Do you understand it ?* Et si vous voulez dire « me comprenez-vous ? », « est-ce que vous me comprenez ? », en anglais : « comprenez-vous moi ? ». *Do you understand me ? Do you understand me ?* Alors le pronom se place après le verbe. *Do you understand me ?* « Comprenez-vous ? » *(Bip)*
+
+**Élève 1 :** *Do you understand ?*
+
+**Professeur :** *Do you understand ?* « Le comprenez-vous ? » *(Bip)*
+
+**Élève 1 :** Euh... *Do you understand it ?*
+
+**Professeur :** *Do you understand it ?* « Me comprenez-vous ? » *(Bip)*
+
+**Élève 1 :** *Do you understand me ?*
+
+**Professeur :** *Do you understand me. « Je le comprends ». *(Bip)*
+
+**Élève 1 :** Euh... *I understand it.*
+
+**Professeur :** Oui, *I understand it.* « Je vous comprends », « je comprends vous », c'est, c'est littéral quoi, en anglais on dit : « je comprends vous ». *I understand...* *(Bip)*
+
+**Élève 1 :** *...you*
+
+**Professeur :** *Yes, I understand you.* Et « je ne vous comprends pas », en anglais on dirait : « je ne comprends pas vous ». *(Bip)*
+
+**Élève 1 :** *I don't understand you.*
+
+**Professeur :** *I don't understand you. I don't understand you.* Trouver : *to find*, *to find*. *Find* s'écrit F I N D. *To find*, *to find*. « Je le trouve », « je trouve ça ». *(Bip)*
+
+**Élève 2 :** *I find it.*
+
+**Professeur :** *I find it.* « Je ne le trouve pas ». *(Bip)*
+
+**Élève 2 :** *I don't find it.*
+
+**Professeur :** *I don't find it.* « Je veux ». *(Bip)*
+
+**Élève 2 :** *I want*
+
+**Professeur :** « Je le veux ». *(Bip)*
+
+**Élève 2 :** *I want it.*
+
+**Professeur :** *Yes, I want it.* « Je ne le veux pas ». *(Bip)*
+
+**Élève 2 :** *I don't want it.*
+
+**Professeur :** *I don't want it. Yes, I don't want it.* « Voulez-vous ? » *(Bip)*
+
+**Élève 2 :** *Do you want ?*
+
+**Professeur :** *Do you want.* « Le voulez-vous ? » *(Bip)*
+
+**Élève 2 :** *Do you want it ?*
+
+**Professeur :** *Right ! Do you want it ?* Pourquoi : *why*, *why*. Le mot « pourquoi », *why*, s'écrit W H Y. *Why*. « Pourquoi voulez-vous ? » *(Bip)*
+
+**Élève 2 :** *Why do you want ?*
+
+**Professeur :** *Right ! Why do you want ?* « Pourquoi le voulez-vous ? » *(Bip)*
+
+**Élève 2 :** *Why do you want it ?*
+
+**Professeur :** *Right ! Why do you want it ?* Savoir ? *(Bip)*
+
+**Élève 1 :** *To know*
+
+**Professeur :** *To know.* « Le savoir », « savoir ça ». *(Bip)*
+
+**Élève 1 :** Euh... *To know it*
+
+**Professeur :** *To know it.* « Je veux le savoir ». *(Bip)*
+
+**Élève 1 :** *I know... I know...*
+
+**Professeur :** Non, « je veux le savoir ». *(Bip)*
+
+**Élève 1 :** Ah... euh... *I wan... I want to know it ?*
+
+**Professeur :** *Right ! I want to know it. Yes, I want to know it.* « Je veux savoir ça », *I want to know it*. « Je ne veux pas ». *(Bip)*
+
+**Élève 1 :** *I don't want.*
+
+**Professeur :** *I don't want.* « Je ne veux pas le savoir ». *(Bip)*
+
+**Élève 1 :** Euh... *I don't want to know it.*
+
+**Professeur :** *I don't want to know it.* « Pourquoi voulez-vous le savoir ? » *(Bip)*
+
+**Élève 1 :** *Why do you want to know it ?*
+
+**Professeur :** *Right ! Good ! Why do you want to know it ?* « Je veux le comprendre ». *(Bip)*
+
+**Élève 1 :** Euh... *I want to understand it.*
+
+**Professeur :** *Right ! I want to understand it.* Manger : *to eat*, *eat*, *to eat*. Ça s'écrit E A T, mais ça se prononce *eat*, *eat*. *(Bip)*
+
+**Élève 2 :** *Eat*
+
+**Professeur :** *Eat.* Il ne faut pas confondre *eat* avec *it*. *It*, ça, cela, ça, *it*. Par exemple, « je veux le manger ». *(Bip)*
+
+**Élève 2 :** *I want to eat it.*
+
+**Professeur :** Hum, pas tout à fait ça. *I want to eat it.* *(Bip)*
+
+**Élève 2 :** *I want to eat it.*
+
+**Professeur :** *I want to eat it.* *(Bip)*
+
+**Élève 2 :** *I want to eat it.*
+
+**Professeur :** En anglais, il y a deux formes de I. Il y a le I court et le I long. Il faut penser à ça un petit peu.

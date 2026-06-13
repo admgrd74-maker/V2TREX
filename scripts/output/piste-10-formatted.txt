@@ -1,0 +1,1844 @@
+ID :
+0001
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+[encouraging] En français, l'infinitif du verbe s'exprime dans la terminaison — manger E-R, parler E-R, partir I-R, savoir O-I-R, comprendre R-E. En anglais, il y a deux mots pour exprimer l'infinitif. On emploie TO. Par exemple, "savoir" se dit TO KNOW. To know. To sert à exprimer l'infinitif. Le mot "to" s'écrit T-O. Ça se prononce de la même façon que "too late" — trop. Mais dans "too late", "too" s'écrit comment ?
+
+---
+
+ID :
+0002
+
+ROLE :
+BIP
+
+TITRE :
+Épelle le mot.
+
+QUESTION :
+too
+
+---
+
+ID :
+0003
+
+ROLE :
+ELEVE1
+
+AUDIO :
+T-O-O.
+
+---
+
+ID :
+0004
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Ah oui — bravo ! T-O-O. Alors "savoir" — comment dit-on "savoir" à l'infinitif ?
+
+---
+
+ID :
+0005
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+savoir (infinitif)
+
+---
+
+ID :
+0006
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To know.
+
+---
+
+ID :
+0007
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Mais "je sais" ?
+
+---
+
+ID :
+0008
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je sais
+
+---
+
+ID :
+0009
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I know.
+
+---
+
+ID :
+0010
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I know. "Parler" — TO SPEAK. To speak. S-P-E-A-K. Speak. Speak. Comment dit-on "parler" à l'infinitif ?
+
+---
+
+ID :
+0011
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+parler (infinitif)
+
+---
+
+ID :
+0012
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To speak.
+
+---
+
+ID :
+0013
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To speak. Speak s'écrit S-P-E-A-K. Speak. Speak. Alors — comment dit-on "parler" à l'infinitif ?
+
+---
+
+ID :
+0014
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+parler (infinitif)
+
+---
+
+ID :
+0015
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To speak.
+
+---
+
+ID :
+0016
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To speak. Mais "je parle" ?
+
+---
+
+ID :
+0017
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je parle
+
+---
+
+ID :
+0018
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I speak.
+
+---
+
+ID :
+0019
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I speak. On supprime "to". I speak. "Avez-vous ?" — DO YOU HAVE ? Do you have ? Do you have ? Have — "to have" c'est "avoir". To have. Have s'écrit...
+
+---
+
+ID :
+0020
+
+ROLE :
+BIP
+
+TITRE :
+Épelle le mot.
+
+QUESTION :
+have
+
+---
+
+ID :
+0021
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[propose] H-A-V-E ?
+
+---
+
+ID :
+0022
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+H-A-V-E. To have. To have. "J'ai" ?
+
+---
+
+ID :
+0023
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+j'ai
+
+---
+
+ID :
+0024
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I have.
+
+---
+
+ID :
+0025
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I have. Encore une fois — once more. "Avoir" à l'infinitif ?
+
+---
+
+ID :
+0026
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+avoir (infinitif)
+
+---
+
+ID :
+0027
+
+ROLE :
+ELEVE2
+
+AUDIO :
+To have.
+
+---
+
+ID :
+0028
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Once more ?
+
+---
+
+ID :
+0029
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+avoir (infinitif)
+
+---
+
+ID :
+0030
+
+ROLE :
+ELEVE2
+
+AUDIO :
+To have.
+
+---
+
+ID :
+0031
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To have. To have. Yes, good. To have. Once more.
+
+---
+
+ID :
+0032
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+avoir (infinitif)
+
+---
+
+ID :
+0033
+
+ROLE :
+ELEVE2
+
+AUDIO :
+To have.
+
+---
+
+ID :
+0034
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+"J'ai" ?
+
+---
+
+ID :
+0035
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+j'ai
+
+---
+
+ID :
+0036
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I have.
+
+---
+
+ID :
+0037
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I have. "Avez-vous" ?
+
+---
+
+ID :
+0038
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous avez
+
+---
+
+ID :
+0039
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you have.
+
+---
+
+ID :
+0040
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you have ? "Parler" ?
+
+---
+
+ID :
+0041
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+parler (infinitif)
+
+---
+
+ID :
+0042
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To speak.
+
+---
+
+ID :
+0043
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To speak. "Je parle" ?
+
+---
+
+ID :
+0044
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je parle
+
+---
+
+ID :
+0045
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I speak.
+
+---
+
+ID :
+0046
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I speak. Mais "parlez-vous" ?
+
+---
+
+ID :
+0047
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous parlez
+
+---
+
+ID :
+0048
+
+ROLE :
+ELEVE1
+
+AUDIO :
+[hésite] You... do you speak.
+
+---
+
+ID :
+0049
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you speak ? Pour poser une question en anglais, on emploie donc DO YOU. Do you ? En français on dit "est-ce que" — est-ce que vous parlez, est-ce que vous avez. Do you ? Once more — "avoir" à l'infinitif.
+
+---
+
+ID :
+0050
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+avoir (infinitif)
+
+---
+
+ID :
+0051
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To have.
+
+---
+
+ID :
+0052
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To have. Mais la question — comment dit-on "avez-vous" ?
+
+---
+
+ID :
+0053
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous avez
+
+---
+
+ID :
+0054
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you have.
+
+---
+
+ID :
+0055
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you have. "J'ai" ?
+
+---
+
+ID :
+0056
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+j'ai
+
+---
+
+ID :
+0057
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I have.
+
+---
+
+ID :
+0058
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I have. Essayons avec "parler" maintenant.
+
+---
+
+ID :
+0059
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+parler (infinitif)
+
+---
+
+ID :
+0060
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To speak.
+
+---
+
+ID :
+0061
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To speak. "Je parle" ?
+
+---
+
+ID :
+0062
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je parle
+
+---
+
+ID :
+0063
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I speak.
+
+---
+
+ID :
+0064
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I speak. Et la question — comment dit-on "parlez-vous, est-ce que vous parlez" ?
+
+---
+
+ID :
+0065
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous parlez
+
+---
+
+ID :
+0066
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you speak.
+
+---
+
+ID :
+0067
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you speak ? Do you speak ? "Parlez-vous français" ?
+
+---
+
+ID :
+0068
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+parlez-vous français ?
+
+---
+
+ID :
+0069
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you speak French ?
+
+---
+
+ID :
+0070
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+French. Do you speak French ? Do you speak French ? Do you speak French ? "Parlez-vous italien" ?
+
+---
+
+ID :
+0071
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+parlez-vous italien ?
+
+---
+
+ID :
+0072
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you speak Italian ?
+
+---
+
+ID :
+0073
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you speak Italian ? Once more — comment dit-on "parler" à l'infinitif ?
+
+---
+
+ID :
+0074
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+parler (infinitif)
+
+---
+
+ID :
+0075
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To speak.
+
+---
+
+ID :
+0076
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To speak. "Je parle" ?
+
+---
+
+ID :
+0077
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je parle
+
+---
+
+ID :
+0078
+
+ROLE :
+ELEVE1
+
+AUDIO :
+I speak.
+
+---
+
+ID :
+0079
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I speak. "Parlez-vous, est-ce que vous parlez" ?
+
+---
+
+ID :
+0080
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous parlez
+
+---
+
+ID :
+0081
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you speak.
+
+---
+
+ID :
+0082
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you speak. "Savoir" ?
+
+---
+
+ID :
+0083
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+savoir (infinitif)
+
+---
+
+ID :
+0084
+
+ROLE :
+ELEVE2
+
+AUDIO :
+To know.
+
+---
+
+ID :
+0085
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To know. "Know" — ça s'écrit comment ?
+
+---
+
+ID :
+0086
+
+ROLE :
+BIP
+
+TITRE :
+Épelle le mot.
+
+QUESTION :
+know
+
+---
+
+ID :
+0087
+
+ROLE :
+ELEVE2
+
+AUDIO :
+K-N-O-W.
+
+---
+
+ID :
+0088
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+K-N-O-W. "Je sais" ?
+
+---
+
+ID :
+0089
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je sais
+
+---
+
+ID :
+0090
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I know.
+
+---
+
+ID :
+0091
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I know. "Savez-vous, est-ce que vous savez" ?
+
+---
+
+ID :
+0092
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous savez
+
+---
+
+ID :
+0093
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you know.
+
+---
+
+ID :
+0094
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes, do you know. "Savez-vous où c'est" ?
+
+---
+
+ID :
+0095
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+savez-vous où c'est ?
+
+---
+
+ID :
+0096
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[tâtonne] Do you know where... where is... Do you know where is... it is...
+
+---
+
+ID :
+0097
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes, do you know where it is ? Do you know where is veut dire "savez-vous où est". Is signifie "est". Où est — where is — mais "où c'est" — where it is. "Où est le téléphone ?" ?
+
+---
+
+ID :
+0098
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+où est le téléphone ?
+
+---
+
+ID :
+0099
+
+ROLE :
+ELEVE2
+
+AUDIO :
+[cherche] Where it is... Non. Where is... Oh — where is the tele... telephone ?
+
+---
+
+ID :
+0100
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes, where is the telephone ? Where is the telephone. Mais "je veux savoir" — I want...
+
+---
+
+ID :
+0101
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je veux (savoir)
+
+---
+
+ID :
+0102
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I want.
+
+---
+
+ID :
+0103
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes. "Je veux savoir" — I want...
+
+---
+
+ID :
+0104
+
+ROLE :
+BIP
+
+TITRE :
+Complète la phrase.
+
+QUESTION :
+I want... (savoir)
+
+---
+
+ID :
+0105
+
+ROLE :
+ELEVE2
+
+AUDIO :
+To know.
+
+---
+
+ID :
+0106
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I want to know. "Où c'est" ?
+
+---
+
+ID :
+0107
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+où c'est
+
+---
+
+ID :
+0108
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Where it is.
+
+---
+
+ID :
+0109
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right — I want to know where it is. Alors — comment dit-on "savoir" à l'infinitif ?
+
+---
+
+ID :
+0110
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+savoir (infinitif)
+
+---
+
+ID :
+0111
+
+ROLE :
+ELEVE2
+
+AUDIO :
+To know.
+
+---
+
+ID :
+0112
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To know. "Je sais" ?
+
+---
+
+ID :
+0113
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je sais
+
+---
+
+ID :
+0114
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I know.
+
+---
+
+ID :
+0115
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I know. "Savez-vous, est-ce que vous savez" ?
+
+---
+
+ID :
+0116
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous savez
+
+---
+
+ID :
+0117
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you know.
+
+---
+
+ID :
+0118
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Yes, do you know. "Savez-vous où c'est" ?
+
+---
+
+ID :
+0119
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+savez-vous où c'est ?
+
+---
+
+ID :
+0120
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you know where it is ?
+
+---
+
+ID :
+0121
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right — do you know where it is ? Pour introduire une question en anglais, on emploie donc DO YOU. Comment dit-on "parler" ?
+
+---
+
+ID :
+0122
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+parler (infinitif)
+
+---
+
+ID :
+0123
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To speak.
+
+---
+
+ID :
+0124
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To speak. "Parlez-vous, est-ce que vous parlez" ?
+
+---
+
+ID :
+0125
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous parlez
+
+---
+
+ID :
+0126
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you speak.
+
+---
+
+ID :
+0127
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you speak. "Savoir" ?
+
+---
+
+ID :
+0128
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+savoir (infinitif)
+
+---
+
+ID :
+0129
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To know.
+
+---
+
+ID :
+0130
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To know. "Savez-vous" ?
+
+---
+
+ID :
+0131
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous savez
+
+---
+
+ID :
+0132
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you know.
+
+---
+
+ID :
+0133
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you know. "Avoir" ?
+
+---
+
+ID :
+0134
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+avoir (infinitif)
+
+---
+
+ID :
+0135
+
+ROLE :
+ELEVE1
+
+AUDIO :
+To have.
+
+---
+
+ID :
+0136
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+To have. "Avez-vous" ?
+
+---
+
+ID :
+0137
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous avez
+
+---
+
+ID :
+0138
+
+ROLE :
+ELEVE1
+
+AUDIO :
+Do you have.
+
+---
+
+ID :
+0139
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you have. "Comprendre" — TO UNDERSTAND. To understand. U-N-D-E-R-S-T-A-N-D. To understand — "comprendre". "Comprenez-vous" ?
+
+---
+
+ID :
+0140
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous comprenez
+
+---
+
+ID :
+0141
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you understand.
+
+---
+
+ID :
+0142
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Once more.
+
+---
+
+ID :
+0143
+
+ROLE :
+BIP
+
+TITRE :
+Encore une fois.
+
+QUESTION :
+comprenez-vous ?
+
+---
+
+ID :
+0144
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you understand.
+
+---
+
+ID :
+0145
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Right, do you understand ? Do you understand ? "Voir" — TO SEE. To see. S-E-E. To see — "voir". Comment dit-on "voyez-vous" — la question ?
+
+---
+
+ID :
+0146
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous voyez
+
+---
+
+ID :
+0147
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you see.
+
+---
+
+ID :
+0148
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you see. "Je comprends" ?
+
+---
+
+ID :
+0149
+
+ROLE :
+BIP
+
+TITRE :
+Comment dit-on en anglais ?
+
+QUESTION :
+je comprends
+
+---
+
+ID :
+0150
+
+ROLE :
+ELEVE2
+
+AUDIO :
+I understand.
+
+---
+
+ID :
+0151
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+I understand. I understand. "Comprenez-vous" — la question ?
+
+---
+
+ID :
+0152
+
+ROLE :
+BIP
+
+TITRE :
+Mets à la forme interrogative.
+
+QUESTION :
+vous comprenez
+
+---
+
+ID :
+0153
+
+ROLE :
+ELEVE2
+
+AUDIO :
+Do you understand.
+
+---
+
+ID :
+0154
+
+ROLE :
+PROFESSEUR
+
+AUDIO :
+Do you understand. Encore une fois — once more. Pour poser une question en anglais, on emploie DO YOU avec le verbe sans le TO. To understand, comprendre. Comprendre, to understand. Comprenez-vous — do you understand ?

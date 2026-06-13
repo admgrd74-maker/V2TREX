@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Design 1 — Monolith</title>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@700;900&family=Syne:wght@700;800&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:#050505;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:48px;
+  padding:48px 24px;
+  font-family:'Inter',sans-serif;
+}
+
+/* ── Étiquette design ── */
+.design-label{
+  position:fixed;top:20px;left:50%;transform:translateX(-50%);
+  font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;
+  color:rgba(255,255,255,.25);text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:6px 18px;border-radius:20px;
+}
+
+/* ── Téléphone ── */
+.phone{
+  width:390px;
+  background:#0c0c0e;
+  border-radius:48px;
+  overflow:hidden;
+  box-shadow:
+    0 80px 160px rgba(0,0,0,.9),
+    0 0 0 1px rgba(255,255,255,.07),
+    0 0 0 8px #111,
+    0 0 0 9px rgba(255,255,255,.04);
+  position:relative;
+}
+
+/* Notch */
+.notch{
+  width:126px;height:36px;
+  background:#050505;
+  border-radius:0 0 26px 26px;
+  margin:0 auto;
+  position:relative;z-index:10;
+}
+
+/* Tag */
+.lesson-tag{
+  text-align:center;
+  font-family:'JetBrains Mono',monospace;
+  font-size:9.5px;letter-spacing:.24em;
+  color:rgba(255,255,255,.18);
+  text-transform:uppercase;
+  padding:12px 0 14px;
+}
+.lesson-tag b{color:rgba(255,255,255,.45);}
+
+/* ── TABLEAU ── */
+.board{
+  margin:0 -1px;
+  background:#07070a;
+  border-top:1px solid rgba(255,255,255,.05);
+  border-bottom:1px solid rgba(255,255,255,.05);
+  padding:8px 0;
+}
+
+.card{
+  padding:18px 28px 18px 24px;
+  border-left:2px solid transparent;
+  position:relative;
+}
+.card+.card{
+  border-top:1px solid rgba(255,255,255,.04);
+}
+.card[data-t="contraction"]{border-left-color:rgba(251,113,133,.55);}
+.card[data-t="prono"]      {border-left-color:rgba(74,222,128,.55);}
+
+.badge{
+  position:absolute;top:10px;right:14px;
+  font-family:'JetBrains Mono',monospace;font-size:8px;
+  color:rgba(255,255,255,.22);letter-spacing:.1em;text-transform:lowercase;
+}
+
+.c-fr{
+  font-family:'JetBrains Mono',monospace;
+  font-size:10px;color:rgba(255,255,255,.20);
+  letter-spacing:.06em;margin-bottom:5px;
+}
+.c-en{
+  font-family:'Lexend',sans-serif;font-weight:700;
+  font-size:40px;color:#f8f8f8;
+  line-height:1.05;letter-spacing:-.02em;
+}
+.c-en.sm{ font-size:32px; }
+.c-phon{
+  font-family:'JetBrains Mono',monospace;
+  font-size:12px;color:#4ade80;
+  margin-top:5px;letter-spacing:.05em;
+  opacity:.85;
+}
+
+/* ── Scène vocale ── */
+.stage{
+  display:flex;justify-content:center;align-items:flex-end;
+  gap:8px;padding:18px 20px 10px;
+}
+.seat{
+  display:flex;flex-direction:column;align-items:center;
+  gap:4px;width:68px;
+  opacity:.22;
+}
+.seat.on{ opacity:1; }
+.avatar{
+  width:38px;height:38px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.04);
+  display:flex;align-items:center;justify-content:center;
+}
+.seat.on .avatar{
+  width:62px;height:62px;
+  border-color:rgba(251,191,36,.65);
+  box-shadow:0 0 18px rgba(251,191,36,.25);
+  background:rgba(251,191,36,.06);
+}
+.avatar svg{width:24px;height:24px;}
+.seat.on .avatar svg{width:38px;height:38px;}
+.sname{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8.5px;color:rgba(255,255,255,.25);
+  letter-spacing:.10em;text-transform:uppercase;
+}
+.seat.on .sname{color:rgba(255,255,255,.75);font-size:9.5px;}
+.swave{display:flex;align-items:flex-end;gap:2px;height:11px;}
+.swave span{width:2px;border-radius:2px;background:rgba(251,191,36,.5);}
+.swave span:nth-child(1){height:3px;}
+.swave span:nth-child(2){height:10px;}
+.swave span:nth-child(3){height:6px;}
+.swave span:nth-child(4){height:9px;}
+.swave span:nth-child(5){height:4px;}
+
+/* ── Panel micro ── */
+.panel{
+  margin:6px 18px;padding:10px 14px 12px;
+  border:1px solid rgba(255,255,255,.05);
+  border-radius:16px;background:rgba(255,255,255,.025);
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  opacity:.28;
+}
+.pwave{
+  width:100%;height:14px;
+  border-radius:4px;background:rgba(255,255,255,.03);
+}
+.mic{
+  width:50px;height:50px;border-radius:50%;
+  border:1.5px solid rgba(255,255,255,.10);
+  background:rgba(255,255,255,.05);
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+}
+.ctrl{display:flex;gap:6px;width:100%;}
+.cbtn{
+  flex:1;padding:9px 6px;border-radius:10px;
+  border:1px solid rgba(255,255,255,.07);
+  background:rgba(255,255,255,.03);
+  color:rgba(255,255,255,.30);
+  font-family:'JetBrains Mono',monospace;font-size:10px;
+  text-align:center;
+}
+
+/* ── Nav ── */
+.bnav{
+  display:flex;justify-content:space-around;
+  padding:12px 28px 28px;
+  border-top:1px solid rgba(255,255,255,.04);
+  margin-top:6px;
+}
+.bico{color:rgba(255,255,255,.18);}
+.bico.on{color:rgba(255,255,255,.75);}
+</style>
+</head>
+<body>
+<div class="design-label">Design 1 — Monolith (minimalisme radical)</div>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="lesson-tag">● <b>méthode audio</b> — leçon 1 · français → anglais</div>
+
+  <div class="board">
+    <div class="card" data-t="contraction">
+      <div class="badge">contraction</div>
+      <div class="c-fr">c'est possible</div>
+      <div class="c-en">it is possible</div>
+      <div class="c-phon">it iz po-si-beul</div>
+    </div>
+    <div class="card" data-t="prono">
+      <div class="badge">se dit</div>
+      <div class="c-fr">la table</div>
+      <div class="c-en sm">the table</div>
+      <div class="c-phon">ze téï-beul</div>
+    </div>
+  </div>
+
+  <div class="stage">
+    <div class="seat">
+      <div class="avatar"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="sname">Sophie</div>
+      <div class="swave"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="seat on">
+      <div class="avatar"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".85"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".85"/></svg></div>
+      <div class="sname">Marc</div>
+      <div class="swave"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+    <div class="seat">
+      <div class="avatar"><svg viewBox="0 0 56 62" fill="none"><circle cx="28" cy="19" r="13" fill="white" opacity=".6"/><path d="M4 60c0-18 48-18 48 0" fill="white" opacity=".6"/></svg></div>
+      <div class="sname">Julien</div>
+      <div class="swave"><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="pwave"></div>
+    <div class="mic">🎙</div>
+    <div class="ctrl">
+      <div class="cbtn">▶ réponse</div>
+      <div class="cbtn">Continuer →</div>
+      <div class="cbtn">↺</div>
+    </div>
+  </div>
+
+  <div class="bnav">
+    <div class="bico">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+    </div>
+    <div class="bico on">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+    </div>
+    <div class="bico">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    </div>
+  </div>
+</div>
+</body>
+</html>
