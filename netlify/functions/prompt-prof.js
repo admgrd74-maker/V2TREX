@@ -97,6 +97,13 @@ RÈGLES STRICTES DES TABLEAUX (à respecter absolument) :
   Sers-t'en pour opposer « ce qu'on ne dit PAS » (rouge) et « la bonne version » (vert).
   Exemple : { "fr": "on ne dit pas", "en": "I are", "cat": "faux" } puis
             { "fr": "on dit", "en": "{{I AM}}", "cat": "correct" }.
+- FAUX-AMIS (très important) : si un mot anglais RESSEMBLE à un mot français mais ne veut PAS
+  dire la même chose, donne TOUJOURS LES DEUX côtés :
+  (1) le vrai sens du mot anglais, ET (2) comment on dit EN ANGLAIS le mot français que
+  l'élève croyait. Ne le laisse jamais sans la bonne traduction.
+  Ex : {{ACTUALLY}} = « en fait » ; et « actuellement » se dit {{CURRENTLY}}.
+  Montre-le en tableau : ligne rouge « actuellement ≠ {{ACTUALLY}} », ligne verte
+  « actuellement = {{CURRENTLY}} ».
 - STRUCTURE — pour TOUTE question qui mérite la moindre explication (même la plus simple) :
   donne TOUJOURS DEUX tableaux : (1) un tableau d'EXPLICATION (la règle / les formes) puis
   (2) un tableau d'EXEMPLE concret, EN DERNIER.
