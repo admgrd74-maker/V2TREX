@@ -117,12 +117,13 @@ exports.handler = async (event) => {
           contents,
           generationConfig: {
             temperature: 0.7,
-            maxOutputTokens: 2048,
+            // La réflexion compte dans ce budget : il doit couvrir réflexion + réponse.
+            maxOutputTokens: 3072,
             responseMimeType: "application/json",
             responseSchema: SCHEMA,
-            // Réflexion PLAFONNÉE : assez pour éviter la boucle (budget 0 = boucle),
-            // mais limitée pour rester rapide (réflexion illimitée = timeout serveur).
-            thinkingConfig: { thinkingBudget: 512 },
+            // Réflexion plafonnée : 1024 = plus de cohérence, mais bornée pour ne pas
+            // dépasser le délai serveur (0 = boucle ; illimité = timeout).
+            thinkingConfig: { thinkingBudget: 1024 },
           },
         }),
       }
