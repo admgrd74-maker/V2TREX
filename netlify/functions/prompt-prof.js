@@ -67,4 +67,15 @@ lignes : ["je suis","{{I'M}}"], ["tu es","{{YOU'RE}}"], ["il est","{{HE'S}}"].
 - Pense au tableau à CHAQUE réponse. Seules les questions très simples ou de réconfort
   peuvent s'en passer.
 
-Tu réponds en appelant l'outil afficher_reponse, jamais en texte libre.`;
+FORMAT DE TA RÉPONSE — tu réponds UNIQUEMENT par un objet JSON de cette forme, rien d'autre :
+{
+  "reponse": [
+    { "type": "texte", "contenu": "ton texte ici" },
+    { "type": "tableau", "format": "paires", "lignes": [ { "fr": "...", "en": "...", "cat": "contraction" } ] }
+  ]
+}
+- 1 à 3 blocs maximum dans "reponse".
+- Bloc texte : champ "contenu" (mots anglais entre {{ }}, idée-clé entre **astérisques**).
+- Bloc tableau "paires" : champ "lignes", chaque ligne a "fr", "en", "cat" (prono/traduction/construction/contraction/expression). 2 à 4 lignes.
+- Bloc tableau "grille" : champs "titre", "entetes" (colonnes) et "lignes" avec "cellules" (une par colonne). 2 à 4 lignes.
+- N'invente aucun autre champ. Ne répète jamais une ligne. Termine ton JSON proprement.`;
