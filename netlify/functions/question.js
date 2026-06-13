@@ -1,59 +1,20 @@
 /* Mini-backend « question au prof » — Netlify Function (Node 18+).
-   VERSION DE TEST : utilise l'API Google Gemini (palier GRATUIT).
+   VERSION DE TEST : utilise l'API Groq (GRATUITE) avec un modèle Llama.
    Le prompt et le format JSON sont identiques à la version Claude ;
    pour passer en production sur Claude, il suffira de remplacer le bloc d'appel API.
 
    Reçoit la conversation (liste `messages`), ajoute le prompt système,
-   force une sortie JSON conforme au schéma, renvoie { reponse: [...] }.
+   force une sortie JSON, renvoie { reponse: [...] }.
 
-   La clé vit ici, côté serveur — variable d'environnement GEMINI_API_KEY.
+   La clé vit ici, côté serveur — variable d'environnement GROQ_API_KEY.
    Jamais dans le navigateur (règle CLAUDE.md).
 
    Réf : docs/QUESTION-PROF-V1.md */
 
 const SYSTEM_PROMPT = require("./prompt-prof");
 
-// Modèle Gemini (palier gratuit, rapide).
-const MODEL = "gemini-2.5-flash";
-
-// Schéma de sortie au format Gemini (types en MAJUSCULES).
-const SCHEMA = {
-  type: "OBJECT",
-  properties: {
-    reponse: {
-      type: "ARRAY",
-      maxItems: 3,
-      items: {
-        type: "OBJECT",
-        properties: {
-          type: { type: "STRING", enum: ["texte", "tableau"] },
-          contenu: { type: "STRING" },
-          format: { type: "STRING", enum: ["paires", "grille"] },
-          titre: { type: "STRING" },
-          entetes: { type: "ARRAY", items: { type: "STRING" } },
-          lignes: {
-            type: "ARRAY",
-            maxItems: 4,
-            items: {
-              type: "OBJECT",
-              properties: {
-                fr: { type: "STRING" },
-                en: { type: "STRING" },
-                cat: {
-                  type: "STRING",
-                  enum: ["prono", "traduction", "construction", "contraction", "expression"],
-                },
-                cellules: { type: "ARRAY", items: { type: "STRING" } },
-              },
-            },
-          },
-        },
-        required: ["type"],
-      },
-    },
-  },
-  required: ["reponse"],
-};
+// Modèle Groq (gratuit, stable sur le JSON). Llama 3.3 70B.
+const MODEL = "llama-3.3-70b-versatile";
 
 const CORS = {
   "Access-Control-Allow-Origin": "*",
@@ -89,58 +50,53 @@ exports.handler = async (event) => {
     return json(400, { error: "Champ `messages` manquant ou vide." });
   }
 
-  // 2. Convertir au format Gemini : eleve→user, prof→model
-  const contents = messages
+  // 2. Convertir au format OpenAI/Groq : system + (eleve→user, prof→assistant)
+  const convo = messages
     .filter((m) => m && typeof m.texte === "string" && m.texte.trim())
     .map((m) => ({
-      role: m.role === "prof" ? "model" : "user",
-      parts: [{ text: m.texte }],
+      role: m.role === "prof" ? "assistant" : "user",
+      content: m.texte,
     }));
-  if (contents.length === 0) {
+  if (convo.length === 0) {
     return json(400, { error: "Aucun message exploitable." });
   }
+  const apiMessages = [{ role: "system", content: SYSTEM_PROMPT }, ...convo];
 
   // 3. Clé API
-  const apiKey = process.env.GEMINI_API_KEY;
+  const apiKey = process.env.GROQ_API_KEY;
   if (!apiKey) {
-    return json(500, { error: "Clé API non configurée (GEMINI_API_KEY manquante)." });
+    return json(500, { error: "Clé API non configurée (GROQ_API_KEY manquante)." });
   }
 
-  // 4. Appel à Gemini — sortie JSON forcée par le schéma
+  // 4. Appel à Groq — sortie JSON forcée (response_format json_object)
   let resp;
   try {
-    resp = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent`,
-      {
-        method: "POST",
-        headers: { "content-type": "application/json", "x-goog-api-key": apiKey },
-        body: JSON.stringify({
-          systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] },
-          contents,
-          generationConfig: {
-            temperature: 0.35,
-            maxOutputTokens: 2048,
-            responseMimeType: "application/json",
-            responseSchema: SCHEMA,
-            // 512 = le point d'équilibre qui MARCHE sur 2.5-flash.
-            // 0 → boucle ; 1024+ → reboucle/MAX_TOKENS ; illimité → timeout.
-            thinkingConfig: { thinkingBudget: 512 },
-          },
-        }),
-      }
-    );
+    resp = await fetch("https://api.groq.com/openai/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        Authorization: "Bearer " + apiKey,
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        model: MODEL,
+        messages: apiMessages,
+        temperature: 0.5,
+        max_tokens: 1024,
+        response_format: { type: "json_object" },
+      }),
+    });
   } catch (e) {
     return json(502, { error: "Impossible de joindre l'API.", detail: String(e) });
   }
 
   if (!resp.ok) {
     const detail = await resp.text();
-    return json(502, { error: "Erreur de l'API Gemini.", detail });
+    return json(502, { error: "Erreur de l'API Groq.", detail });
   }
 
   // 5. Extraire et parser le JSON renvoyé
   const data = await resp.json();
-  const text = data?.candidates?.[0]?.content?.parts?.[0]?.text;
+  const text = data?.choices?.[0]?.message?.content;
   if (!text) {
     return json(502, { error: "Réponse inattendue de l'API.", detail: JSON.stringify(data).slice(0, 500) });
   }
@@ -148,10 +104,10 @@ exports.handler = async (event) => {
   try {
     parsed = JSON.parse(text);
   } catch {
-    const fr = data?.candidates?.[0]?.finishReason || "?";
+    const fr = data?.choices?.[0]?.finish_reason || "?";
     return json(502, {
       error: "Réponse non-JSON.",
-      detail: "finishReason=" + fr + " | fin du texte: …" + text.slice(-160),
+      detail: "finish_reason=" + fr + " | fin du texte: …" + text.slice(-160),
     });
   }
 
