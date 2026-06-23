@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Méthode audio — Cours (piste spatiale)</title>
+<meta name="theme-color" content="#0e0b22">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Méthode Audio">
+<meta name="mobile-web-app-capable" content="yes">
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Polices app (bas + fallback) -->
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600&family=DM+Serif+Display&family=DM+Serif+Display:ital@1&family=Fraunces:ital,wght@0,500;1,400&family=Inter:wght@400;500;700&family=JetBrains+Mono:wght@400;600;700&family=Lilita+One&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<!-- Polices design spatial (carte + status) -->
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Fredoka:wght@500;600;700&family=Space+Mono:wght@400;700&family=Atkinson+Hyperlegible:wght@400;700&family=Lexend:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="spatial.css">
+</head>
+<body>
+
+<div class="phone">
+  <div class="notch"></div>
+
+  <!-- ░░ FOND SPATIAL + EFFETS ░░ -->
+  <div style="position:absolute;inset:0;background:url('assets/space-bg3.png') center/cover no-repeat;pointer-events:none;z-index:0"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(80% 55% at 100% 0%,rgba(4,4,16,.78),rgba(4,4,16,.3) 45%,transparent 70%);pointer-events:none;z-index:0"></div>
+  <div style="position:absolute;inset:-10% -10% 30% -10%;z-index:0;pointer-events:none;mix-blend-mode:screen;filter:blur(26px);opacity:.85">
+    <div style="position:absolute;top:0;left:8%;width:60%;height:78%;background:linear-gradient(115deg,transparent 0%,rgba(56,189,248,.0) 18%,rgba(59,130,246,.55) 42%,rgba(124,58,237,.45) 62%,rgba(168,85,247,.0) 82%);transform-origin:top center;animation:sp-aurora1 14s ease-in-out infinite"></div>
+    <div style="position:absolute;top:-6%;left:34%;width:58%;height:72%;background:linear-gradient(70deg,transparent 0%,rgba(99,102,241,.0) 20%,rgba(139,92,246,.5) 46%,rgba(76,29,149,.42) 66%,rgba(30,64,175,.0) 86%);transform-origin:top center;animation:sp-aurora2 18s ease-in-out infinite"></div>
+    <div style="position:absolute;top:2%;left:-4%;width:50%;height:64%;background:linear-gradient(95deg,transparent 0%,rgba(45,212,191,.0) 22%,rgba(56,189,248,.4) 48%,rgba(67,56,202,.36) 70%,rgba(91,33,182,.0) 90%);transform-origin:top center;animation:sp-aurora3 22s ease-in-out infinite"></div>
+  </div>
+  <div style="position:absolute;inset:0;z-index:0;pointer-events:none;mix-blend-mode:screen">
+    <div style="position:absolute;top:-120px;right:-160px;width:520px;height:520px;background:radial-gradient(closest-side,rgba(91,33,182,.8),rgba(67,20,140,.4) 50%,transparent 74%);filter:blur(16px);animation:sp-neb1 20s ease-in-out infinite"></div>
+    <div style="position:absolute;top:280px;left:-200px;width:560px;height:560px;background:radial-gradient(closest-side,rgba(76,29,149,.78),rgba(55,18,110,.36) 52%,transparent 76%);filter:blur(20px);animation:sp-neb2 26s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-40px;right:-120px;width:500px;height:500px;background:radial-gradient(closest-side,rgba(88,28,170,.72),rgba(60,20,120,.32) 54%,transparent 78%);filter:blur(22px);animation:sp-neb3 30s ease-in-out infinite"></div>
+    <div style="position:absolute;top:-100px;left:-180px;width:520px;height:520px;background:radial-gradient(closest-side,rgba(20,38,92,.6),rgba(14,26,66,.28) 52%,transparent 76%);filter:blur(20px);animation:sp-neb2 24s ease-in-out infinite"></div>
+    <div style="position:absolute;top:360px;right:-200px;width:540px;height:540px;background:radial-gradient(closest-side,rgba(18,34,84,.56),rgba(12,24,60,.26) 54%,transparent 78%);filter:blur(22px);animation:sp-neb1 28s ease-in-out infinite"></div>
+  </div>
+  <div style="position:absolute;inset:0;z-index:0;pointer-events:none">
+    <div style="position:absolute;top:-120px;left:-160px;width:520px;height:520px;background:radial-gradient(closest-side,rgba(8,7,24,.78),rgba(10,9,30,.4) 50%,transparent 74%);filter:blur(22px);animation:sp-neb2 24s ease-in-out infinite"></div>
+    <div style="position:absolute;top:340px;right:-180px;width:540px;height:540px;background:radial-gradient(closest-side,rgba(10,8,28,.74),rgba(12,10,34,.36) 52%,transparent 76%);filter:blur(24px);animation:sp-neb1 28s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-140px;left:-120px;width:500px;height:500px;background:radial-gradient(closest-side,rgba(7,6,22,.7),rgba(9,8,28,.32) 54%,transparent 78%);filter:blur(26px);animation:sp-neb3 32s ease-in-out infinite"></div>
+  </div>
+
+  <!-- Voile Inscription -->
+  <div class="veil" id="signup">
+    <div class="veil-tag">Méthode · Inscription</div>
+    <h1>Bienvenue en classe</h1>
+    <p>Vous serez le 3ᵉ élève. Le professeur vous appellera par votre prénom au moment de répondre.</p>
+    <div class="lesson-picker" id="lessonPicker" style="display:none">
+      <div class="lp-label">Choisir une leçon</div>
+      <div class="lp-cards" id="lpCards"></div>
+    </div>
+    <div class="field">
+      <label for="nameInput">Votre prénom</label>
+      <input id="nameInput" type="text" placeholder="ex : Marie" autocomplete="given-name">
+    </div>
+    <label class="opt"><input type="checkbox" id="ttsChk" checked> Voix de démo (si pas d'audio chargé)</label>
+    <button class="btn-veil primary" id="enterBtn">Entrer en classe →</button>
+    <button class="linklike" id="importBtn">Charger une leçon (.mtlesson)</button>
+    <input type="file" id="fileImport" accept=".mtlesson,.json,application/json" style="display:none">
+  </div>
+
+  <!-- Voile Bilan -->
+  <div class="veil hidden" id="recap">
+    <div class="veil-tag">Méthode · Bilan</div>
+    <h1 id="recapHi">Bravo !</h1>
+    <div class="recap-big" id="recapCount">—</div>
+    <div class="recap-line">structures travaillées aujourd'hui</div>
+    <p>Tu as suivi toute la leçon. Le suivi des erreurs arrive dans une prochaine version.</p>
+    <div class="recap-scores" id="recapScores"></div>
+    <button class="btn-veil primary" id="againBtn">↺ Refaire la leçon</button>
+  </div>
+
+  <!-- Écran de prononciation (Azure) -->
+  <div class="veil hidden" id="scoreScreen">
+    <div class="veil-tag">Méthode · Ta prononciation</div>
+    <h1 id="scoreHeadline">Ta prononciation</h1>
+    <div class="score-said" id="scoreSaid"></div>
+    <div class="score-rings" id="scoreRings"></div>
+    <div class="score-words" id="scoreWords"></div>
+    <button class="btn-veil ghost" id="coachBtn" style="display:none">💬 Pourquoi ? Le prof t'explique</button>
+    <div class="coach-box" id="coachBox" style="display:none"></div>
+    <button class="btn-veil primary" id="scoreNextBtn">Continuer →</button>
+  </div>
+
+  <!-- Status bar spatiale (remplace l'overlay-top vintage) -->
+  <div class="sp-status">
+    <div style="display:flex;align-items:center;gap:9px">
+      <span style="width:5px;height:5px;border-radius:50%;background:#4fd1b5;box-shadow:0 0 8px rgba(79,209,181,.9)"></span>
+      <span class="lbl" id="spLessonLabel">MÉTHODE</span>
+    </div>
+    <span style="width:9px;height:9px;border-radius:50%;background:#46e08a"></span>
+  </div>
+
+  <!-- Header vintage (masqué par spatial.css mais conservé : engine met à jour #topTag) -->
+  <div class="overlay-top">
+    <div class="ot-tag" id="topTag">● Méthode audio</div>
+    <div class="ot-dot"></div>
+  </div>
+
+  <!-- Zone tableau — peuplée par engine.js -->
+  <div class="word-zone" id="slate"></div>
+
+  <!-- Zone bip — overlay question au tour du client -->
+  <div class="bip-zone" id="bipZone" style="display:none">
+    <div class="bip-question">
+      <div class="bip-q-title"></div>
+      <div class="bip-q-phrase" id="bipPhrase"></div>
+      <div class="bip-context" id="bipContext" style="display:none"></div>
+    </div>
+    <button class="voir-rep-btn" id="voirRepBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+        <circle cx="12" cy="12" r="3"/>
+      </svg>
+      voir la réponse
+    </button>
+  </div>
+
+  <!-- Éléments moteur cachés -->
+  <div id="speaker" style="display:none">Professeur</div>
+  <div id="stage"   style="display:none"></div>
+  <div id="caption" style="display:none"></div>
+
+  <!-- Overlay bas — personnages + panel micro -->
+  <div class="overlay-bottom panel disabled" id="panel">
+
+    <!-- Personnages -->
+    <div class="chars" id="vocalStage">
+      <div class="char-item" id="vs-prof" data-role="prof" data-pos="center">
+        <div class="char-av">
+          <div class="char-rings"></div>
+          <svg viewBox="0 0 56 62" fill="none" aria-hidden="true"><circle cx="28" cy="19" r="13" fill="white"/><path d="M4 60c0-18 48-18 48 0" fill="white"/></svg>
+        </div>
+        <div class="char-name" id="vsl-prof">Professeur</div>
+      </div>
+      <div class="char-item" id="vs-eleve1" data-role="eleve1" data-pos="left">
+        <div class="char-av">
+          <div class="char-rings"></div>
+          <svg viewBox="0 0 56 62" fill="none" aria-hidden="true"><circle cx="28" cy="19" r="13" fill="white"/><path d="M4 60c0-18 48-18 48 0" fill="white"/></svg>
+        </div>
+        <div class="char-name" id="vsl-eleve1">Sophie</div>
+      </div>
+      <div class="char-item" id="vs-eleve2" data-role="eleve2" data-pos="right">
+        <div class="char-av">
+          <div class="char-rings"></div>
+          <svg viewBox="0 0 56 62" fill="none" aria-hidden="true"><circle cx="28" cy="19" r="13" fill="white"/><path d="M4 60c0-18 48-18 48 0" fill="white"/></svg>
+        </div>
+        <div class="char-name" id="vsl-eleve2">Julien</div>
+      </div>
+    </div>
+
+    <!-- Barre de progression -->
+    <div class="progress-wrap">
+      <span class="progress-pct" id="progressPct">0%</span>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <span class="progress-steps" id="progressSteps">0 / 0</span>
+    </div>
+
+    <!-- Actions normales -->
+    <div class="normal-actions">
+      <button class="act-btn" id="restartBtn">↺</button>
+      <button class="act-btn primary play-btn" id="playBtn">
+        <svg class="ico-play" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+        <svg class="ico-pause" width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><rect x="6" y="4" width="4" height="16" rx="1"/><rect x="14" y="4" width="4" height="16" rx="1"/></svg>
+      </button>
+      <button class="act-btn">✕</button>
+    </div>
+
+    <!-- Bouton retour question -->
+    <button class="revenir-btn" id="revenirBtn">← Revenir à la question</button>
+
+    <!-- Panel bip (tour du client) -->
+    <div class="bip-panel">
+      <div class="bip-card">
+        <div class="bip-hold-label" id="micLabel">maintiens pour parler</div>
+        <canvas class="moi-wave" id="moiWave" width="260" height="18"></canvas>
+        <div class="bip-wave-row">
+          <div class="bip-wave-side l">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span>
+          </div>
+          <button class="bip-mic" id="mic" disabled>
+            <div class="bip-ring"></div>
+            <svg class="bip-ico-mic" width="22" height="22" viewBox="0 0 24 24" fill="none"
+              stroke="rgba(251,191,36,.90)" stroke-width="1.8" stroke-linecap="round">
+              <rect x="9" y="2" width="6" height="12" rx="3"/>
+              <path d="M19 10a7 7 0 0 1-14 0"/>
+              <line x1="12" y1="19" x2="12" y2="22"/>
+              <line x1="8" y1="22" x2="16" y2="22"/>
+            </svg>
+            <svg class="bip-ico-stop" width="22" height="22" viewBox="0 0 24 24" fill="white">
+              <rect x="6" y="6" width="12" height="12" rx="2"/>
+            </svg>
+          </button>
+          <div class="bip-wave-side r">
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span><span></span>
+            <span></span>
+          </div>
+        </div>
+        <div class="bip-mic-name">moi</div>
+      </div>
+      <div class="bip-actions">
+        <button class="bip-act replay" id="replayBtn" disabled>
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          ma réponse
+        </button>
+        <button class="bip-act retry">↺</button>
+        <button class="bip-act next" id="contBtn" style="display:none">Continuer →</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Defs SVG (gradients) réutilisés par la page « question au prof » -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="qFabBody" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#283450"/><stop offset="1" stop-color="#101726"/>
+      </linearGradient>
+      <linearGradient id="qFabRim" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#FFE7A0"/><stop offset=".5" stop-color="#E0A52E"/><stop offset="1" stop-color="#8A5A10"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Bouton question — image bulle de chat violette -->
+  <button class="q-fab" id="qFab" title="Poser une question au professeur" aria-label="Poser une question au professeur">
+    <img src="assets/icons8-comments-94.png" alt="">
+  </button>
+
+  <!-- PAGE 1 — saisie de la question -->
+  <div class="q-overlay hidden" id="qSheet">
+    <div class="q-dim" data-q-close></div>
+    <div class="q-sheet">
+      <div class="q-grip"></div>
+      <div class="q-sheet-head">
+        <div class="q-sheet-bubble">
+          <svg viewBox="0 0 120 120">
+            <path d="M60 12C82.1 12 100 29.9 100 52C100 74.1 82.1 92 60 92C52.4 92 45.3 89.9 39.3 86.2L27 99.5C29.8 91.3 31.6 85.6 32.6 81.3C24.8 74 20 63.6 20 52C20 29.9 37.9 12 60 12Z"
+                  fill="url(#qFabBody)" stroke="url(#qFabRim)" stroke-width="2.4"/>
+            <text x="60" y="69" text-anchor="middle" font-family="'Lilita One',cursive" font-size="47" fill="#FCD34D">?</text>
+          </svg>
+        </div>
+        <div>
+          <div class="q-sheet-title">Une question pour le professeur ?</div>
+          <div class="q-sheet-sub">la leçon est en pause</div>
+        </div>
+      </div>
+      <textarea class="q-input" id="qInput" rows="1" placeholder="Écris ta question…"></textarea>
+      <div class="q-sheet-actions">
+        <button class="q-cancel" data-q-close>✕</button>
+        <button class="q-send" id="qSheetSend">
+          Demander au professeur
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PAGE 2 — chat / réponse du prof -->
+  <div class="q-overlay hidden" id="qChat">
+    <div class="overlay-top">
+      <div class="ot-tag">● question au professeur</div>
+      <button class="q-chat-close" data-q-close aria-label="Fermer">✕</button>
+    </div>
+
+    <div class="q-chat-zone" id="qChatZone">
+      <div class="q-myq" id="qMyq">
+        <b>ma question</b>
+        <span id="qMyqText">pourquoi on dit it's et pas it is ?</span>
+      </div>
+
+      <div class="q-prof">
+        <span class="q-prof-ring"></span>
+        <span class="q-prof-ring r2"></span>
+        <span class="q-prof-av">🎓</span>
+      </div>
+      <div class="q-prof-name">Le professeur répond</div>
+      <div class="q-pwave"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+
+      <div class="q-answer" id="qAnswer">
+        <p>Excellente question ! <span class="q-key">Les anglais adorent raccourcir ce qu'ils disent</span>. <span class="q-hl">IT IS</span> n'est pas faux, mais à l'oral personne le dit en entier — tout le monde colle les deux en <span class="q-hl">IT'S</span>.</p>
+        <div class="q-tab">
+          <div class="q-row q-cat-construction"><span class="q-rfr">version complète</span><span class="q-ren">IT IS</span></div>
+          <div class="q-row q-cat-contraction"><span class="q-rfr">version parlée</span><span class="q-ren">IT'S</span></div>
+        </div>
+        <p>Et ça marche avec tout le verbe être :</p>
+        <table class="q-grid">
+          <caption>le verbe être</caption>
+          <thead><tr><th>français</th><th>complet</th><th>rapide</th></tr></thead>
+          <tbody>
+            <tr><td>je suis</td><td><span class="q-hl">I AM</span></td><td><span class="q-hl">I'M</span></td></tr>
+            <tr><td>tu es</td><td><span class="q-hl">YOU ARE</span></td><td><span class="q-hl">YOU'RE</span></td></tr>
+            <tr><td>il est</td><td><span class="q-hl">HE IS</span></td><td><span class="q-hl">HE'S</span></td></tr>
+          </tbody>
+        </table>
+        <p>Le réflexe : <span class="q-key">à l'oral, c'est toujours la version courte qui gagne</span>. Tu vas vite le sentir tout seul.</p>
+      </div>
+
+      <div class="q-chat-bottom">
+      <div class="q-followup">
+        <label class="q-fu-field" id="qFuField">
+          <svg class="q-fu-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+          <span class="q-fu-cue"><i class="q-fu-caret"></i>Écris ici pour reposer une question…</span>
+          <input class="q-fu-input" id="qFuInput">
+        </label>
+        <button class="q-fu-send" id="qFuSend" aria-label="Envoyer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13"/><path d="M22 2 15 22l-4-9-9-4z"/></svg>
+        </button>
+      </div>
+      <div class="q-chat-actions">
+        <button class="q-replay" aria-label="Réécouter">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 2.6-6.4L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+        <button class="q-resume" data-q-close>Reprendre la leçon →</button>
+      </div>
+      </div>
+    </div>
+
+    <button class="q-scrolldown" id="qScrollDown" aria-label="Voir la suite et les actions">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+    </button>
+  </div>
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
+<script src="sample-lesson.js"></script>
+<script src="pronunciation.js"></script>
+<script src="engine.js"></script>
+<script>
+  // Bandeau "Ajouter à l'écran d'accueil" — Safari iOS hors standalone
+  (function(){
+    const isIOS = /iphone|ipad|ipod/i.test(navigator.userAgent.toLowerCase());
+    const isStandalone = navigator.standalone === true;
+    const isSafari = /safari/i.test(navigator.userAgent) && !/chrome|crios|fxios/i.test(navigator.userAgent);
+    if(!isIOS || isStandalone || !isSafari) return;
+    const b = document.createElement('div');
+    b.id = 'pwa-hint';
+    b.innerHTML = `
+      <span>Pour l'affichage plein écran :</span>
+      <strong>Partager</strong> <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+      puis <strong>Sur l'écran d'accueil</strong>
+      <button onclick="this.parentElement.remove()" style="background:none;border:none;color:inherit;font-size:16px;cursor:pointer;padding:0 0 0 8px;opacity:.6">✕</button>`;
+    document.body.appendChild(b);
+  })();
+</script>
+
+<script>
+  /* ── Navigation visuelle « question au prof » (design only, NON branché) ── */
+  (function(){
+    const fab     = document.getElementById('qFab');
+    const sheet   = document.getElementById('qSheet');
+    const chat    = document.getElementById('qChat');
+    const input   = document.getElementById('qInput');
+    const send    = document.getElementById('qSheetSend');
+    const myqText = document.getElementById('qMyqText');
+    const chatZone= document.getElementById('qChatZone');
+    const scrollDn= document.getElementById('qScrollDown');
+    if(!fab) return;
+
+    const open  = el => el.classList.remove('hidden');
+    const close = el => el.classList.add('hidden');
+
+    let weePaused = false;
+    function pauseLesson(){
+      const pb = document.getElementById('playBtn');
+      if(pb && pb.classList.contains('paused') && typeof togglePause === 'function'){
+        togglePause(); weePaused = true;
+      }
+    }
+    function resumeLesson(){
+      if(weePaused && typeof togglePause === 'function'){ togglePause(); }
+      weePaused = false;
+    }
+
+    fab.addEventListener('click', () => { pauseLesson(); open(sheet); setTimeout(()=>input.focus(), 60); });
+
+    input.addEventListener('input', () => {
+      input.style.height = 'auto';
+      input.style.height = Math.min(input.scrollHeight, 120) + 'px';
+    });
+
+    send.addEventListener('click', () => {
+      const q = input.value.trim();
+      if(q) myqText.textContent = q;
+      close(sheet); open(chat);
+      chat.classList.remove('show-controls');
+      chatZone.scrollTop = 0;
+    });
+
+    scrollDn.addEventListener('click', () => {
+      chat.classList.add('show-controls');
+      requestAnimationFrame(() => { chatZone.scrollTop = chatZone.scrollHeight; });
+    });
+
+    const fuInput = document.getElementById('qFuInput');
+    const fuField = document.getElementById('qFuField');
+    if(fuInput && fuField){
+      fuInput.addEventListener('input', () => {
+        fuField.classList.toggle('has-text', fuInput.value.length > 0);
+      });
+    }
+
+    document.querySelectorAll('[data-q-close]').forEach(el => {
+      el.addEventListener('click', () => {
+        close(sheet); close(chat);
+        input.value = ''; input.style.height = 'auto';
+        resumeLesson();
+      });
+    });
+  })();
+</script>
+</body>
+</html>

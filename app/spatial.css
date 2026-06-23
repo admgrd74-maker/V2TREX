@@ -1,0 +1,130 @@
+/* ════════════════════════════════════════════════════════════════════════
+   PISTE SPATIALE — overrides de look par-dessus styles.css.
+   Réutilise engine.js tel quel : la mécanique des leçons ne change pas,
+   seul l'habillage du tableau + le fond changent. Chargé APRÈS styles.css.
+   ════════════════════════════════════════════════════════════════════════ */
+
+/* ── Téléphone aux dimensions du design + fond spatial ── */
+.phone {
+  width: 390px;
+  min-height: 844px;
+  background: #0e0b22;
+  color: #e9eef5;
+}
+
+/* ── Keyframes du design ── */
+@keyframes sp-borderflow { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+@keyframes sp-breathe    { 0%,100% { filter: drop-shadow(0 1px 1px rgba(0,0,0,.4)); } 50% { filter: drop-shadow(0 2px 8px rgba(245,181,34,.35)); } }
+@keyframes sp-neb1   { 0%,100% { transform: translate(0,0) scale(1);    } 50% { transform: translate(34px,26px) scale(1.18); } }
+@keyframes sp-neb2   { 0%,100% { transform: translate(0,0) scale(1.05); } 50% { transform: translate(-38px,-22px) scale(1.26); } }
+@keyframes sp-neb3   { 0%,100% { transform: translate(0,0) scale(1);    } 50% { transform: translate(24px,-32px) scale(1.16); } }
+@keyframes sp-aurora1 { 0%,100% { transform: translateX(0) skewX(-12deg) scaleY(1);    opacity:.7;  } 50% { transform: translateX(8%) skewX(8deg) scaleY(1.18);   opacity:1;   } }
+@keyframes sp-aurora2 { 0%,100% { transform: translateX(0) skewX(10deg) scaleY(1.05);  opacity:.55; } 50% { transform: translateX(-10%) skewX(-10deg) scaleY(1.3); opacity:.95; } }
+@keyframes sp-aurora3 { 0%,100% { transform: translateX(0) skewX(-6deg) scaleY(.95);   opacity:.5;  } 50% { transform: translateX(7%) skewX(12deg) scaleY(1.22);  opacity:.85; } }
+@keyframes sp-floaty     { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes sp-halo-amber { 0%,100% { opacity:.6; transform: scale(.92); } 50% { opacity:1; transform: scale(1.08); } }
+
+/* ── Couches de fond (les divs sont stylées inline dans le HTML, ici juste le wrapper) ── */
+.sp-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+/* L'overlay-top vintage masqué (remplacé par la status bar spatiale) */
+.overlay-top { display: none; }
+
+/* Status bar spatiale */
+.sp-status {
+  position: relative; z-index: 5;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 20px 24px 0;
+  pointer-events: none;
+}
+.sp-status .lbl { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 2.5px; color: #7d8ca0; }
+
+/* ── Zone tableau : on enlève les voiles vintage haut/bas (couleur #1A2232) ── */
+.word-zone:has(#slotTrack)::before,
+.word-zone:has(#slotTrack)::after { display: none; }
+
+/* ════════════════════════════════════════════════════════════
+   UNE SEULE CARTE CENTRÉE : on masque tous les slots non actifs.
+   ════════════════════════════════════════════════════════════ */
+.slot.slot-prev,
+.slot.slot-next,
+.slot.slot-history,
+.slot.slot-future { opacity: 0 !important; }
+
+/* ── Carte active = carte spatiale ── */
+.slot-track .card.slot-active {
+  margin: 0 4px;
+  border-radius: 26px;
+  padding: 24px 22px;
+  background: linear-gradient(180deg, rgba(5,6,14,.92), rgba(3,4,10,.90));
+  box-shadow: 0 0 24px rgba(34,211,238,.35), 0 30px 70px rgba(0,0,0,.6);
+  overflow: hidden;
+  align-items: center;
+  text-align: center;
+  filter: none;
+  animation: none;            /* neutralise slot-lock */
+}
+
+/* Bordure animée cyan (remplace l'orbe ::before du design vintage) */
+.slot-track .card.slot-active::before {
+  content: '';
+  position: absolute; inset: 0 !important;
+  border-radius: 26px; padding: 1px;
+  background: linear-gradient(120deg,#22d3ee,#3b82f6,#06b6d4,#67e8f9,#0ea5e9,#22d3ee) !important;
+  background-size: 300% 300% !important;
+  animation: sp-borderflow 6s linear infinite !important;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  opacity: 1 !important;
+  pointer-events: none;
+}
+/* On supprime la barre latérale vintage ::after */
+.slot-track .card.slot-active::after { display: none !important; }
+
+/* Badge type : pastille arrondie centrée */
+.slot-track .card.slot-active .ctype-label { margin: 0 auto 18px; }
+
+/* FR — Atkinson, centré, sans soulignement gauche du vintage */
+.slot-track .card.slot-active .cword-fr {
+  font-family: 'Atkinson Hyperlegible', sans-serif !important;
+  font-weight: 700 !important;
+  color: #d6dae2 !important;
+  margin-bottom: 18px !important;
+  padding-bottom: 0 !important;
+}
+.slot-track .card.slot-active .cword-fr::after { display: none !important; }
+
+/* EN — Fredoka ambré, respiration douce (taille gérée par engine.js) */
+.slot-track .card.slot-active .cword {
+  font-family: 'Fredoka', sans-serif !important;
+  font-weight: 600 !important;
+  color: #FCD34D !important;
+  animation: sp-breathe 3.6s ease-in-out infinite;
+}
+
+/* Prononciation — Lexend */
+.slot-track .card.slot-active .cphon {
+  font-family: 'Lexend', sans-serif !important;
+  font-weight: 500 !important;
+  margin-top: 16px !important;
+}
+
+/* ── Bas existant : neutralise le dégradé vintage pour se fondre dans l'espace ── */
+.overlay-bottom {
+  background: linear-gradient(180deg, transparent, rgba(7,13,24,.85) 38%);
+}
+
+/* ── Bouton question : 50px + flottement + halo ambre (comme la page de test) ── */
+.q-fab {
+  width: 50px; height: 50px;
+  animation: sp-floaty 4s ease-in-out infinite;
+}
+.q-fab::before {
+  content: ''; position: absolute; inset: -40%; z-index: -1; pointer-events: none;
+  border-radius: 50%;
+  background: radial-gradient(closest-side, rgba(245,181,34,.75), rgba(245,181,34,0) 72%);
+  filter: blur(8px);
+  animation: sp-halo-amber 3.8s ease-in-out infinite;
+}
+.q-fab img { width: 100%; height: 100%; display: block; object-fit: contain; }
