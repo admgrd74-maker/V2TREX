@@ -72,6 +72,9 @@ header{
 .cat-construction{--c:rgba(96,165,250,.8);}
 .cat-contraction{--c:rgba(251,113,133,.8);}
 .cat-expression{--c:rgba(167,139,250,.8);}
+.cat-correct{--c:rgba(52,211,153,.95);}
+.cat-faux{--c:rgba(248,113,113,.95);}
+.row.cat-faux .ren{color:#fca5a5;}
 /* "Le professeur réfléchit" */
 .typing{display:flex;gap:5px;padding:6px 2px;}
 .typing i{width:7px;height:7px;border-radius:50%;background:rgba(251,191,36,.55);animation:tk 1.2s ease-in-out infinite;}
@@ -214,8 +217,9 @@ function addProf(data){
   el.innerHTML = inner;
   $thread.appendChild(el);
   scroll();
-  // Mémoriser la réponse du prof dans la conversation
-  messages.push({ role: "prof", texte: plainForHistory.join("\n") });
+  // Mémoriser la réponse du prof dans la conversation — en JSON (même format
+  // que sa sortie) pour que l'historique reste cohérent au tour suivant.
+  messages.push({ role: "prof", texte: JSON.stringify(data) });
 }
 
 function addError(msg){
@@ -247,7 +251,7 @@ async function send(){
     removeTyping();
     const data = await r.json();
     if (!r.ok) {
-      addError(data.error || "Erreur serveur.");
+      addError((data.error || "Erreur serveur.") + (data.detail ? "  —  " + data.detail : ""));
     } else {
       addProf(data);
     }

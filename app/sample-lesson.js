@@ -32,12 +32,12 @@ window.MT_LESSON = {
       fr:'Petit exercice. <b>« table »</b> en anglais ?',
       speak:[["Petit exercice.","fr"],["table","en"],["en anglais ?","fr"]], audio:null },
 
-    { role:"moi" },
+    { role:"moi", bip:{ attendu:"table" } },
 
     { role:"eleve1", tag:"hésitante", fr:'Table ?', speak:[["table","en"]], audio:null },
 
     { role:"prof",
-      fr:'Table, c'est pas mal. <b>Table</b> : table.',
+      fr:'Table, c’est pas mal. <b>Table</b> : table.',
       speak:[["table","en"],[", c'est pas mal.","fr"],["table","en"]], audio:null },
 
     { role:"eleve2", tag:"timide", fr:'Table ?', speak:[["table","en"]], audio:null },
@@ -47,7 +47,7 @@ window.MT_LESSON = {
       fr:'Okay. <b>« possible »</b> ?',
       speak:[["Okay.","fr"],["possible","en"],["?","fr"]], audio:null },
 
-    { role:"moi" },
+    { role:"moi", bip:{ attendu:"possible" } },
 
     { role:"eleve1", tag:"réfléchit", fr:'Possible... possible ?', speak:[["possible... possible","en"]], audio:null },
 
@@ -56,7 +56,7 @@ window.MT_LESSON = {
       fr:'Possible. Et… <b>« terrible »</b> ?',
       speak:[["possible","en"],[". Et…","fr"],["terrible","en"],["?","fr"]], audio:null },
 
-    { role:"moi" },
+    { role:"moi", bip:{ attendu:"terrible" } },
 
     { role:"eleve1", fr:'Terrible ?', speak:[["terrible","en"]], audio:null },
 
@@ -69,7 +69,7 @@ window.MT_LESSON = {
       fr:'Un autre : <b>« acceptable »</b> ?',
       speak:[["Un autre :","fr"],["acceptable","en"],["?","fr"]], audio:null },
 
-    { role:"moi" },
+    { role:"moi", bip:{ attendu:"acceptable" } },
 
     { role:"eleve1", tag:"découpe lentement", fr:'Ac-ceptable ?', speak:[["acceptable","en"]], audio:null },
 
@@ -78,23 +78,23 @@ window.MT_LESSON = {
       fr:'Acceptable. Plus dur : « confortable ». Attention : <b>comfortable</b>.',
       speak:[["acceptable","en"],[". Plus dur : confortable. Attention :","fr"],["comfortable","en"]], audio:null },
 
-    { role:"moi" },
+    { role:"moi", bip:{ attendu:"comfortable" } },
 
     { role:"eleve1", fr:'Comfortable ?', speak:[["comfortable","en"]], audio:null },
 
     // ── Board 6 : it is + possible ────────────────────────────────────
     { role:"prof", changeBoard:true,
-      fr:'Pour dire « c'est » : <b>it is</b>. Et « c'est possible » : <b>it is possible</b>.',
-      speak:[["Pour dire c'est :","fr"],["it is","en"],[". Et c'est possible :","fr"],["it is possible","en"]],
+      fr:'Pour dire « c’est » : <b>it is</b>. Et « c’est possible » : <b>it is possible</b>.',
+      speak:[["Pour dire c’est :","fr"],["it is","en"],[". Et c’est possible :","fr"],["it is possible","en"]],
       audio:null },
 
-    { role:"moi" },
+    { role:"moi", bip:{ attendu:"it is possible" } },
 
     { role:"eleve2", tag:"bégaye", fr:'It is p- p- poss… possible ?', speak:[["it is, p, p, possible","en"]], audio:null },
 
     // ── Board 7 : contraction ─────────────────────────────────────────
     { role:"prof", changeBoard:true,
-      fr:'It is possible. Ou la contraction : <b>it's possible</b>.',
+      fr:'It is possible. Ou la contraction : <b>it’s possible</b>.',
       speak:[["it is possible. Ou la contraction :","fr"],["it's possible","en"]], audio:null }
   ],
 

@@ -13,7 +13,7 @@
 }
 
 /* ── Keyframes du design ── */
-@keyframes sp-borderflow { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
+@keyframes sp-cardborder { 0% { background-position: 0 0, 0% 50%; } 100% { background-position: 0 0, 300% 50%; } }
 @keyframes sp-breathe    { 0%,100% { filter: drop-shadow(0 1px 1px rgba(0,0,0,.4)); } 50% { filter: drop-shadow(0 2px 8px rgba(245,181,34,.35)); } }
 @keyframes sp-neb1   { 0%,100% { transform: translate(0,0) scale(1);    } 50% { transform: translate(34px,26px) scale(1.18); } }
 @keyframes sp-neb2   { 0%,100% { transform: translate(0,0) scale(1.05); } 50% { transform: translate(-38px,-22px) scale(1.26); } }
@@ -51,36 +51,30 @@
 .slot.slot-history,
 .slot.slot-future { opacity: 0 !important; }
 
-/* ── Carte active = carte spatiale ── */
+/* ── Carte active = carte spatiale (sombre + liseré cyan animé) ──
+   Technique background-clip (padding-box / border-box) : fiable sur tous les
+   navigateurs, contrairement à mask-composite qui remplissait la carte en
+   bleu sur ton mobile. */
 .slot-track .card.slot-active {
   margin: 0 4px;
-  border-radius: 26px;
   padding: 24px 22px;
-  background: linear-gradient(180deg, rgba(5,6,14,.92), rgba(3,4,10,.90));
-  box-shadow: 0 0 24px rgba(34,211,238,.35), 0 30px 70px rgba(0,0,0,.6);
+  border: 1px solid transparent;
+  border-radius: 26px;
+  background:
+    linear-gradient(180deg, rgba(5,6,14,.95), rgba(3,4,10,.95)) padding-box,
+    linear-gradient(120deg,#22d3ee,#3b82f6,#06b6d4,#67e8f9,#0ea5e9,#22d3ee) border-box;
+  background-size: 100% 100%, 300% 100%;
+  background-repeat: no-repeat;
+  animation: sp-cardborder 6s linear infinite;
+  box-shadow: 0 0 24px rgba(34,211,238,.30), 0 30px 70px rgba(0,0,0,.6);
   overflow: hidden;
   align-items: center;
   text-align: center;
   filter: none;
-  animation: none;            /* neutralise slot-lock */
 }
-
-/* Bordure animée cyan (remplace l'orbe ::before du design vintage) */
-.slot-track .card.slot-active::before {
-  content: '';
-  position: absolute; inset: 0 !important;
-  border-radius: 26px; padding: 1px;
-  background: linear-gradient(120deg,#22d3ee,#3b82f6,#06b6d4,#67e8f9,#0ea5e9,#22d3ee) !important;
-  background-size: 300% 300% !important;
-  animation: sp-borderflow 6s linear infinite !important;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0) !important;
-  -webkit-mask-composite: xor; mask-composite: exclude;
-  opacity: 1 !important;
-  pointer-events: none;
-}
-/* On supprime la barre latérale vintage ::after */
-.slot-track .card.slot-active::after { display: none !important; }
+/* On neutralise l'orbe ::before vintage + l'ancienne barre ::after */
+.slot-track .card.slot-active::before { display: none !important; }
+.slot-track .card.slot-active::after  { display: none !important; }
 
 /* Badge type : pastille arrondie centrée */
 .slot-track .card.slot-active .ctype-label { margin: 0 auto 18px; }

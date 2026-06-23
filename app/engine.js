@@ -33,6 +33,9 @@ const SLOT_H        = 220;   // hauteur fixe d'un slot en px
 let waveAudioCtx=null, waveAnimId=null; // visualisation waveform client
 let running=false, currentAudio=null; // garde contre double run() + audio courant
 let bipAudio=null; // élément Audio pré-déverrouillé pour le bip (iOS)
+// Évaluation de prononciation (Azure) — état du bip courant
+let currentAttendu=null, currentBipIdx=-1, currentAssessment=null;
+function lessonId(){ return LESSON?.title || "default"; }
 
 /* ---------- voix de démo ---------- */
 let voices=[];
@@ -707,6 +710,10 @@ function hideBipZone(){
 function yourTurn(step){
   return new Promise(async resolve=>{
     moiCount++; beep();
+    // Réponse attendue pour l'évaluation vocale (Azure). Null = bip non noté.
+    currentAttendu = step.bip?.attendu || step.attendu || null;
+    currentBipIdx = idx;
+    currentAssessment = null;
     $("caption").innerHTML='<b>À toi, '+USER_NAME+' !</b> Réponds à voix haute, puis continue.';
     showBipZone(step);
     startIdleWave(); // onde décorative immédiate
@@ -716,7 +723,9 @@ function yourTurn(step){
     if(typeof gsap!=='undefined') gsap.from('#contBtn', { scale:.88, opacity:0, duration:.38, ease:'back.out(1.4)', clearProps:'all' });
     lastBlob=null; $("replayBtn").disabled=true;
     const cont=$("contBtn");
-    function done(){
+    let finishing=false;
+    async function done(){
+      if(finishing) return; finishing=true;
       hideBipZone();
       mic.disabled=true; mic.classList.remove("live","rec");
       cont.style.display="none";
@@ -725,6 +734,19 @@ function yourTurn(step){
       stopWaveViz();
       const panel=$("panel");
       if(panel){ panel.classList.add("disabled"); panel.classList.remove("answer-shown"); }
+      // Évaluation vocale : si lancée, on attend le résultat puis on montre l'écran de scores.
+      if(currentAssessment){
+        const pending=currentAssessment; currentAssessment=null;
+        const attendu=currentAttendu, bipIdx=currentBipIdx;
+        const result=await Promise.race([
+          pending.catch(()=>null),
+          new Promise(r=>setTimeout(()=>{ try{window.MTPronunciation.cancel();}catch{} r(null); }, 7000))
+        ]);
+        if(result && result.ok){
+          window.MTPronunciation.saveScore(lessonId(), bipIdx, attendu, result);
+          await showScoreScreen(result, attendu);
+        }
+      }
       resolve();
     }
     cont.addEventListener("click",done);
@@ -735,6 +757,10 @@ function yourTurn(step){
 async function startRec(){
   const mic=$("mic"); if(mic.disabled) return;
   mic.classList.add("rec"); $("micLabel").textContent="● enregistrement…";
+  // Évaluation vocale Azure en arrière-plan (1× par bip, si une réponse est attendue).
+  if(currentAttendu && window.MTPronunciation && !currentAssessment){
+    currentAssessment = window.MTPronunciation.assess(currentAttendu);
+  }
   if(!navigator.mediaDevices||!window.MediaRecorder) return;
   try{
     const stream=await navigator.mediaDevices.getUserMedia({audio:true});
@@ -753,7 +779,132 @@ function stopRec(){
 }
 
 /* ---------- contrôles ---------- */
-function finish(){ stopAmbient(); $("recapHi").textContent="Bravo, "+USER_NAME+" !"; $("recapCount").textContent=moiCount; $("recap").classList.remove("hidden"); }
+function finish(){ stopAmbient(); $("recapHi").textContent="Bravo, "+USER_NAME+" !"; $("recapCount").textContent=moiCount; renderRecapScores(); $("recap").classList.remove("hidden"); }
+
+/* ---------- évaluation de prononciation : écrans ---------- */
+// Couleur/classe selon un score 0-100.
+function scoreClass(n){ return n>=80 ? "good" : n>=60 ? "mid" : "bad"; }
+function scoreColor(n){ return n>=80 ? "#34D399" : n>=60 ? "#FBBF24" : "#F87171"; }
+
+// Un anneau circulaire SVG (pourcentage au centre).
+function ringSVG(pct, label, big){
+  const v=Math.max(0,Math.min(100, pct||0));
+  const r=big?34:26, c=2*Math.PI*r, off=c*(1-v/100), size=(r+8)*2;
+  return `<div class="score-ring${big?" big":""}">
+    <svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+      <circle class="sr-track" cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke-width="${big?9:7}"></circle>
+      <circle class="sr-fill" cx="${size/2}" cy="${size/2}" r="${r}" fill="none" stroke-width="${big?9:7}"
+        stroke="${scoreColor(v)}" stroke-dasharray="${c.toFixed(1)}" stroke-dashoffset="${c.toFixed(1)}"
+        data-target="${off.toFixed(1)}"></circle>
+      <text class="sr-pct" x="50%" y="52%" text-anchor="middle" dominant-baseline="middle"
+        font-size="${big?22:16}">${Math.round(v)}</text>
+    </svg>
+    <span class="sr-label">${label}</span>
+  </div>`;
+}
+
+// Affiche l'écran de scores. Résout quand l'élève clique « Continuer → ».
+function showScoreScreen(result, attendu){
+  return new Promise(resolve=>{
+    const sc=$("scoreScreen"); if(!sc){ resolve(); return; }
+    const s=result.scores||{};
+    $("scoreSaid").innerHTML = result.recognized
+      ? 'attendu : <b>'+escapeHtml(attendu||"")+'</b> · entendu : <b>'+escapeHtml(result.recognized)+'</b>'
+      : 'attendu : <b>'+escapeHtml(attendu||"")+'</b>';
+    // Anneau principal (score global) + détails.
+    const rings = [ ringSVG(s.pron, "Global", true) ];
+    if(s.accuracy!=null)     rings.push(ringSVG(s.accuracy, "Précision"));
+    if(s.fluency!=null)      rings.push(ringSVG(s.fluency, "Fluidité"));
+    if(s.completeness!=null) rings.push(ringSVG(s.completeness, "Complet"));
+    if(s.prosody!=null)      rings.push(ringSVG(s.prosody, "Intonation"));
+    $("scoreRings").innerHTML = rings.join("");
+    // Mots colorés selon leur précision.
+    $("scoreWords").innerHTML = (result.words||[]).map(w=>{
+      let cls="mid";
+      if(w.error==="Omission") cls="miss";
+      else if(w.accuracy!=null) cls = w.accuracy>=80?"good":w.accuracy>=60?"mid":"bad";
+      return '<span class="score-word '+cls+'">'+escapeHtml(w.word)+'</span>';
+    }).join("");
+    // Coaching « le prof explique » : proposé seulement s'il y a un point faible.
+    setupCoaching(result, attendu);
+    sc.classList.remove("hidden");
+    // Anime le remplissage des anneaux.
+    requestAnimationFrame(()=>{ sc.querySelectorAll(".sr-fill").forEach(el=>{ el.style.strokeDashoffset=el.dataset.target; }); });
+    const next=$("scoreNextBtn");
+    function go(){ next.removeEventListener("click",go); sc.classList.add("hidden"); resolve(); }
+    next.addEventListener("click",go);
+  });
+}
+
+// « Le prof explique » : Azure a trouvé le son raté → l'IA explique pourquoi/comment.
+const COACH_ENDPOINT = "/.netlify/functions/coach-prononciation";
+function setupCoaching(result, attendu){
+  const btn=$("coachBtn"), box=$("coachBox");
+  if(!btn||!box) return;
+  // reset (DOM réutilisé d'un bip à l'autre)
+  box.style.display="none"; box.innerHTML=""; box.classList.remove("loading");
+  const hasWeak = result.weakSounds && result.weakSounds.length>0;
+  if(!hasWeak){ btn.style.display="none"; return; }
+  btn.style.display=""; btn.disabled=false;
+  btn.textContent="💬 Pourquoi ? Le prof t'explique";
+  btn.onclick=async ()=>{
+    btn.disabled=true;
+    box.style.display="flex"; box.classList.add("loading"); box.textContent="Le prof réfléchit…";
+    try{
+      const resp=await fetch(COACH_ENDPOINT,{
+        method:"POST", headers:{"content-type":"application/json"},
+        body:JSON.stringify({ attendu, recognized:result.recognized, weakSounds:result.weakSounds })
+      });
+      if(!resp.ok) throw new Error("HTTP "+resp.status);
+      const data=await resp.json();
+      box.classList.remove("loading");
+      box.innerHTML='<div class="cb-prof">Le prof</div>'+
+        (data.texte ? '<div class="cb-texte">'+escapeHtml(data.texte)+'</div>' : '')+
+        renderProfTable(data.tableau)+
+        (data.astuce ? '<div class="cb-astuce">💡 '+escapeHtml(data.astuce)+'</div>' : '');
+      btn.style.display="none";
+    }catch(e){
+      box.classList.remove("loading");
+      box.innerHTML='<div class="cb-texte">Le prof n’est pas joignable pour l’instant. 😅</div>';
+      btn.disabled=false;
+    }
+  };
+}
+
+// Rend le tableau du prof (même format que le chat : "paires" ou "grille").
+function renderProfTable(t){
+  if(!t || !Array.isArray(t.lignes) || !t.lignes.length) return "";
+  if(t.format==="grille"){
+    let h='<table class="cb-grid">';
+    if(t.titre) h+='<caption>'+escapeHtml(t.titre)+'</caption>';
+    if(Array.isArray(t.entetes)&&t.entetes.length)
+      h+='<thead><tr>'+t.entetes.map(x=>'<th>'+escapeHtml(x)+'</th>').join('')+'</tr></thead>';
+    h+='<tbody>'+t.lignes.map(l=>{
+      const cells=Array.isArray(l.cellules)?l.cellules:[l.fr||"",l.en||""];
+      return '<tr>'+cells.map(c=>'<td>'+escapeHtml(c)+'</td>').join('')+'</tr>';
+    }).join('')+'</tbody></table>';
+    return h;
+  }
+  // format "paires"
+  return '<div class="cb-tab">'+t.lignes.map(l=>
+    '<div class="cb-row cat-'+escapeHtml(l.cat||"prono")+'"><span class="cb-rfr">'+escapeHtml(l.fr||"")+
+    '</span><span class="cb-ren">'+escapeHtml(l.en||"")+'</span></div>'
+  ).join('')+'</div>';
+}
+
+// Récap fin de leçon : une ligne par mot noté (score global).
+function renderRecapScores(){
+  const box=$("recapScores"); if(!box) return;
+  const list=(window.MTPronunciation?window.MTPronunciation.getScores(lessonId()):[])||[];
+  if(!list.length){ box.innerHTML=""; return; }
+  box.innerHTML = list.map(e=>{
+    const v=Math.round(e.scores?.pron||0);
+    return '<div class="recap-score-row"><span class="rs-word">'+escapeHtml(e.attendu||"")+
+      '</span><span class="rs-val '+scoreClass(v)+'">'+v+'%</span></div>';
+  }).join("");
+}
+
+function escapeHtml(s){ return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c])); }
 function enter(){
   initBipAudio(); // crée et déverrouille l'Audio dans le geste utilisateur (iOS)
   USER_NAME=($("nameInput").value.trim())||"l'ami"; ttsOn=$("ttsChk").checked;

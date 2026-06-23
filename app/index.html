@@ -46,7 +46,20 @@
     <div class="recap-big" id="recapCount">—</div>
     <div class="recap-line">structures travaillées aujourd'hui</div>
     <p>Tu as suivi toute la leçon. Le suivi des erreurs arrive dans une prochaine version.</p>
+    <div class="recap-scores" id="recapScores"></div>
     <button class="btn-veil primary" id="againBtn">↺ Refaire la leçon</button>
+  </div>
+
+  <!-- Écran de prononciation (Azure) — affiché sur « Continuer → » après un bip noté -->
+  <div class="veil hidden" id="scoreScreen">
+    <div class="veil-tag">Méthode · Ta prononciation</div>
+    <h1 id="scoreHeadline">Ta prononciation</h1>
+    <div class="score-said" id="scoreSaid"></div>
+    <div class="score-rings" id="scoreRings"></div>
+    <div class="score-words" id="scoreWords"></div>
+    <button class="btn-veil ghost" id="coachBtn" style="display:none">💬 Pourquoi ? Le prof t'explique</button>
+    <div class="coach-box" id="coachBox" style="display:none"></div>
+    <button class="btn-veil primary" id="scoreNextBtn">Continuer →</button>
   </div>
 
   <!-- Header transparent en overlay -->
@@ -266,14 +279,14 @@
 
         <p>Et ça marche avec tout le verbe être :</p>
 
-        <!-- Style 2 : grille type prof (conjugaison) -->
+        <!-- Style 2 : grille type prof (français → complet → rapide) -->
         <table class="q-grid">
-          <caption>le verbe être, version parlée</caption>
-          <thead><tr><th>français</th><th>anglais</th></tr></thead>
+          <caption>le verbe être</caption>
+          <thead><tr><th>français</th><th>complet</th><th>rapide</th></tr></thead>
           <tbody>
-            <tr><td>je suis</td><td><span class="q-hl">I'M</span></td></tr>
-            <tr><td>tu es</td><td><span class="q-hl">YOU'RE</span></td></tr>
-            <tr><td>il est</td><td><span class="q-hl">HE'S</span></td></tr>
+            <tr><td>je suis</td><td><span class="q-hl">I AM</span></td><td><span class="q-hl">I'M</span></td></tr>
+            <tr><td>tu es</td><td><span class="q-hl">YOU ARE</span></td><td><span class="q-hl">YOU'RE</span></td></tr>
+            <tr><td>il est</td><td><span class="q-hl">HE IS</span></td><td><span class="q-hl">HE'S</span></td></tr>
           </tbody>
         </table>
 
@@ -312,6 +325,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
 <script src="sample-lesson.js"></script>
+<script src="pronunciation.js"></script>
 <script src="engine.js"></script>
 <script>
   // Bandeau "Ajouter à l'écran d'accueil" uniquement sur Safari iOS hors standalone
