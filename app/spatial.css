@@ -1,7 +1,10 @@
 /* ════════════════════════════════════════════════════════════════════════
    PISTE SPATIALE — overrides de look par-dessus styles.css.
-   Réutilise engine.js tel quel : la mécanique des leçons ne change pas,
-   seul l'habillage du tableau + le fond changent. Chargé APRÈS styles.css.
+   Stratégie : on AFFICHE la carte exacte de la page test (.sp-card) et on la
+   remplit en direct avec le mot actif du moteur (voir le script « miroir »
+   dans lecon-spatial.html). Le slot-track du moteur tourne en coulisse
+   (invisible) : engine.js n'est pas modifié, les leçons tournent à l'identique.
+   Chargé APRÈS styles.css.
    ════════════════════════════════════════════════════════════════════════ */
 
 /* ── Téléphone aux dimensions du design + fond spatial ── */
@@ -12,8 +15,8 @@
   color: #e9eef5;
 }
 
-/* ── Keyframes du design ── */
-@keyframes sp-cardborder { 0% { background-position: 0 0, 0% 50%; } 100% { background-position: 0 0, 300% 50%; } }
+/* ── Keyframes ── */
+@keyframes sp-borderflow { 0% { background-position: 0% 50%; } 100% { background-position: 300% 50%; } }
 @keyframes sp-breathe    { 0%,100% { filter: drop-shadow(0 1px 1px rgba(0,0,0,.4)); } 50% { filter: drop-shadow(0 2px 8px rgba(245,181,34,.35)); } }
 @keyframes sp-neb1   { 0%,100% { transform: translate(0,0) scale(1);    } 50% { transform: translate(34px,26px) scale(1.18); } }
 @keyframes sp-neb2   { 0%,100% { transform: translate(0,0) scale(1.05); } 50% { transform: translate(-38px,-22px) scale(1.26); } }
@@ -23,9 +26,6 @@
 @keyframes sp-aurora3 { 0%,100% { transform: translateX(0) skewX(-6deg) scaleY(.95);   opacity:.5;  } 50% { transform: translateX(7%) skewX(12deg) scaleY(1.22);  opacity:.85; } }
 @keyframes sp-floaty     { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
 @keyframes sp-halo-amber { 0%,100% { opacity:.6; transform: scale(.92); } 50% { opacity:1; transform: scale(1.08); } }
-
-/* ── Couches de fond (les divs sont stylées inline dans le HTML, ici juste le wrapper) ── */
-.sp-bg { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
 
 /* L'overlay-top vintage masqué (remplacé par la status bar spatiale) */
 .overlay-top { display: none; }
@@ -39,69 +39,64 @@
 }
 .sp-status .lbl { font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: 2.5px; color: #7d8ca0; }
 
-/* ── Zone tableau : on enlève les voiles vintage haut/bas (couleur #1A2232) ── */
+/* ── On masque complètement le slot-track du moteur (il tourne en coulisse) ── */
 .word-zone:has(#slotTrack)::before,
 .word-zone:has(#slotTrack)::after { display: none; }
+#slate .slot-track { opacity: 0 !important; pointer-events: none; }
 
 /* ════════════════════════════════════════════════════════════
-   UNE SEULE CARTE CENTRÉE : on masque tous les slots non actifs.
+   CARTE SPATIALE — identique à la page test (.sp-card), remplie
+   en direct par le script miroir.
    ════════════════════════════════════════════════════════════ */
-.slot.slot-prev,
-.slot.slot-next,
-.slot.slot-history,
-.slot.slot-future { opacity: 0 !important; }
-
-/* ── Carte active = carte spatiale (sombre + liseré cyan animé) ──
-   Technique background-clip (padding-box / border-box) : fiable sur tous les
-   navigateurs, contrairement à mask-composite qui remplissait la carte en
-   bleu sur ton mobile. */
-.slot-track .card.slot-active {
-  margin: 0 4px;
-  padding: 24px 22px;
-  border: 1px solid transparent;
-  border-radius: 26px;
-  background:
-    linear-gradient(180deg, rgba(5,6,14,.95), rgba(3,4,10,.95)) padding-box,
-    linear-gradient(120deg,#22d3ee,#3b82f6,#06b6d4,#67e8f9,#0ea5e9,#22d3ee) border-box;
-  background-size: 100% 100%, 300% 100%;
-  background-repeat: no-repeat;
-  animation: sp-cardborder 6s linear infinite;
-  box-shadow: 0 0 24px rgba(34,211,238,.30), 0 30px 70px rgba(0,0,0,.6);
+.sp-focus {
+  position: absolute; top: 39%; left: 0; right: 0;
+  transform: translateY(-50%); z-index: 3; padding: 0 22px;
+  transition: opacity .25s;
+}
+.sp-card {
+  position: relative; z-index: 1; border-radius: 26px; padding: 20px;
+  background: linear-gradient(180deg, rgba(5,6,14,.9), rgba(3,4,10,.88));
+  box-shadow: 0 0 24px rgba(34,211,238,.35), 0 30px 70px rgba(0,0,0,.6);
   overflow: hidden;
-  align-items: center;
-  text-align: center;
-  filter: none;
 }
-/* On neutralise l'orbe ::before vintage + l'ancienne barre ::after */
-.slot-track .card.slot-active::before { display: none !important; }
-.slot-track .card.slot-active::after  { display: none !important; }
-
-/* Badge type : pastille arrondie centrée */
-.slot-track .card.slot-active .ctype-label { margin: 0 auto 18px; }
-
-/* FR — Atkinson, centré, sans soulignement gauche du vintage */
-.slot-track .card.slot-active .cword-fr {
-  font-family: 'Atkinson Hyperlegible', sans-serif !important;
-  font-weight: 700 !important;
-  color: #d6dae2 !important;
-  margin-bottom: 18px !important;
-  padding-bottom: 0 !important;
+.sp-card::before {
+  content: ""; position: absolute; inset: 0;
+  border-radius: 26px; padding: 1px;
+  background: linear-gradient(120deg,#22d3ee,#3b82f6,#06b6d4,#67e8f9,#0ea5e9,#22d3ee);
+  background-size: 300% 300%; animation: sp-borderflow 6s linear infinite;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+          mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; mask-composite: exclude;
+  pointer-events: none;
 }
-.slot-track .card.slot-active .cword-fr::after { display: none !important; }
-
-/* EN — Fredoka ambré, respiration douce (taille gérée par engine.js) */
-.slot-track .card.slot-active .cword {
-  font-family: 'Fredoka', sans-serif !important;
-  font-weight: 600 !important;
-  color: #FCD34D !important;
-  animation: sp-breathe 3.6s ease-in-out infinite;
+.sp-pill {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 9px 18px; border-radius: 13px;
+  border: 1px solid rgba(79,209,181,.7); background: rgba(79,209,181,.18);
+  box-shadow: 0 0 18px rgba(79,209,181,.3);
 }
-
-/* Prononciation — Lexend */
-.slot-track .card.slot-active .cphon {
-  font-family: 'Lexend', sans-serif !important;
-  font-weight: 500 !important;
-  margin-top: 16px !important;
+.sp-pill span {
+  font-family: 'Sora', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 2.5px;
+  background: linear-gradient(180deg,#ffdf7e 0%,#f5b522 55%,#ec9f0d 100%);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+.sp-fr {
+  font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700;
+  font-size: 25px; color: #d6dae2; letter-spacing: .2px;
+}
+.sp-connector { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
+.sp-connector .line { flex: 1; height: 1px; }
+.sp-connector .l { background: linear-gradient(90deg, rgba(34,211,238,.05), rgba(34,211,238,.55)); }
+.sp-connector .r { background: linear-gradient(90deg, rgba(34,211,238,.55), rgba(34,211,238,.05)); }
+.sp-en {
+  font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 44px;
+  line-height: 1.08; letter-spacing: .5px; text-wrap: balance;
+  color: #f5b522; animation: sp-breathe 3.6s ease-in-out infinite;
+}
+.sp-phon {
+  font-family: 'Lexend', sans-serif; font-weight: 500; font-size: 20px;
+  letter-spacing: .3px; color: #9bf0dd; margin-top: 16px;
 }
 
 /* ── Bas existant : neutralise le dégradé vintage pour se fondre dans l'espace ── */
@@ -109,7 +104,7 @@
   background: linear-gradient(180deg, transparent, rgba(7,13,24,.85) 38%);
 }
 
-/* ── Bouton question : 50px + flottement + halo ambre (comme la page de test) ── */
+/* ── Bouton question : 50px + flottement + halo ambre ── */
 .q-fab {
   width: 50px; height: 50px;
   animation: sp-floaty 4s ease-in-out infinite;

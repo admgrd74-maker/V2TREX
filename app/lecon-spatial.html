@@ -102,8 +102,29 @@
     <div class="ot-dot"></div>
   </div>
 
-  <!-- Zone tableau — peuplée par engine.js -->
+  <!-- Zone tableau — peuplée par engine.js (slot-track invisible, piloté en coulisse) -->
   <div class="word-zone" id="slate"></div>
+
+  <!-- Carte spatiale (identique au test) — remplie en direct par le script miroir -->
+  <div class="sp-focus" id="spCard" style="opacity:0">
+    <div class="sp-card">
+      <div style="display:flex;align-items:center;justify-content:center;gap:10px">
+        <div class="sp-pill"><span id="spBadge">SE DIT</span></div>
+      </div>
+      <div style="margin-top:22px;text-align:center">
+        <div class="sp-fr" id="spFr"></div>
+      </div>
+      <div class="sp-connector">
+        <div class="line l"></div>
+        <img src="assets/translate-icon.png" width="40" height="40" style="flex:none;display:block" alt="">
+        <div class="line r"></div>
+      </div>
+      <div style="text-align:center">
+        <div class="sp-en" id="spEn"></div>
+        <div class="sp-phon" id="spPhon"></div>
+      </div>
+    </div>
+  </div>
 
   <!-- Zone bip — overlay question au tour du client -->
   <div class="bip-zone" id="bipZone" style="display:none">
@@ -340,6 +361,40 @@
 <script src="sample-lesson.js"></script>
 <script src="pronunciation.js"></script>
 <script src="engine.js"></script>
+<script>
+  /* ── MIROIR : recopie le mot actif du slot-track (invisible) dans la carte
+        spatiale (.sp-card). Découplé d'engine.js : on observe juste le DOM. ── */
+  (function(){
+    const slate  = document.getElementById('slate');
+    const card   = document.getElementById('spCard');
+    const frEl   = document.getElementById('spFr');
+    const enEl   = document.getElementById('spEn');
+    const phonEl = document.getElementById('spPhon');
+    const badgeEl= document.getElementById('spBadge');
+    if(!slate || !card) return;
+
+    const txt = (root, sel) => { const n = root.querySelector(sel); return n ? n.textContent.trim() : ''; };
+
+    function sync(){
+      const a = slate.querySelector('.slot.slot-active');
+      if(!a){ card.style.opacity = 0; return; }
+      const fr = txt(a, '.cword-fr');
+      const en = txt(a, '.cword');
+      const phon = txt(a, '.cphon');
+      const badge = txt(a, '.ctype-label span');
+      frEl.textContent = fr;       frEl.style.display   = fr   ? '' : 'none';
+      phonEl.textContent = phon;   phonEl.style.display = phon ? '' : 'none';
+      enEl.textContent = en;
+      if(badge) badgeEl.textContent = badge;
+      card.style.opacity = en ? 1 : 0;
+    }
+
+    new MutationObserver(sync).observe(slate, {
+      subtree: true, childList: true, attributes: true, attributeFilter: ['class']
+    });
+    sync();
+  })();
+</script>
 <script>
   // Bandeau "Ajouter à l'écran d'accueil" — Safari iOS hors standalone
   (function(){
