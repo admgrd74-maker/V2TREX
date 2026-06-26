@@ -425,9 +425,33 @@ body {
   display: flex;
   align-items: flex-end;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 14px;
+  gap: 30px;            /* élèves rapprochés du prof */
+  margin-bottom: 0;
+  padding-top: 30px;    /* place pour le prof surélevé (sommet du triangle) */
 }
+
+/* ── Effet triangle : le prof (Marc) au sommet, plus haut et plus gros ── */
+#vs-prof { transform: translateY(-34px); }
+#vs-prof .char-av { width: 58px; height: 58px; opacity: 1; border-color: var(--char-color); background: var(--char-bg); }
+#vs-prof .char-av svg { width: 28px; height: 28px; }
+/* Photo réelle du prof : remplit l'avatar en cercle */
+.char-photo {
+  width: 100%; height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  transition: filter .3s ease, opacity .3s ease;
+}
+/* Avatar-photo : légèrement grisé au repos, image claire quand la personne parle */
+.char-av:has(.char-photo) { opacity: 1; }
+.char-photo { filter: grayscale(.55) brightness(.82); opacity: .72; }
+.char-item.vs-active .char-photo { filter: none; opacity: 1; }
+
+/* Avatars élèves légèrement agrandis */
+#vs-eleve1 .char-av, #vs-eleve2 .char-av { width: 54px; height: 54px; }
+#vs-eleve1.vs-active .char-av, #vs-eleve2.vs-active .char-av { width: 68px; height: 68px; }
+#vs-prof.vs-active .char-av { width: 74px; height: 74px; }
+#vs-prof.vs-active .char-av svg { width: 36px; height: 36px; }
 /* Couleur identité par personnage — utilisée pour halo, wave, rings */
 #vs-prof   { order: 2; --char-color: rgba(251,191,36,1);  --char-glow: rgba(251,191,36,.32); --char-bg: rgba(251,191,36,.09); }
 #vs-eleve1 { order: 1; --char-color: rgba(56,189,248,1);  --char-glow: rgba(56,189,248,.30); --char-bg: rgba(56,189,248,.08); }
@@ -439,7 +463,7 @@ body {
   gap: 5px;
 }
 .char-av {
-  width: 44px; height: 44px;
+  width: 48px; height: 48px;
   border-radius: 50%;
   border: 1.5px solid rgba(255,255,255,.10);
   background: rgba(255,255,255,.04);
@@ -479,13 +503,13 @@ body {
 }
 
 .char-item.vs-active .char-av {
-  width: 60px; height: 60px;
+  width: 62px; height: 62px;
   opacity: 1;
   border-color: var(--char-color);
   box-shadow: 0 0 28px var(--char-glow), 0 0 0 3px rgba(255,255,255,.04);
   background: var(--char-bg);
 }
-.char-item.vs-active .char-av svg { width: 30px; height: 30px; }
+.char-item.vs-active .char-av svg { width: 34px; height: 34px; }
 
 .char-name {
   font-family: 'JetBrains Mono', monospace;
@@ -497,13 +521,81 @@ body {
 }
 .char-item.vs-active .char-name { color: rgba(255,255,255,.60); }
 
+/* Wrapper rangée perso + onde, centrés en colonne */
+.chars-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 24px;   /* aère le bas : espace avant la progression */
+}
+
+/* Onde sonore UNIQUE : couvre la largeur des 3 avatars, fixe (ne s'anime pas).
+   Seule sa couleur change selon qui parle (--wave-color, posée par engine.js). */
+.vocal-wave {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  width: 240px;
+  height: 26px;
+  margin-top: 34px;
+}
+.vocal-wave span {
+  flex: 1;
+  border-radius: 3px;
+  background: var(--wave-color, rgba(255,255,255,.22));
+  box-shadow: 0 0 6px var(--wave-glow, transparent);
+  transition: background .3s ease, box-shadow .3s ease;
+  transform-origin: center;
+  animation: vw-bar 1.1s ease-in-out infinite;
+}
+@keyframes vw-bar {
+  0%, 100% { transform: scaleY(.35); }
+  50%      { transform: scaleY(1);   }
+}
+/* délais décalés : vague qui « voyage » de gauche à droite */
+.vocal-wave span:nth-child(6n+1) { animation-delay: 0s;   }
+.vocal-wave span:nth-child(6n+2) { animation-delay: .09s; }
+.vocal-wave span:nth-child(6n+3) { animation-delay: .18s; }
+.vocal-wave span:nth-child(6n+4) { animation-delay: .27s; }
+.vocal-wave span:nth-child(6n+5) { animation-delay: .36s; }
+.vocal-wave span:nth-child(6n)   { animation-delay: .45s; }
+/* hauteurs fixes : silhouette d'onde symétrique (centre le plus haut) */
+.vocal-wave span:nth-child(1)  { height: 5px;  }
+.vocal-wave span:nth-child(2)  { height: 9px;  }
+.vocal-wave span:nth-child(3)  { height: 6px;  }
+.vocal-wave span:nth-child(4)  { height: 13px; }
+.vocal-wave span:nth-child(5)  { height: 10px; }
+.vocal-wave span:nth-child(6)  { height: 17px; }
+.vocal-wave span:nth-child(7)  { height: 12px; }
+.vocal-wave span:nth-child(8)  { height: 21px; }
+.vocal-wave span:nth-child(9)  { height: 15px; }
+.vocal-wave span:nth-child(10) { height: 24px; }
+.vocal-wave span:nth-child(11) { height: 18px; }
+.vocal-wave span:nth-child(12) { height: 26px; }
+.vocal-wave span:nth-child(13) { height: 20px; }
+.vocal-wave span:nth-child(14) { height: 26px; }
+.vocal-wave span:nth-child(15) { height: 20px; }
+.vocal-wave span:nth-child(16) { height: 26px; }
+.vocal-wave span:nth-child(17) { height: 18px; }
+.vocal-wave span:nth-child(18) { height: 24px; }
+.vocal-wave span:nth-child(19) { height: 15px; }
+.vocal-wave span:nth-child(20) { height: 21px; }
+.vocal-wave span:nth-child(21) { height: 12px; }
+.vocal-wave span:nth-child(22) { height: 17px; }
+.vocal-wave span:nth-child(23) { height: 10px; }
+.vocal-wave span:nth-child(24) { height: 13px; }
+.vocal-wave span:nth-child(25) { height: 6px;  }
+.vocal-wave span:nth-child(26) { height: 9px;  }
+.vocal-wave span:nth-child(27) { height: 5px;  }
+
 
 /* Barre de progression */
 .progress-wrap {
   display: flex;
   align-items: center;
   gap: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 18px;
 }
 .progress-pct {
   font-family: 'JetBrains Mono', monospace;
@@ -542,7 +634,7 @@ body {
 /* ── Actions normales (quelqu'un d'autre parle) ── */
 .normal-actions {
   display: flex;
-  gap: 6px;
+  gap: 12px;
 }
 .act-btn {
   flex: 1;

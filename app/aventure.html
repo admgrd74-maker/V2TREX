@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Aventure — lecteur</title>
+<meta name="theme-color" content="#111317">
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&family=Lexend:wght@400;500;600;700&family=Syne:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#111317;min-height:100vh;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:26px;padding:48px 24px;font-family:'Inter',sans-serif;}
+.label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  color:rgba(255,255,255,.30);text-transform:uppercase;
+  background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);
+  padding:6px 16px;border-radius:20px;}
+
+/* PHONE */
+.phone{width:375px;border-radius:48px;overflow:hidden;position:relative;background:#1A2232;
+  box-shadow:0 0 0 1px rgba(255,255,255,.07),0 0 0 7px #0c0d0f,
+    0 0 0 8px rgba(255,255,255,.04),0 60px 120px rgba(0,0,0,.88);}
+.notch{position:absolute;top:0;left:50%;transform:translateX(-50%);
+  width:120px;height:32px;background:#0c0d0f;border-radius:0 0 22px 22px;z-index:40;}
+.screen{position:relative;min-height:812px;display:flex;flex-direction:column;overflow:hidden;}
+
+/* Plein écran sur mobile (cadre de prévisualisation masqué) */
+@media (max-width:480px){
+  body{padding:0;gap:0;}
+  .label{display:none;}
+  .phone{width:100%;border-radius:0;box-shadow:none;}
+  .notch{display:none;}
+  .screen{min-height:100vh;min-height:100dvh;}
+}
+
+/* FOND VIDÉO */
+.video-bg{position:absolute;inset:0;z-index:0;transition:background .5s ease;
+  background:url('assets/fond.jpg') center/cover no-repeat,
+  linear-gradient(165deg,#f0d4a8 0%,#d49a6e 42%,#5e4133 100%);}
+.video-el{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#0c0d0f;}
+.screen[data-state="turn"] .video-el,
+.screen[data-state="turn"] .video-bg{filter:brightness(.66) saturate(.9);transition:filter .4s ease;}
+.video-bg::after{content:'';position:absolute;inset:0;
+  background:radial-gradient(120% 100% at 50% 40%,transparent 55%,rgba(0,0,0,.45) 100%);
+  mix-blend-mode:multiply;}
+.grain{position:absolute;inset:0;z-index:1;opacity:.06;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* OVERLAY TOP */
+.overlay-top{position:absolute;top:0;left:0;right:0;z-index:10;padding:46px 22px 0;
+  display:flex;align-items:center;justify-content:space-between;
+  background:linear-gradient(to bottom,rgba(12,16,26,.72) 0%,transparent 100%);}
+.ot-left{display:flex;align-items:center;gap:12px;pointer-events:auto;}
+.ot-back{width:30px;height:30px;border-radius:50%;flex:none;display:flex;align-items:center;
+  justify-content:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:#fff;text-decoration:none;font-size:15px;line-height:1;}
+.ot-tag{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.20em;
+  color:rgba(255,255,255,.62);text-transform:uppercase;}
+.ot-prog{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;
+  color:rgba(251,191,36,.9);pointer-events:none;}
+
+/* SOUS-TITRE — pilule */
+.dialogue{display:flex;flex-direction:column;align-items:flex-start;margin-bottom:12px;}
+.sub-pill{width:100%;position:relative;background:rgba(8,12,20,.82);
+  backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);
+  border:1px solid rgba(255,255,255,.10);border-left:3px solid rgba(251,191,36,.9);
+  border-radius:14px;padding:11px 14px 12px;
+  box-shadow:0 16px 44px rgba(0,0,0,.45),inset 0 1px 0 rgba(255,255,255,.05);}
+.sub-en{font-family:'Lexend','Inter',sans-serif;font-weight:500;font-size:19px;line-height:1.22;
+  color:#FCD34D;letter-spacing:-.01em;text-shadow:0 1px 2px rgba(0,0,0,.8),0 2px 14px rgba(0,0,0,.5);}
+.sub-fr{font-family:'Lexend','Inter',sans-serif;font-weight:500;font-size:14px;line-height:1.3;
+  color:rgba(205,211,222,.72);margin-top:5px;text-shadow:0 1px 3px rgba(0,0,0,.7);}
+
+/* Karaoké */
+.sub-en .word{color:rgba(255,255,255,.95);transition:color .4s ease,text-shadow .4s ease;}
+.sub-en .word.spoken{color:#FCD34D;}
+.sub-en .word.active{color:#FFE9A6;text-shadow:0 0 16px rgba(252,211,77,.6);}
+
+/* ══════ TABLEAUX DÉCORTIQUÉS ══════ */
+.bd-scrim{display:none;position:absolute;inset:0;z-index:19;
+  background:rgba(8,12,20,.72);backdrop-filter:blur(5px);-webkit-backdrop-filter:blur(5px);}
+.screen[data-help="on"] .bd-scrim{display:block;}
+.bd-close{display:none;position:absolute;top:52px;right:10px;z-index:21;
+  width:34px;height:34px;border-radius:50%;align-items:center;justify-content:center;
+  background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);
+  color:#fff;font-size:17px;cursor:pointer;}
+.screen[data-help="on"] .bd-close{display:flex;}
+.breakdowns{display:none;position:absolute;z-index:20;left:16px;right:16px;top:0;bottom:0;
+  flex-direction:column;gap:11px;justify-content:center;padding:90px 0;}
+.screen[data-help="on"] .breakdowns{display:flex;}
+.breakdown{background:rgba(8,12,20,.82);backdrop-filter:blur(20px) saturate(140%);
+  -webkit-backdrop-filter:blur(20px) saturate(140%);
+  border:1px solid rgba(255,255,255,.10);border-radius:16px;
+  padding:11px 14px 13px;box-shadow:0 14px 40px rgba(0,0,0,.45);}
+.bd-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.22em;
+  text-transform:uppercase;margin-bottom:9px;display:flex;align-items:center;gap:6px;}
+.bd-label svg{width:11px;height:11px;flex-shrink:0;}
+.breakdown.bd-them{border-left:3px solid rgba(251,191,36,.9);}
+.breakdown.bd-them .bd-label{color:rgba(251,191,36,.85);}
+.breakdown.bd-you{border-left:3px solid rgba(125,211,252,.75);}
+.breakdown.bd-you .bd-label{color:rgba(125,211,252,.9);}
+.bd-phrase{font-family:'Lexend','Inter',sans-serif;font-weight:600;font-size:15px;color:#fff;
+  margin-bottom:10px;line-height:1.3;}
+.bd-phrase:empty{display:none;}
+.bd-grid{display:flex;flex-direction:column;gap:1px;
+  background:rgba(255,255,255,.07);border-radius:10px;overflow:hidden;}
+.bd-row{display:flex;align-items:center;justify-content:space-between;gap:12px;
+  padding:7px 13px;background:rgba(8,12,20,.5);}
+.bd-fr{font-family:'Lexend','Inter',sans-serif;font-size:12.5px;color:rgba(205,211,222,.82);}
+.bd-right{display:flex;flex-direction:column;align-items:flex-end;}
+.bd-en{font-family:'Lexend','Inter',sans-serif;font-weight:600;font-size:14px;color:#FCD34D;}
+.bd-ph{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(110,231,183,.85);margin-top:1px;}
+
+/* OVERLAY BOTTOM */
+.overlay-bottom{position:absolute;bottom:0;left:0;right:0;z-index:10;padding:26px 18px 30px;}
+.screen[data-state="turn"] .overlay-bottom{
+  background:linear-gradient(to top,rgba(12,16,26,.97) 62%,transparent 100%);padding-top:40px;}
+.screen[data-state="play"] .overlay-bottom{padding-bottom:66px;}
+.turn-zone{display:none;flex-direction:column;gap:11px;}
+.screen[data-state="turn"] .turn-zone{display:flex;}
+.turn-instr{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.16em;
+  text-transform:uppercase;color:rgba(125,211,252,.85);text-align:center;margin-bottom:-2px;}
+.client-pill{position:relative;background:rgba(8,12,20,.82);
+  backdrop-filter:blur(22px) saturate(140%);-webkit-backdrop-filter:blur(22px) saturate(140%);
+  border:1px solid rgba(255,255,255,.10);border-left:3px solid rgba(125,211,252,.85);
+  border-radius:14px;padding:11px 14px 12px;box-shadow:0 16px 44px rgba(0,0,0,.45);}
+.cl-en{font-family:'Lexend','Inter',sans-serif;font-weight:500;font-size:18px;line-height:1.22;
+  color:rgba(125,211,252,1);text-shadow:0 1px 2px rgba(0,0,0,.7);}
+.cl-fr{font-family:'Lexend','Inter',sans-serif;font-weight:500;font-size:13.5px;line-height:1.3;
+  color:rgba(205,211,222,.72);margin-top:5px;text-shadow:0 1px 3px rgba(0,0,0,.6);}
+.turn-controls{position:relative;display:flex;justify-content:center;align-items:center;
+  min-height:64px;margin-top:16px;}
+.trad-btn,.q-btn{position:absolute;bottom:3px;width:54px;height:54px;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.18s;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);
+  color:rgba(251,191,36,.95);}
+.trad-btn{right:0;}
+.q-btn{left:0;}
+.trad-btn:active,.q-btn:active{transform:scale(.94);}
+.trad-btn svg,.q-btn svg{width:25px;height:25px;}
+.bip-mic{position:relative;width:64px;height:64px;border-radius:50%;
+  background:rgba(251,191,36,.12);border:2px solid rgba(251,191,36,.65);
+  box-shadow:0 0 22px rgba(251,191,36,.18);
+  display:flex;align-items:center;justify-content:center;cursor:pointer;transition:transform .12s;}
+.bip-mic:active{transform:scale(.94);}
+.bip-ring{position:absolute;inset:-8px;border-radius:50%;
+  border:1.5px solid rgba(251,191,36,.35);animation:bip-pulse 1.7s ease-out infinite;}
+@keyframes bip-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.32);opacity:0}}
+.bip-ico-stop{display:none;}
+.bip-mic.recording{background:rgba(239,68,68,.22);border-color:rgba(239,68,68,.78);
+  box-shadow:0 0 30px rgba(239,68,68,.4);}
+.bip-mic.recording .bip-ico-mic{display:none;}
+.bip-mic.recording .bip-ico-stop{display:block;}
+.bip-mic.recording .bip-ring{border-color:rgba(239,68,68,.4);}
+.continue-btn{width:100%;padding:13px;border-radius:14px;border:none;margin-top:6px;
+  background:rgba(251,191,36,.92);color:#1a1a1a;font-family:'Lexend',sans-serif;
+  font-weight:700;font-size:14px;cursor:pointer;}
+.continue-btn:active{transform:scale(.99);}
+
+/* OVERLAYS départ / fin */
+.ov{position:absolute;inset:0;z-index:60;display:flex;align-items:center;justify-content:center;
+  background:rgba(10,14,22,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-align:center;}
+.ov.hide{display:none;}
+.ov-card{padding:0 34px;}
+.ov-title{font-family:'Syne',sans-serif;font-weight:700;font-size:27px;color:#fff;margin-bottom:7px;letter-spacing:-.01em;}
+.ov-sub{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(251,191,36,.8);margin-bottom:24px;}
+.ov-btn{padding:14px 30px;border-radius:26px;border:none;background:#FBBF24;color:#1a1a1a;
+  font-family:'Lexend',sans-serif;font-weight:700;font-size:15px;cursor:pointer;}
+.ov-btn:active{transform:scale(.97);}
+.ov-link{display:block;margin-top:16px;color:rgba(255,255,255,.45);font-size:12px;
+  text-decoration:underline;font-family:'Lexend',sans-serif;}
+</style>
+</head>
+<body>
+<div class="label">Aventure — lecteur</div>
+
+<div class="phone">
+  <div class="notch"></div>
+  <div class="screen" id="screen" data-niv="1" data-state="play" data-pill="on" data-help="off">
+    <div class="video-bg"></div>
+    <video class="video-el" id="videoEl" playsinline poster="assets/fond.jpg"></video>
+    <div class="grain"></div>
+
+    <!-- TOP -->
+    <div class="overlay-top">
+      <div class="ot-left">
+        <a class="ot-back" href="aventures.html" aria-label="Retour aux aventures">←</a>
+        <div class="ot-tag" id="otTag">aventure</div>
+      </div>
+      <div class="ot-prog" id="otProg">1 / 1</div>
+    </div>
+
+    <!-- TABLEAUX (bouton traduction) -->
+    <div class="bd-scrim" id="bdScrim"></div>
+    <div class="bd-close" id="bdClose">✕</div>
+    <div class="breakdowns">
+      <div class="breakdown bd-them">
+        <div class="bd-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-8.5 8.5 8.5 8.5 0 0 1-3.6-.8L3 21l1.9-5.7A8.38 8.38 0 0 1 4 11.5 8.5 8.5 0 0 1 12.5 3 8.38 8.38 0 0 1 21 11.5z"/></svg>il a dit</div>
+        <div class="bd-phrase" id="bdvPhrase"></div>
+        <div class="bd-grid" id="bdvGrid"></div>
+      </div>
+      <div class="breakdown bd-you">
+        <div class="bd-label"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10a7 7 0 0 1-14 0"/><line x1="12" y1="19" x2="12" y2="22"/></svg>à toi de dire</div>
+        <div class="bd-phrase" id="bdPhrase"></div>
+        <div class="bd-grid" id="bdGrid"></div>
+      </div>
+    </div>
+
+    <!-- BOTTOM -->
+    <div class="overlay-bottom">
+      <div class="dialogue">
+        <div class="sub-pill">
+          <div class="sub-en" id="subEn"></div>
+          <div class="sub-fr" id="subFr"></div>
+        </div>
+      </div>
+      <div class="turn-zone">
+        <div class="turn-instr">↻ Répète cette phrase à voix haute</div>
+        <div class="client-pill">
+          <div class="cl-en" id="clEn"></div>
+          <div class="cl-fr" id="clFr"></div>
+        </div>
+        <div class="turn-controls">
+          <div class="q-btn" id="qBtn" title="question">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-11.9 7.8L3 21l1.7-6A8.5 8.5 0 1 1 21 11.5z"/><path d="M9.6 9.3a2.4 2.4 0 1 1 3.3 2.2c-.7.4-1.1.8-1.1 1.5"/><line x1="11.8" y1="15.5" x2="11.8" y2="15.55"/></svg>
+          </div>
+          <div class="bip-mic" id="mic">
+            <div class="bip-ring"></div>
+            <svg class="bip-ico-mic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="rgba(251,191,36,.9)" stroke-width="1.8" stroke-linecap="round"><rect x="9" y="2" width="6" height="12" rx="3"/><path d="M19 10a7 7 0 0 1-14 0"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="8" y1="22" x2="16" y2="22"/></svg>
+            <svg class="bip-ico-stop" width="22" height="22" viewBox="0 0 24 24" fill="white"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>
+          </div>
+          <div class="trad-btn" id="tradBtn" title="traduction">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h7M9 3v2c0 4-2 7-5 8M5 9c0 3 3 5 6 5"/><path d="M14 21l4-9 4 9M15.5 18h5"/></svg>
+          </div>
+        </div>
+        <button class="continue-btn" id="continueBtn">Continuer →</button>
+      </div>
+    </div>
+
+    <!-- ÉCRAN DE DÉPART -->
+    <div class="ov" id="startOv">
+      <div class="ov-card">
+        <div class="ov-title" id="startTitle">Aventure</div>
+        <div class="ov-sub" id="startSub">mise en situation</div>
+        <button class="ov-btn" id="startBtn">▶ Commencer</button>
+        <a class="ov-link" href="aventures.html">← Choisir une autre aventure</a>
+      </div>
+    </div>
+    <!-- ÉCRAN DE FIN -->
+    <div class="ov hide" id="endOv">
+      <div class="ov-card">
+        <div class="ov-title">Bravo ! 🎉</div>
+        <div class="ov-sub">aventure terminée</div>
+        <button class="ov-btn" id="replayBtn">↻ Recommencer</button>
+        <a class="ov-link" href="aventures.html">← Retour aux aventures</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id);
+const screen = $('screen'), videoEl = $('videoEl');
+const subEn = $('subEn'), subFr = $('subFr'), clEn = $('clEn'), clFr = $('clFr');
+
+// ── Aventure d'exemple (si rien n'est chargé) ──
+const SAMPLE = { titre:'Au café', lieu:'café · commander', dossier:'', tours:[
+  { video:'', ditEN:'Hi! What would you like?', ditFR:'Bonjour ! Vous voulez quoi ?',
+    ditBD:[['Bonjour !','Hi!','haï'],['Vous voulez quoi ?','What would you like?','wot woud you laïk']],
+    toiEN:'A coffee and a cake, please.', toiFR:"Un café et un gâteau, s'il vous plaît.",
+    toiBD:[['un café','a coffee','e KO-fi'],['et','and','ènd'],['un gâteau','a cake','e KÉÏK'],["s'il vous plaît",'please','pliiz']] },
+  { video:'', ditEN:'Do you have a laptop or any electronics?', ditFR:'Avez-vous un ordinateur ou des appareils ?',
+    ditBD:[['Avez-vous','Do you have','dou you hav'],['un ordinateur','a laptop','e laptop'],['ou des appareils','or any electronics','or èni élèktroniks']],
+    toiEN:'Just my phone.', toiFR:'Juste mon téléphone.',
+    toiBD:[['juste','just','djeust'],['mon','my','maï'],['téléphone','phone','fôown']] }
+]};
+
+let lecon = SAMPLE, segIdx = 0, autoTurnT = null, videoMode = false;
+// Segments : en mode vidéo = les pauses ; sinon = les tours (ancien format).
+function segs(){ return videoMode ? lecon.pauses : (lecon.tours||[]); }
+
+// ── Chargement de l'aventure ──
+async function chargerLecon(){
+  const p = new URLSearchParams(location.search).get('lecon');
+  if(p){ try{ lecon = await (await fetch(p)).json(); }catch(e){} }
+  else { const ls = localStorage.getItem('mt_chat_lecon'); if(ls){ try{ lecon = JSON.parse(ls); }catch(e){} } }
+  if(!lecon) lecon = SAMPLE;
+  // Mode « 1 vidéo + pauses » si la leçon a des pauses ; sinon ancien mode « tours ».
+  videoMode = Array.isArray(lecon.pauses) && lecon.pauses.length>0;
+  if(!videoMode && (!Array.isArray(lecon.tours) || !lecon.tours.length)){ lecon = SAMPLE; videoMode = false; }
+  $('otTag').textContent = lecon.lieu || lecon.titre || 'aventure';
+  $('startTitle').textContent = lecon.titre || 'Aventure';
+  $('startSub').textContent = lecon.lieu || 'mise en situation';
+}
+
+// ── Décorticage ──
+function fillGrid(el,rows){el.innerHTML=(rows||[]).map(r=>
+  '<div class="bd-row"><span class="bd-fr">'+(r[0]||'')+'</span>'+
+  '<span class="bd-right"><span class="bd-en">'+(r[1]||'')+'</span>'+
+  '<span class="bd-ph">'+(r[2]||'')+'</span></span></div>').join('');}
+
+// ── Karaoké ──
+function splitWords(el){el.innerHTML=(el.textContent||'').trim().split(/\s+/)
+  .map(w=>'<span class="word">'+w+'</span>').join(' ');}
+let kt=[];
+function runKaraoke(el,per=380){
+  kt.forEach(clearTimeout);kt=[];
+  const ws=[...el.querySelectorAll('.word')];
+  ws.forEach(w=>w.classList.remove('spoken','active'));
+  ws.forEach((w,i)=>kt.push(setTimeout(()=>{
+    ws.forEach(x=>x.classList.remove('active'));
+    w.classList.add('active','spoken');
+    if(i===ws.length-1)kt.push(setTimeout(()=>w.classList.remove('active'),per));
+  },i*per)));
+}
+
+// ── Chemin vidéo (absolu depuis la racine du site) ──
+function videoSrc(t){
+  if(!t.video) return '';
+  let pth=(lecon.dossier||'')+t.video;
+  if(!/^https?:|^\//.test(pth)) pth='/'+pth;
+  return pth;
+}
+
+// ── Affiche un segment : le perso parle + prépare ta réponse ──
+function showSeg(i){
+  segIdx=i; const t=segs()[i]; if(!t) return;
+  clearTimeout(autoTurnT);
+  subEn.textContent=t.ditEN||''; subFr.innerHTML=t.ditFR||'';
+  clEn.textContent=t.toiEN||''; clFr.textContent=t.toiFR||'';
+  fillGrid($('bdvGrid'),t.ditBD); $('bdvPhrase').textContent='';
+  fillGrid($('bdGrid'),t.toiBD); $('bdPhrase').textContent=t.toiEN?('"'+t.toiEN+'"'):'';
+  $('otProg').textContent=(i+1)+' / '+segs().length;
+  $('continueBtn').textContent = (i<segs().length-1) ? 'Continuer →' : 'Terminer ✓';
+  screen.dataset.state='play'; screen.dataset.help='off';
+  splitWords(subEn); runKaraoke(subEn);
+}
+
+// ── Déclenche ton tour : met la vidéo en pause, ouvre l'interphone ──
+function turnNow(){ try{videoEl.pause();}catch(e){} clearTimeout(autoTurnT); screen.dataset.state='turn'; }
+
+// ── Repli sans vidéo : minuteur basé sur la longueur de la phrase (aperçu) ──
+function armTimer(i){
+  clearTimeout(autoTurnT);
+  const dur=((segs()[i].ditEN||'').split(/\s+/).length*380)+1100;
+  autoTurnT=setTimeout(turnNow,dur);
+}
+
+// ── Lance la lecture pour le segment i ──
+function playSeg(i){
+  if(videoMode){
+    // Une seule vidéo continue ; la pause est déclenchée par le timeupdate (at).
+    const src=videoSrc({video:lecon.video});
+    if(src){
+      if(i===0){ videoEl.src=src; try{videoEl.currentTime=0;}catch(e){} }
+      videoEl.play().catch(()=>armTimer(i));
+    } else armTimer(i);
+  } else {
+    // Ancien mode : une vidéo par tour ; la fin du clip déclenche le tour.
+    const t=segs()[i]; const src=videoSrc(t);
+    if(src){ videoEl.src=src; try{videoEl.currentTime=0;}catch(e){} videoEl.play().catch(()=>armTimer(i)); }
+    else { videoEl.removeAttribute('src'); videoEl.load(); armTimer(i); }
+  }
+}
+
+function gotoSeg(i){ showSeg(i); playSeg(i); }
+
+// ── Détection des pauses (mode 1 vidéo continue) ──
+videoEl.addEventListener('timeupdate', ()=>{
+  if(!videoMode || screen.dataset.state!=='play') return;
+  const t=segs()[segIdx];
+  if(t && typeof t.at==='number' && videoEl.currentTime>=t.at) turnNow();
+});
+// ── Fin de clip (ancien mode 1 clip par tour) ──
+videoEl.addEventListener('ended', ()=>{ if(!videoMode && screen.dataset.state==='play') turnNow(); });
+// ── Tap pendant que le perso parle = passer à ton tour ──
+videoEl.addEventListener('click', ()=>{ if(screen.dataset.state==='play') turnNow(); });
+
+// ── Navigation ──
+$('continueBtn').onclick=()=>{
+  if(segIdx>=segs().length-1){ finir(); return; }
+  const i=segIdx+1;
+  showSeg(i);
+  if(videoMode){
+    // On REPREND la même vidéo (pas de reset) jusqu'à la pause suivante.
+    const src=videoSrc({video:lecon.video});
+    if(src) videoEl.play().catch(()=>armTimer(i)); else armTimer(i);
+  } else playSeg(i);
+};
+function finir(){ try{videoEl.pause();}catch(e){} $('endOv').classList.remove('hide'); }
+$('startBtn').onclick=()=>{ $('startOv').classList.add('hide'); gotoSeg(0); };
+$('replayBtn').onclick=()=>{ $('endOv').classList.add('hide'); gotoSeg(0); };
+
+// ── Tableaux (traduction) ──
+$('tradBtn').onclick=()=>{ screen.dataset.help = screen.dataset.help==='on'?'off':'on'; };
+$('bdScrim').onclick=()=>screen.dataset.help='off';
+$('bdClose').onclick=()=>screen.dataset.help='off';
+
+// ── Bouton question (→ API plus tard) ──
+$('qBtn').onclick=()=>{ alert('Question au prof — à brancher sur l\'API plus tard'); };
+
+// ── Micro : maintenir pour parler ──
+const mic=$('mic');
+const startRec=e=>{e.preventDefault();mic.classList.add('recording');};
+const stopRec=()=>mic.classList.remove('recording');
+mic.addEventListener('mousedown',startRec);mic.addEventListener('touchstart',startRec,{passive:false});
+window.addEventListener('mouseup',stopRec);window.addEventListener('touchend',stopRec);
+
+// ── Démarrage ──
+chargerLecon();
+</script>
+</body>
+</html>

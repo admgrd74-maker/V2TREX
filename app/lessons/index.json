@@ -1,0 +1,26 @@
+[
+  {
+    "id": "l1",
+    "file": "lessons/L1.mtlesson",
+    "title": "Leçon 1 — -able / -ible",
+    "pair": "fr-en"
+  },
+  {
+    "id": "l2",
+    "file": "lessons/L2.mtlesson",
+    "title": "Leçon 2",
+    "pair": "fr-en"
+  },
+  {
+    "id": "l3",
+    "file": "lessons/L3.mtlesson",
+    "title": "Leçon 3",
+    "pair": "fr-en"
+  },
+  {
+    "id": "l4",
+    "file": "lessons/L4.mtlesson",
+    "title": "Leçon 4",
+    "pair": "fr-en"
+  }
+]

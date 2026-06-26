@@ -621,6 +621,19 @@ function setSpeaker(role){
     }
   });
 
+  // onde unique : prend la couleur de la personne qui parle (fixe, juste la teinte change)
+  const wave=$("vocalWave");
+  if(wave){
+    const WAVE_COLORS={
+      prof:   {c:'rgba(251,191,36,1)', g:'rgba(251,191,36,.45)'},
+      eleve1: {c:'rgba(56,189,248,1)', g:'rgba(56,189,248,.45)'},
+      eleve2: {c:'rgba(52,211,153,1)', g:'rgba(52,211,153,.45)'}
+    };
+    const wc=(!isMoi && WAVE_COLORS[role]) ? WAVE_COLORS[role] : {c:'rgba(255,255,255,.22)', g:'transparent'};
+    wave.style.setProperty('--wave-color', wc.c);
+    wave.style.setProperty('--wave-glow', wc.g);
+  }
+
   // panel micro : désactivé si pas le tour du client
   const panel=$("panel");
   if(panel) panel.classList.toggle('disabled', !isMoi);
@@ -958,7 +971,7 @@ async function chargerLeconDefaut(){
 }
 async function chargerManifest(){
   try{
-    const r=await fetch('../lessons/index.json');
+    const r=await fetch('lessons/index.json');
     if(!r.ok) throw new Error();
     const manifest=await r.json();
     if(!manifest.length) throw new Error();

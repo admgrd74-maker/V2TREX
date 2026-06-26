@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 390 800" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Fond paisible bleu-violet avec dégradé ondulant, étoiles et lune">
+<defs>
+<linearGradient id="bg1" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0%" stop-color="#39468c"><animate attributeName="stop-color" values="#39468c;#3a4f96;#463a8e;#39468c" dur="22s" repeatCount="indefinite"/></stop>
+<stop offset="38%" stop-color="#41408a"><animate attributeName="stop-color" values="#41408a;#4a3f96;#3c4790;#41408a" dur="26s" repeatCount="indefinite"/></stop>
+<stop offset="68%" stop-color="#553f92"><animate attributeName="stop-color" values="#553f92;#6a4aa0;#4840a0;#553f92" dur="24s" repeatCount="indefinite"/></stop>
+<stop offset="100%" stop-color="#2c2a60"><animate attributeName="stop-color" values="#2c2a60;#322a66;#28305e;#2c2a60" dur="28s" repeatCount="indefinite"/></stop>
+</linearGradient>
+<radialGradient id="auA" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#8a5ec8" stop-opacity="0.32"/>
+<stop offset="100%" stop-color="#8a5ec8" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="auB" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#4f63c0" stop-opacity="0.3"/>
+<stop offset="100%" stop-color="#4f63c0" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="auC" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#a36fd6" stop-opacity="0.26"/>
+<stop offset="100%" stop-color="#a36fd6" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
+<stop offset="0%" stop-color="#dfe2ec" stop-opacity="0.5"/>
+<stop offset="40%" stop-color="#c4c8d6" stop-opacity="0.22"/>
+<stop offset="100%" stop-color="#c4c8d6" stop-opacity="0"/>
+</radialGradient>
+<radialGradient id="moonDisc" cx="42%" cy="40%" r="65%">
+<stop offset="0%" stop-color="#edeef2"/>
+<stop offset="100%" stop-color="#bcc0cb"/>
+</radialGradient>
+</defs>
+<rect width="390" height="800" fill="url(#bg1)"/>
+<circle cx="100" cy="250" r="210" fill="url(#auB)">
+<animateTransform attributeName="transform" type="translate" values="0,0; 25,-20; -15,15; 0,0" dur="40s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.8;1;0.7;0.8" dur="18s" repeatCount="indefinite"/>
+</circle>
+<circle cx="310" cy="520" r="230" fill="url(#auA)">
+<animateTransform attributeName="transform" type="translate" values="0,0; -22,18; 18,-12; 0,0" dur="45s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="1;0.7;0.9;1" dur="21s" repeatCount="indefinite"/>
+</circle>
+<circle cx="180" cy="680" r="190" fill="url(#auC)">
+<animateTransform attributeName="transform" type="translate" values="0,0; 20,12; -16,-14; 0,0" dur="38s" repeatCount="indefinite"/>
+<animate attributeName="opacity" values="0.7;1;0.8;0.7" dur="24s" repeatCount="indefinite"/>
+</circle>
+<g fill="#eef1ff">
+<circle cx="50" cy="110" r="1.3" opacity="0.7"><animate attributeName="opacity" values="0.3;0.9;0.3" dur="4.5s" repeatCount="indefinite"/></circle>
+<circle cx="160" cy="220" r="1.1" opacity="0.6"><animate attributeName="opacity" values="0.5;0.2;0.5" dur="5.5s" repeatCount="indefinite"/></circle>
+<circle cx="80" cy="300" r="1.2" opacity="0.65"><animate attributeName="opacity" values="0.4;0.85;0.4" dur="6s" repeatCount="indefinite"/></circle>
+<circle cx="245" cy="350" r="1" opacity="0.55"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="5s" repeatCount="indefinite"/></circle>
+<circle cx="350" cy="300" r="1.2" opacity="0.65"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite"/></circle>
+<circle cx="130" cy="450" r="1.1" opacity="0.6"><animate attributeName="opacity" values="0.3;0.8;0.3" dur="5.5s" repeatCount="indefinite"/></circle>
+<circle cx="300" cy="470" r="1" opacity="0.55"><animate attributeName="opacity" values="0.5;0.2;0.5" dur="6s" repeatCount="indefinite"/></circle>
+<circle cx="60" cy="560" r="1.2" opacity="0.6"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="4.5s" repeatCount="indefinite"/></circle>
+<circle cx="240" cy="580" r="1.1" opacity="0.6"><animate attributeName="opacity" values="0.6;0.3;0.6" dur="5s" repeatCount="indefinite"/></circle>
+<circle cx="140" cy="680" r="1" opacity="0.55"><animate attributeName="opacity" values="0.3;0.7;0.3" dur="6s" repeatCount="indefinite"/></circle>
+<circle cx="320" cy="700" r="1.2" opacity="0.6"><animate attributeName="opacity" values="0.5;0.9;0.5" dur="4s" repeatCount="indefinite"/></circle>
+<circle cx="210" cy="760" r="1.1" opacity="0.6"><animate attributeName="opacity" values="0.4;0.8;0.4" dur="5.5s" repeatCount="indefinite"/></circle>
+</g>
+<g>
+<circle cx="300" cy="120" r="118" fill="url(#moonHalo)">
+<animate attributeName="opacity" values="0.7;1;0.7" dur="8s" repeatCount="indefinite"/>
+</circle>
+<circle cx="300" cy="120" r="48" fill="url(#moonDisc)"/>
+<circle cx="284" cy="105" r="9" fill="#a9aebc" opacity="0.4"/>
+<circle cx="318" cy="131" r="6" fill="#a9aebc" opacity="0.38"/>
+<circle cx="290" cy="141" r="4.5" fill="#a9aebc" opacity="0.34"/>
+<circle cx="312" cy="103" r="3.5" fill="#a9aebc" opacity="0.3"/>
+</g>
+</svg>

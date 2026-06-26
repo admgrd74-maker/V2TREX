@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Aventures — choisir</title>
+<meta name="theme-color" content="#0e0b22">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Lexend:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{min-height:100vh;min-height:100dvh;font-family:'Lexend',sans-serif;color:#fff;
+  background:#0e0b22;
+  background-image:
+    radial-gradient(80% 55% at 100% 0%,rgba(91,33,182,.55),transparent 60%),
+    radial-gradient(70% 50% at 0% 30%,rgba(20,38,92,.6),transparent 65%),
+    radial-gradient(90% 60% at 50% 110%,rgba(76,29,149,.5),transparent 70%),
+    linear-gradient(180deg,#0e0b22,#070615);
+  padding:54px 22px 60px;display:flex;flex-direction:column;align-items:center;}
+.wrap{width:100%;max-width:440px;}
+.top{display:flex;align-items:center;gap:12px;margin-bottom:6px;}
+.back{width:34px;height:34px;flex:none;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);
+  color:#fff;text-decoration:none;font-size:16px;}
+.tag{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.22em;
+  text-transform:uppercase;color:rgba(168,148,255,.85);}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:32px;letter-spacing:-.01em;
+  margin:14px 0 4px;}
+.sub{color:rgba(255,255,255,.55);font-size:14px;line-height:1.5;margin-bottom:26px;}
+.cards{display:flex;flex-direction:column;gap:14px;}
+.card{display:flex;align-items:center;gap:14px;text-align:left;width:100%;cursor:pointer;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:18px;
+  padding:16px 18px;color:#fff;transition:.16s;text-decoration:none;}
+.card:hover{background:rgba(168,148,255,.12);border-color:rgba(168,148,255,.4);transform:translateY(-1px);}
+.card:active{transform:scale(.99);}
+.card-ico{width:46px;height:46px;flex:none;border-radius:14px;display:flex;align-items:center;
+  justify-content:center;font-size:22px;
+  background:linear-gradient(150deg,rgba(168,85,247,.4),rgba(59,130,246,.3));
+  border:1px solid rgba(255,255,255,.16);}
+.card-txt{flex:1;min-width:0;}
+.card-title{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;}
+.card-lieu{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.14em;
+  text-transform:uppercase;color:rgba(168,148,255,.8);margin-top:3px;}
+.card-go{color:rgba(255,255,255,.4);font-size:20px;flex:none;}
+.empty{color:rgba(255,255,255,.5);font-size:14px;text-align:center;padding:30px 0;line-height:1.6;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="top">
+    <a class="back" href="lecon-spatial.html" aria-label="Retour à l'accueil">←</a>
+    <span class="tag">Nouvelle aventure</span>
+  </div>
+  <h1>Choisis ton aventure</h1>
+  <div class="sub">Une mise en situation : le personnage te parle en vidéo, et à chaque pause c'est <b>à toi</b> de répondre à voix haute.</div>
+  <div class="cards" id="cards"></div>
+</div>
+
+<script>
+const cardsEl = document.getElementById('cards');
+
+function carte(item){
+  const a = document.createElement('a');
+  a.className = 'card';
+  a.href = item.file ? ('aventure.html?lecon=' + encodeURIComponent(item.file)) : 'aventure.html';
+  a.innerHTML =
+    '<div class="card-ico">' + (item.emoji || '🎬') + '</div>' +
+    '<div class="card-txt"><div class="card-title">' + (item.titre || 'Aventure') + '</div>' +
+    '<div class="card-lieu">' + (item.lieu || 'mise en situation') + '</div></div>' +
+    '<div class="card-go">→</div>';
+  return a;
+}
+
+async function charger(){
+  let manifest = [];
+  try{
+    const r = await fetch('../lessons/aventures.json');
+    if(r.ok) manifest = await r.json();
+  }catch(e){}
+  if(!Array.isArray(manifest) || !manifest.length){
+    // Repli : l'aventure d'exemple intégrée au lecteur
+    manifest = [{ titre:'Au café', lieu:'café · commander', emoji:'☕', file:'' }];
+  }
+  cardsEl.innerHTML = '';
+  manifest.forEach(item => cardsEl.appendChild(carte(item)));
+}
+charger();
+</script>
+</body>
+</html>

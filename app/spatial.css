@@ -52,34 +52,44 @@
   position: absolute; top: 39%; left: 0; right: 0;
   transform: translateY(-50%); z-index: 3; padding: 0 22px;
   transition: opacity .25s;
+  /* Couleur d'accent par défaut (prono / se dit). Surchargée par type ci-dessous. */
+  --ac: #34d399; --ac-rgb: 52,211,153; --ac-soft: #6ee7b7;
 }
+/* Couleur d'accent pilotée par le type (data-cat posé par le script miroir) */
+.sp-focus[data-cat="prono"]        { --ac:#34d399; --ac-rgb:52,211,153;  --ac-soft:#6ee7b7; }
+.sp-focus[data-cat="traduction"]   { --ac:#38bdf8; --ac-rgb:56,189,248;  --ac-soft:#7dd3fc; }
+.sp-focus[data-cat="construction"] { --ac:#60a5fa; --ac-rgb:96,165,250;  --ac-soft:#93c5fd; }
+.sp-focus[data-cat="contraction"]  { --ac:#fb7185; --ac-rgb:251,113,133; --ac-soft:#fda4af; }
+.sp-focus[data-cat="expression"]   { --ac:#a78bfa; --ac-rgb:167,139,250; --ac-soft:#c4b5fd; }
+
 .sp-card {
   position: relative; z-index: 1; border-radius: 26px; padding: 20px;
   background: linear-gradient(180deg, rgba(5,6,14,.9), rgba(3,4,10,.88));
-  box-shadow: 0 0 24px rgba(34,211,238,.35), 0 30px 70px rgba(0,0,0,.6);
+  box-shadow: 0 0 24px rgba(var(--ac-rgb),.32), 0 30px 70px rgba(0,0,0,.6);
   overflow: hidden;
 }
+/* Bordure animée — teintée par l'accent, avec un éclat blanc qui circule */
 .sp-card::before {
   content: ""; position: absolute; inset: 0;
   border-radius: 26px; padding: 1px;
-  background: linear-gradient(120deg,#22d3ee,#3b82f6,#06b6d4,#67e8f9,#0ea5e9,#22d3ee);
+  background: linear-gradient(120deg,
+    rgba(var(--ac-rgb),.5), var(--ac), rgba(255,255,255,.85), var(--ac), rgba(var(--ac-rgb),.5));
   background-size: 300% 300%; animation: sp-borderflow 6s linear infinite;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
           mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor; mask-composite: exclude;
   pointer-events: none;
 }
+/* Pastille de type — couleur du type */
 .sp-pill {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 9px 18px; border-radius: 13px;
-  border: 1px solid rgba(79,209,181,.7); background: rgba(79,209,181,.18);
-  box-shadow: 0 0 18px rgba(79,209,181,.3);
+  border: 1px solid rgba(var(--ac-rgb),.7); background: rgba(var(--ac-rgb),.18);
+  box-shadow: 0 0 18px rgba(var(--ac-rgb),.3);
 }
 .sp-pill span {
   font-family: 'Sora', sans-serif; font-weight: 700; font-size: 12px; letter-spacing: 2.5px;
-  background: linear-gradient(180deg,#ffdf7e 0%,#f5b522 55%,#ec9f0d 100%);
-  -webkit-background-clip: text; background-clip: text;
-  -webkit-text-fill-color: transparent; color: transparent;
+  color: var(--ac);
 }
 .sp-fr {
   font-family: 'Atkinson Hyperlegible', sans-serif; font-weight: 700;
@@ -87,8 +97,8 @@
 }
 .sp-connector { display: flex; align-items: center; gap: 12px; margin: 16px 0; }
 .sp-connector .line { flex: 1; height: 1px; }
-.sp-connector .l { background: linear-gradient(90deg, rgba(34,211,238,.05), rgba(34,211,238,.55)); }
-.sp-connector .r { background: linear-gradient(90deg, rgba(34,211,238,.55), rgba(34,211,238,.05)); }
+.sp-connector .l { background: linear-gradient(90deg, rgba(var(--ac-rgb),.05), rgba(var(--ac-rgb),.55)); }
+.sp-connector .r { background: linear-gradient(90deg, rgba(var(--ac-rgb),.55), rgba(var(--ac-rgb),.05)); }
 .sp-en {
   font-family: 'Fredoka', sans-serif; font-weight: 600; font-size: 44px;
   line-height: 1.08; letter-spacing: .5px; text-wrap: balance;
@@ -96,12 +106,21 @@
 }
 .sp-phon {
   font-family: 'Lexend', sans-serif; font-weight: 500; font-size: 20px;
-  letter-spacing: .3px; color: #9bf0dd; margin-top: 16px;
+  letter-spacing: .3px; color: var(--ac-soft); margin-top: 16px;
 }
 
 /* ── Bas existant : neutralise le dégradé vintage pour se fondre dans l'espace ── */
 .overlay-bottom {
-  background: linear-gradient(180deg, transparent, rgba(7,13,24,.85) 38%);
+  padding-top: 170px;
+  background: linear-gradient(180deg,
+    rgba(8,14,32,0) 0%,
+    rgba(8,14,32,.12) 14%,
+    rgba(8,14,32,.30) 28%,
+    rgba(7,12,28,.50) 42%,
+    rgba(6,11,26,.68) 56%,
+    rgba(5,10,23,.83) 70%,
+    rgba(4,9,21,.93) 84%,
+    rgba(4,8,20,.98) 100%);
 }
 
 /* ── Bouton question : 50px + flottement + halo ambre ── */
@@ -117,3 +136,14 @@
   animation: sp-halo-amber 3.8s ease-in-out infinite;
 }
 .q-fab img { width: 100%; height: 100%; display: block; object-fit: contain; }
+
+/* ── Bouton « Nouvelle aventure » : portail violet vers la mise en situation ── */
+.btn-veil.adventure {
+  background: linear-gradient(135deg, rgba(139,92,246,.92), rgba(59,130,246,.86));
+  border-color: rgba(168,148,255,.55);
+  color: #fff;
+  font-weight: 700;
+  box-shadow: 0 8px 26px rgba(124,58,237,.35);
+}
+.btn-veil.adventure:hover { filter: brightness(1.08); }
+.btn-veil.adventure:active { transform: scale(.98); }
